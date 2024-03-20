@@ -1,7 +1,7 @@
 package Control;
 
 
-
+import Control.ControladorColeccionGUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Vista.AgregarAutoGUI;
@@ -73,7 +73,7 @@ public class ControladorAgregarAutoGUI implements ActionListener {
 
     public void setCtrlColeccion(ControladorColeccionGUI ctrlColeccion) {
         this.ctrlColeccion = ctrlColeccion;
-//        this.vistaAgregar.jtf_numSerie.setText(this.ctrlColeccion.getVistaParqueadero().jtf_placaMoto.getText());
+//        this.vistaAgregar.jtf_numSerie.setText(this.); importar
     }
 
     

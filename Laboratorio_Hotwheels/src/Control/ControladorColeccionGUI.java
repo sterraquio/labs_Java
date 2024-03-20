@@ -1,10 +1,12 @@
 package control;
 
 
+import Control.ControladorAgregarAutoGUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Vista.AgregarAutoGUI;
 import Vista.ColeccionGUI;
+
 import Modelo.Auto;
 
 class ControladorColeccionGUI {
@@ -16,14 +18,17 @@ class ControladorColeccionGUI {
         
     //Constructor
     public ControladorColeccionGUI() {
-        this.unAuto = new Auto();
+        
         this.unaColeccion = new ColeccionGUI();
+        this.unAuto = new Auto();
+        
         
         
         this.unaColeccion.setVisible(true);
         
         //Agregar escuchas o listener de botones
         //error con el this como parametro
+        
         this.unaColeccion.jButtonAgregarAuto.addActionListener(this);
         this.unaColeccion.jButtonBorrarAuto.addActionListener(this);
         this.unaColeccion.jButtonBuscarAuto.addActionListener(this);
@@ -37,7 +42,10 @@ class ControladorColeccionGUI {
         //eventos
         //evento Agregar auto
         //posiblemente en esté evento hay que llamar a la clase agregarAutoGUI
-        if(e.getSource() == this.unaColeccion.jButtonAgregarAuto){}
+        if(e.getSource() == this.unaColeccion.jButtonAgregarAuto){
+            ControladorAgregarAutoGUI agregarAuto = new ControladorAgregarAutoGUI();
+            agregarAuto.setCtrlColeccion(this); 
+        }
         
         //Evento Borrar Auto
         if(e.getSource()== this.unaColeccion.jButtonBorrarAuto){}
