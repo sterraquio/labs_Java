@@ -1,2 +1,10 @@
-// Esto es para ver como actualizo mi repositorio local.
-// segundo comentario
+public package Control;
+
+class ControladorColeccionGUI {
+
+    //Constructor
+    public ControladorColeccionGUI() {
+    }
+
+     
+}
