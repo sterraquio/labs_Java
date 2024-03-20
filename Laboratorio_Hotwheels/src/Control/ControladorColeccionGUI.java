@@ -1,17 +1,16 @@
-package control;
 
+package Control;
 
 import Control.ControladorAgregarAutoGUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Vista.AgregarAutoGUI;
 import Vista.ColeccionGUI;
-
 import Modelo.Auto;
 
-class ControladorColeccionGUI {
-    
-    //atributos
+
+public class ControladorColeccionGUI {
+  //atributos
     private ColeccionGUI unaColeccion;
     private Auto unAuto;
     
@@ -78,6 +77,6 @@ class ControladorColeccionGUI {
     public void setUnAuto(Auto unAuto) {
         this.unAuto = unAuto;
     }
-    
+
     
 }

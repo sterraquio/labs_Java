@@ -4,7 +4,7 @@
  */
 package Main;
 import Control.ControladorAgregarAutoGUI;
-
+import Control.ControladorColeccionGUI;
 /**
  *
  * @author Camilo
