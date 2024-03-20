@@ -11,7 +11,7 @@ import Control.ControladorAgregarAutoGUI;
  */
 public class Principal {
     public static void main(String[] args) {
-        ControlColeccionGUI coleccion = new controlColeccionGUI;
+        ControladorColeccionGUI coleccion = new controldorColeccionGUI;
     }
     
 }
