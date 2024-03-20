@@ -1,4 +1,4 @@
-public package Control;
+package Control;
 
 class ControladorColeccionGUI {
 
@@ -6,5 +6,5 @@ class ControladorColeccionGUI {
     public ControladorColeccionGUI() {
     }
 
-     
+    
 }
