@@ -5,6 +5,7 @@ package Control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Vista.AgregarAutoGUI;
+import Modelo.Auto;
 //import Modelo.Auto;
 
 
