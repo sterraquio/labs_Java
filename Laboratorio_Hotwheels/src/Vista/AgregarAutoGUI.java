@@ -27,38 +27,135 @@ public class AgregarAutoGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jbt_AgregarAuto = new javax.swing.JButton();
+        jlb_ahnoSerieAgregar = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jbl_numSerie = new javax.swing.JLabel();
+        jbl_marca = new javax.swing.JLabel();
+        jbl_color = new javax.swing.JLabel();
+        jbl_canSerie = new javax.swing.JLabel();
+        jtf_anhoSerie = new javax.swing.JTextField();
+        jtf_canSerie = new javax.swing.JTextField();
+        jtf_numSerie = new javax.swing.JTextField();
+        jtf_marca = new javax.swing.JTextField();
+        jtf_color = new javax.swing.JTextField();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
+        jbt_AgregarAuto.setText("Agregar ");
+        jbt_AgregarAuto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_AgregarAutoActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("jLabel1");
+        jlb_ahnoSerieAgregar.setText("Año De Serie :");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel2.setText("Agregar un Hot Wheels");
+
+        jbl_numSerie.setText("Numero Serie :");
+
+        jbl_marca.setText("Marca :");
+
+        jbl_color.setText("Color :");
+
+        jbl_canSerie.setText("Cantidad De La Serie :");
+        jbl_canSerie.setToolTipText("");
+
+        jtf_anhoSerie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_anhoSerieActionPerformed(evt);
+            }
+        });
+
+        jtf_color.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_colorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(jButton1)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(67, 67, 67)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jbl_numSerie)
+                                    .addComponent(jbl_marca)
+                                    .addComponent(jbl_color)
+                                    .addComponent(jbl_canSerie)
+                                    .addComponent(jlb_ahnoSerieAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(176, 176, 176)
+                                .addComponent(jbt_AgregarAuto)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtf_anhoSerie, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                            .addComponent(jtf_canSerie)
+                            .addComponent(jtf_numSerie)
+                            .addComponent(jtf_marca)
+                            .addComponent(jtf_color))))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(157, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel2)
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1))
-                .addGap(120, 120, 120))
+                    .addComponent(jlb_ahnoSerieAgregar)
+                    .addComponent(jtf_anhoSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbl_canSerie)
+                    .addComponent(jtf_canSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbl_numSerie)
+                    .addComponent(jtf_numSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbl_marca)
+                    .addComponent(jtf_marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbl_color)
+                    .addComponent(jtf_color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jbt_AgregarAuto)
+                .addGap(25, 25, 25))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbt_AgregarAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_AgregarAutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbt_AgregarAutoActionPerformed
+
+    private void jtf_anhoSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_anhoSerieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtf_anhoSerieActionPerformed
+
+    private void jtf_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_colorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtf_colorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -96,7 +193,19 @@ public class AgregarAutoGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jbl_canSerie;
+    private javax.swing.JLabel jbl_color;
+    private javax.swing.JLabel jbl_marca;
+    private javax.swing.JLabel jbl_numSerie;
+    public javax.swing.JButton jbt_AgregarAuto;
+    private javax.swing.JLabel jlb_ahnoSerieAgregar;
+    public javax.swing.JTextField jtf_anhoSerie;
+    public javax.swing.JTextField jtf_canSerie;
+    public javax.swing.JTextField jtf_color;
+    public javax.swing.JTextField jtf_marca;
+    public javax.swing.JTextField jtf_numSerie;
     // End of variables declaration//GEN-END:variables
 }
