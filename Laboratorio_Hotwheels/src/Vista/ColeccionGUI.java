@@ -65,8 +65,6 @@ public class ColeccionGUI extends javax.swing.JFrame {
 
         jLabel2.setText("Marca de auto:");
 
-        jTextField2.setText("jTextField2");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
