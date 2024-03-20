@@ -6,6 +6,7 @@ public class Auto{
 	private String color;
 	private int cantTotalSerie;
 	private int numeroSerie;
+        
 
 	//Constructor
 	public Auto(){}
