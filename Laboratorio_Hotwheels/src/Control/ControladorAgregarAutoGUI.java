@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Vista.AgregarAutoGUI;
 import Modelo.Auto;
+import Modelo.Coleccion;
 
 
 
@@ -14,10 +15,12 @@ public class ControladorAgregarAutoGUI implements ActionListener {
     private AgregarAutoGUI vistaAgregar;
     private Auto carrito;
     private ControladorColeccionGUI ctrlColeccion;
+    private Coleccion unosAutos;
     
     
     public ControladorAgregarAutoGUI(){
         
+        this.unosAutos = new Coleccion();
         this.vistaAgregar= new AgregarAutoGUI();
         this.vistaAgregar.setVisible(true);
         
@@ -39,11 +42,11 @@ public class ControladorAgregarAutoGUI implements ActionListener {
             carrito.setMarca(this.vistaAgregar.jtf_marca.getText());
             carrito.setColor(this.vistaAgregar.jtf_color.getText());
             
-            //this.ctrlColeccion. FALTA COMPLETARLO 
+            this.unosAutos.getAutos().add(carrito);
            
             
             
-            
+            //Para mostrar que se guardó correctamente
             javax.swing.JOptionPane.showMessageDialog(vistaAgregar, "La auto del año : "+this.vistaAgregar.jtf_anhoSerie.getText()+
                                                                        "\nCon el numero de serie : "+this.vistaAgregar.jtf_numSerie.getText()+
                                                                         "\nFue agregado con Exito");

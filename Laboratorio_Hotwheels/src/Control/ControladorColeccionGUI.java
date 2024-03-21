@@ -39,30 +39,45 @@ public class ControladorColeccionGUI implements ActionListener {
         //evento Agregar auto
         //posiblemente en esté evento hay que llamar a la clase agregarAutoGUI
         if (e.getSource() == this.unaColeccion.jButtonAgregarAuto) {
+
             ControladorAgregarAutoGUI agregarAuto = new ControladorAgregarAutoGUI();
             agregarAuto.setCtrlColeccion(this);
+            this.unosAutos.getAutos().add(this.unAuto);
         }
 
         //Evento Borrar Auto
+        //No está borrando carros
         if (e.getSource() == this.unaColeccion.jButtonBorrarAuto) {
 
-            for (int i = 0; i < this.unosAutos.getAutos().size(); i++) {
-                if (this.unosAutos.getAutos().get(i) != null) {
+            if (this.unosAutos.getAutos().size() != 0) {
 
-                    if (this.unaColeccion.jtf_anhoSerieC.getText().equals(this.unosAutos.getAutos().get(i))) {
+                for (int i = 0; i < this.unosAutos.getAutos().size(); i++) {
 
+                    if (this.unaColeccion.jtf_anhoSerieC.getText().equals(this.unosAutos.getAutos().get(i).getAnhoSerie())) {
+                        //javax.swing.JOptionPane.showMessageDialog(null, "El auto se borro con exito !!! ");
+                        if (this.unaColeccion.jtf_numSerieC.getText().equals(this.unosAutos.getAutos().get(i).getNumeroSerie())) {
+                            this.unosAutos.borrarAuto(unaColeccion.jtf_anhoSerieC.getText(), Integer.parseInt(unaColeccion.jtf_numSerieC.getText()));
+                            javax.swing.JOptionPane.showMessageDialog(null, "El auto se borro con exito !!! ");
+                        }
                     }
-                }
-                javax.swing.JOptionPane.showMessageDialog(null,"No hay autos en la coleccion para borrar");
-            }
-            unosAutos.borrarAuto(Integer.parseInt(unaColeccion.jtf_anhoSerieC.getText()), Integer.parseInt(unaColeccion.jtf_numSerieC.getText()));
 
+                }
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(null, "No hay autos en la coleccion para borrar");
+
+            }
         }
 
         //Evento Listar Autos
         if (e.getSource() == this.unaColeccion.jButtonListarAuto) {
             //Listar es mejor hacerlo con un JOption
-            unosAutos.listarColeccion();
+
+            if (this.unosAutos.getAutos().size() != 0) {
+
+                javax.swing.JOptionPane.showMessageDialog(null, "" + unosAutos.listarColeccion());
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(null, "No hay autos en la coleccion para borrar");
+            }
         }
 
         //Evento Buscar auto
