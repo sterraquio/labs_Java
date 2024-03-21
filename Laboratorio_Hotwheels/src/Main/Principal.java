@@ -11,7 +11,7 @@ import Control.ControladorColeccionGUI;
  */
 public class Principal {
     public static void main(String[] args) {
-        ControladorColeccionGUI coleccion = new controldorColeccionGUI;
+        ControladorColeccionGUI coleccion = new ControladorColeccionGUI();
     }
     
 }

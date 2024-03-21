@@ -1,4 +1,3 @@
-
 package Control;
 
 import Control.ControladorAgregarAutoGUI;
@@ -8,57 +7,52 @@ import Vista.AgregarAutoGUI;
 import Vista.ColeccionGUI;
 import Modelo.Auto;
 
-
 public class ControladorColeccionGUI {
-  //atributos
+    //atributos
+
     private ColeccionGUI unaColeccion;
     private Auto unAuto;
-    
-        
+
     //Constructor
     public ControladorColeccionGUI() {
-        
+
         this.unaColeccion = new ColeccionGUI();
         this.unAuto = new Auto();
-        
-        
-        
+
         this.unaColeccion.setVisible(true);
-        
+
         //Agregar escuchas o listener de botones
         //error con el this como parametro
-        
         this.unaColeccion.jButtonAgregarAuto.addActionListener(this);
         this.unaColeccion.jButtonBorrarAuto.addActionListener(this);
         this.unaColeccion.jButtonBuscarAuto.addActionListener(this);
         this.unaColeccion.jButtonListarAuto.addActionListener(this);
-        
-              
+
     }
 
     //Métodos
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e) {
         //eventos
         //evento Agregar auto
         //posiblemente en esté evento hay que llamar a la clase agregarAutoGUI
-        if(e.getSource() == this.unaColeccion.jButtonAgregarAuto){
+        if (e.getSource() == this.unaColeccion.jButtonAgregarAuto) {
             ControladorAgregarAutoGUI agregarAuto = new ControladorAgregarAutoGUI();
-            agregarAuto.setCtrlColeccion(this); 
+            agregarAuto.setCtrlColeccion(this);
         }
-        
+
         //Evento Borrar Auto
-        if(e.getSource()== this.unaColeccion.jButtonBorrarAuto){}
-        
-        //Evento Listar Autos
-        if(e.getSource()== this.unaColeccion.jButtonListarAuto){
-        //Listar es mejor hacerlo con un JOption
+        if (e.getSource() == this.unaColeccion.jButtonBorrarAuto) {
         }
-        
+
+        //Evento Listar Autos
+        if (e.getSource() == this.unaColeccion.jButtonListarAuto) {
+            //Listar es mejor hacerlo con un JOption
+        }
+
         //Evento Buscar auto
-        if(e.getSource()== this.unaColeccion.jButtonBuscarAuto){}
-        
-        
-        
+        if (e.getSource() == this.unaColeccion.jButtonBuscarAuto) {
+        }
+
     }
 
     // getters and setters
@@ -78,5 +72,4 @@ public class ControladorColeccionGUI {
         this.unAuto = unAuto;
     }
 
-    
 }
