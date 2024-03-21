@@ -75,4 +75,13 @@ public class Coleccion{
 		return datosAuto;
 	}
 
+    public List<Auto> getAutos() {
+        return autos;
+    }
+
+    public void setAutos(List<Auto> autos) {
+        this.autos = autos;
+    }
+
+        
 }
