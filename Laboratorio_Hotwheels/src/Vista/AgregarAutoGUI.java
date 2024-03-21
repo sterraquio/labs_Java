@@ -46,7 +46,7 @@ public class AgregarAutoGUI extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jbt_AgregarAuto.setText("Agregar ");
         jbt_AgregarAuto.addActionListener(new java.awt.event.ActionListener() {
@@ -143,6 +143,7 @@ public class AgregarAutoGUI extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbt_AgregarAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_AgregarAutoActionPerformed
