@@ -73,10 +73,10 @@ public class ControladorAgregarAutoGUI implements ActionListener {
 
     public void setCtrlColeccion(ControladorColeccionGUI ctrlColeccion) {
         this.ctrlColeccion = ctrlColeccion;
-//        this.vistaAgregar.jtf_numSerie.setText(this.); importar
+        this.vistaAgregar.jtf_numSerie.setText(this.ctrlColeccion.getUnaColeccion().jtf_numSerieC.getText());
+        this.vistaAgregar.jtf_anhoSerie.setText(this.ctrlColeccion.getUnaColeccion().jtf_anhoSerieC.getText());
     }
-
-    
-    
-    
+ 
+      
 }
+
