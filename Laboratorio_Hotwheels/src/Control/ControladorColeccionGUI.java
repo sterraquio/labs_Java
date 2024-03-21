@@ -7,7 +7,7 @@ import Vista.AgregarAutoGUI;
 import Vista.ColeccionGUI;
 import Modelo.Auto;
 
-public class ControladorColeccionGUI {
+public class ControladorColeccionGUI implements ActionListener{
     //atributos
 
     private ColeccionGUI unaColeccion;
@@ -23,7 +23,7 @@ public class ControladorColeccionGUI {
 
         //Agregar escuchas o listener de botones
         //error con el this como parametro
-        this.unaColeccion.jButtonAgregarAuto.addActionListener(this);
+        this.unaColeccion.jButtonAgregarAuto.addActionListener((ActionListener) this);
         this.unaColeccion.jButtonBorrarAuto.addActionListener(this);
         this.unaColeccion.jButtonBuscarAuto.addActionListener(this);
         this.unaColeccion.jButtonListarAuto.addActionListener(this);
@@ -73,3 +73,4 @@ public class ControladorColeccionGUI {
     }
 
 }
+
