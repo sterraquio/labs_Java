@@ -37,13 +37,10 @@ public class ControladorColeccionGUI implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //eventos
         //evento Agregar auto
-        //posiblemente en esté evento hay que llamar a la clase agregarAutoGUI
         if (e.getSource() == this.unaColeccion.jButtonAgregarAuto) {
 
             ControladorAgregarAutoGUI agregarAuto = new ControladorAgregarAutoGUI();
             agregarAuto.setCtrlColeccion(this);
-            this.coleccionAutos.getAutos().add(this.unAuto);
-
         }
 
         //Evento Borrar Auto
