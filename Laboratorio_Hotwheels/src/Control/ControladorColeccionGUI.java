@@ -56,7 +56,7 @@ public class ControladorColeccionGUI implements ActionListener {
                     if (this.unaColeccion.jtf_anhoSerieC.getText().equals(this.unosAutos.getAutos().get(i).getAnhoSerie())) {
                         //javax.swing.JOptionPane.showMessageDialog(null, "El auto se borro con exito !!! ");
                         if (this.unaColeccion.jtf_numSerieC.getText().equals(this.unosAutos.getAutos().get(i).getNumeroSerie())) {
-                            this.unosAutos.borrarAuto(unaColeccion.jtf_anhoSerieC.getText(), Integer.parseInt(unaColeccion.jtf_numSerieC.getText()));
+                            this.unosAutos.borrarAuto (Integer.parseInt(unaColeccion.jtf_anhoSerieC.getText()), Integer.parseInt(unaColeccion.jtf_numSerieC.getText()));
                             javax.swing.JOptionPane.showMessageDialog(null, "El auto se borro con exito !!! ");
                         }
                     }
