@@ -82,9 +82,6 @@ public class ControladorAgregarAutoGUI implements ActionListener {
         this.vistaAgregar.jtf_anhoSerie.setText(this.ctrlColeccion.getUnaColeccion().jtf_anhoSerieC.getText());
     }
 
-
- 
-      
     
 }
 
