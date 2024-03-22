@@ -75,8 +75,6 @@ public class ControladorColeccionGUI implements ActionListener {
 
         if(e.getSource()== this.unaColeccion.jButtonBuscarAuto){
             // Implementar la lógica para buscar un auto
-            int anhoSerie = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el año de serie del auto a buscar:"));
-            int numSerie = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número de serie del auto a buscar:"));
             
             String resultadoBusqueda = coleccionAutos.buscarAuto(anhoSerie, numSerie);
             JOptionPane.showMessageDialog(null, resultadoBusqueda, "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
