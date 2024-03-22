@@ -63,7 +63,7 @@ public class Coleccion{
 			unCarro= autos.get(i);
 			if(unCarro.getAnhoSerie() == anhSerie){
 				if(unCarro.getNumeroSerie() == numSerie){
-					datosAuto +=	"Año Serie: "+unCarro.getAnhoSerie()+"\n"+
+					datosAuto =	"Año Serie: "+unCarro.getAnhoSerie()+"\n"+
 							"Marca: "+unCarro.getMarca()+"\n"+
 							"Color: "+unCarro.getColor()+"\n"+
 							"cantTotalSerie: "+unCarro.getCantTotalSerie()+"\n"+

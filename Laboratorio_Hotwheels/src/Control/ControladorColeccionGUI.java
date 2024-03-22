@@ -13,6 +13,8 @@ public class ControladorColeccionGUI implements ActionListener {
     private ColeccionGUI unaColeccion;
     private Auto unAuto;
     private Coleccion coleccionAutos;
+    private int anhoS;
+    private int numS;
 
     //Constructor
     public ControladorColeccionGUI() {
@@ -72,11 +74,13 @@ public class ControladorColeccionGUI implements ActionListener {
             String listaAutos = coleccionAutos.listarColeccion();
             JOptionPane.showMessageDialog(null, listaAutos, "Lista de Autos", JOptionPane.INFORMATION_MESSAGE);
         }
-
+        
+        //Evento Buscar autos
         if(e.getSource()== this.unaColeccion.jButtonBuscarAuto){
             // Implementar la lógica para buscar un auto
-            
-            String resultadoBusqueda = coleccionAutos.buscarAuto(anhoSerie, numSerie);
+            anhoS = Integer.parseInt(this.unaColeccion.jtf_anhoSerieC.getText());
+            numS = Integer.parseInt(this.unaColeccion.jtf_numSerieC.getText());
+            String resultadoBusqueda = coleccionAutos.buscarAuto(anhoS, numS);
             JOptionPane.showMessageDialog(null, resultadoBusqueda, "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
         }
     }
