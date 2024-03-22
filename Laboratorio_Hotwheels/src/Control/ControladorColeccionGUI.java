@@ -43,7 +43,7 @@ public class ControladorColeccionGUI implements ActionListener {
             ControladorAgregarAutoGUI agregarAuto = new ControladorAgregarAutoGUI();
             agregarAuto.setCtrlColeccion(this);
             this.coleccionAutos.getAutos().add(this.unAuto);
-            
+
         }
 
         //Evento Borrar Auto
@@ -53,13 +53,23 @@ public class ControladorColeccionGUI implements ActionListener {
             if (this.coleccionAutos.getAutos().size() != 0) {
 
                 for (int i = 0; i < this.coleccionAutos.getAutos().size(); i++) {
+                    int anhoSBoton = Integer.parseInt(this.unaColeccion.jtf_anhoSerieC.getText());
+                    int anhoCorrect = Integer.parseInt(this.coleccionAutos.getAutos().get(i).getAnhoSerie());
+                    int numBoton = Integer.parseInt(this.unaColeccion.jtf_numSerieC.getText());
+                    int numSCorrect = Integer.parseInt(this.coleccionAutos.getAutos().get(i).getNumeroSerie());
 
-                    if (this.unaColeccion.jtf_anhoSerieC.getText().equals(this.coleccionAutos.getAutos().get(i).getAnhoSerie())) {
-                        //javax.swing.JOptionPane.showMessageDialog(null, "El auto se borro con exito !!! ");
-                        if (this.unaColeccion.jtf_numSerieC.getText().equals(this.coleccionAutos.getAutos().get(i).getNumeroSerie())) {
-                            this.coleccionAutos.borrarAuto (Integer.parseInt(unaColeccion.jtf_anhoSerieC.getText()), Integer.parseInt(unaColeccion.jtf_numSerieC.getText()));
+                    if (anhoSBoton == anhoCorrect) {
+
+                        if (numSCorrect == numBoton) {
+                            this.coleccionAutos.borrarAuto(anhoSBoton, numBoton);
                             javax.swing.JOptionPane.showMessageDialog(null, "El auto se borro con exito !!! ");
+                            break;
+                        }else{
+                        javax.swing.JOptionPane.showMessageDialog(null, "Hay un error con el número de serie ingresado");
                         }
+                    } else {
+                        javax.swing.JOptionPane.showMessageDialog(null, "Hay un error con el año ingresado");
+
                     }
 
                 }
@@ -70,13 +80,13 @@ public class ControladorColeccionGUI implements ActionListener {
         }
 
         //Evento Listar Autos
-        if(e.getSource()== this.unaColeccion.jButtonListarAuto){
+        if (e.getSource() == this.unaColeccion.jButtonListarAuto) {
             String listaAutos = coleccionAutos.listarColeccion();
             JOptionPane.showMessageDialog(null, listaAutos, "Lista de Autos", JOptionPane.INFORMATION_MESSAGE);
         }
-        
+
         //Evento Buscar autos
-        if(e.getSource()== this.unaColeccion.jButtonBuscarAuto){
+        if (e.getSource() == this.unaColeccion.jButtonBuscarAuto) {
             // Implementar la lógica para buscar un auto
             anhoS = Integer.parseInt(this.unaColeccion.jtf_anhoSerieC.getText());
             numS = Integer.parseInt(this.unaColeccion.jtf_numSerieC.getText());
@@ -110,5 +120,4 @@ public class ControladorColeccionGUI implements ActionListener {
         this.coleccionAutos = coleccionAutos;
     }
 
-    
 }
