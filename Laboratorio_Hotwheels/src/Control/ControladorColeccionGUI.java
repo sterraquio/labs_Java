@@ -69,22 +69,19 @@ public class ControladorColeccionGUI implements ActionListener {
         }
 
         //Evento Listar Autos
-        if (e.getSource() == this.unaColeccion.jButtonListarAuto) {
-            //Listar es mejor hacerlo con un JOption
-
-            if (this.unosAutos.getAutos().size() != 0) {
-
-                javax.swing.JOptionPane.showMessageDialog(null, "" + unosAutos.listarColeccion());
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(null, "No hay autos en la coleccion para borrar");
-            }
+        if(e.getSource()== this.unaColeccion.jButtonListarAuto){
+            String listaAutos = unosAutos.listarColeccion();
+            JOptionPane.showMessageDialog(null, listaAutos, "Lista de Autos", JOptionPane.INFORMATION_MESSAGE);
         }
 
-        //Evento Buscar auto
-        if (e.getSource() == this.unaColeccion.jButtonBuscarAuto) {
-            unosAutos.buscarAuto(Integer.parseInt(unaColeccion.jtf_anhoSerieC.getText()), Integer.parseInt(unaColeccion.jtf_numSerieC.getText()));
+        if(e.getSource()== this.unaColeccion.jButtonBuscarAuto){
+            // Implementar la lógica para buscar un auto
+            int anhoSerie = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el año de serie del auto a buscar:"));
+            int numSerie = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número de serie del auto a buscar:"));
+            
+            String resultadoBusqueda = unosAutos.buscarAuto(anhoSerie, numSerie);
+            JOptionPane.showMessageDialog(null, resultadoBusqueda, "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
         }
-
     }
 
     // getters and setters
