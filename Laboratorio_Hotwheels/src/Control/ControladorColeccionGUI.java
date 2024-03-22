@@ -100,4 +100,13 @@ public class ControladorColeccionGUI implements ActionListener {
         this.unAuto = unAuto;
     }
 
+    public Coleccion getColeccionAutos() {
+        return coleccionAutos;
+    }
+
+    public void setColeccionAutos(Coleccion coleccionAutos) {
+        this.coleccionAutos = coleccionAutos;
+    }
+
+    
 }

@@ -44,7 +44,7 @@ public class ControladorAgregarAutoGUI implements ActionListener {
             carrito.setColor(this.vistaAgregar.jtf_color.getText());
             
             
-            this.unosAutos.getAutos().add(carrito);
+            this.ctrlColeccion.getColeccionAutos().getAutos().add(carrito);
            
             
             
@@ -81,7 +81,10 @@ public class ControladorAgregarAutoGUI implements ActionListener {
         this.vistaAgregar.jtf_numSerie.setText(this.ctrlColeccion.getUnaColeccion().jtf_numSerieC.getText());
         this.vistaAgregar.jtf_anhoSerie.setText(this.ctrlColeccion.getUnaColeccion().jtf_anhoSerieC.getText());
     }
+
+
  
       
+    
 }
 
