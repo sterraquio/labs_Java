@@ -42,6 +42,7 @@ public class ControladorAgregarAutoGUI implements ActionListener {
             carrito.setMarca(this.vistaAgregar.jtf_marca.getText());
             carrito.setColor(this.vistaAgregar.jtf_color.getText());
             
+            
             this.unosAutos.getAutos().add(carrito);
            
             

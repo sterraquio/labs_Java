@@ -1,10 +1,8 @@
 package Control;
 
-import Control.ControladorAgregarAutoGUI;
 import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import Vista.AgregarAutoGUI;
 import Vista.ColeccionGUI;
 import Modelo.Auto;
 import Modelo.Coleccion;
@@ -14,14 +12,14 @@ public class ControladorColeccionGUI implements ActionListener {
 
     private ColeccionGUI unaColeccion;
     private Auto unAuto;
-    private Coleccion unosAutos;
+    private Coleccion coleccionAutos;
 
     //Constructor
     public ControladorColeccionGUI() {
 
         this.unaColeccion = new ColeccionGUI();
         this.unAuto = new Auto();
-        this.unosAutos = new Coleccion();
+        this.coleccionAutos = new Coleccion();
         this.unaColeccion.setVisible(true);
 
         //Agregar escuchas o listener de botones
@@ -42,21 +40,22 @@ public class ControladorColeccionGUI implements ActionListener {
 
             ControladorAgregarAutoGUI agregarAuto = new ControladorAgregarAutoGUI();
             agregarAuto.setCtrlColeccion(this);
-            this.unosAutos.getAutos().add(this.unAuto);
+            this.coleccionAutos.getAutos().add(this.unAuto);
+            
         }
 
         //Evento Borrar Auto
         //No está borrando carros
         if (e.getSource() == this.unaColeccion.jButtonBorrarAuto) {
 
-            if (this.unosAutos.getAutos().size() != 0) {
+            if (this.coleccionAutos.getAutos().size() != 0) {
 
-                for (int i = 0; i < this.unosAutos.getAutos().size(); i++) {
+                for (int i = 0; i < this.coleccionAutos.getAutos().size(); i++) {
 
-                    if (this.unaColeccion.jtf_anhoSerieC.getText().equals(this.unosAutos.getAutos().get(i).getAnhoSerie())) {
+                    if (this.unaColeccion.jtf_anhoSerieC.getText().equals(this.coleccionAutos.getAutos().get(i).getAnhoSerie())) {
                         //javax.swing.JOptionPane.showMessageDialog(null, "El auto se borro con exito !!! ");
-                        if (this.unaColeccion.jtf_numSerieC.getText().equals(this.unosAutos.getAutos().get(i).getNumeroSerie())) {
-                            this.unosAutos.borrarAuto (Integer.parseInt(unaColeccion.jtf_anhoSerieC.getText()), Integer.parseInt(unaColeccion.jtf_numSerieC.getText()));
+                        if (this.unaColeccion.jtf_numSerieC.getText().equals(this.coleccionAutos.getAutos().get(i).getNumeroSerie())) {
+                            this.coleccionAutos.borrarAuto (Integer.parseInt(unaColeccion.jtf_anhoSerieC.getText()), Integer.parseInt(unaColeccion.jtf_numSerieC.getText()));
                             javax.swing.JOptionPane.showMessageDialog(null, "El auto se borro con exito !!! ");
                         }
                     }
@@ -70,7 +69,7 @@ public class ControladorColeccionGUI implements ActionListener {
 
         //Evento Listar Autos
         if(e.getSource()== this.unaColeccion.jButtonListarAuto){
-            String listaAutos = unosAutos.listarColeccion();
+            String listaAutos = coleccionAutos.listarColeccion();
             JOptionPane.showMessageDialog(null, listaAutos, "Lista de Autos", JOptionPane.INFORMATION_MESSAGE);
         }
 
@@ -79,7 +78,7 @@ public class ControladorColeccionGUI implements ActionListener {
             int anhoSerie = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el año de serie del auto a buscar:"));
             int numSerie = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número de serie del auto a buscar:"));
             
-            String resultadoBusqueda = unosAutos.buscarAuto(anhoSerie, numSerie);
+            String resultadoBusqueda = coleccionAutos.buscarAuto(anhoSerie, numSerie);
             JOptionPane.showMessageDialog(null, resultadoBusqueda, "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
         }
     }
