@@ -41,6 +41,8 @@ public class ControladorAgregarAutoGUI implements ActionListener {
                     this.vistaAgregar.jtf_anhoSerie.setText("");
                     this.vistaAgregar.jtf_anhoSerie.grabFocus();
                     return;
+                }else{
+                    
                 }
                 if (numSerie <= 0 || numSerie > cantSerie) {
                     JOptionPane.showMessageDialog(null, "El número de serie debe ser mayor que 0 y menor o igual que la cantidad de serie");
