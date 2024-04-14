@@ -43,7 +43,8 @@ public class ControladorAgregarAutoGUI implements ActionListener {
                     return;
                 }
                 if (numSerie <= 0 || numSerie > cantSerie) {
-                    JOptionPane.showMessageDialog(null, "El número de serie debe ser mayor que 0 y menor o igual que la cantidad de serie");
+                    JOptionPane.showMessageDialog(null, "El número de serie debe ser mayor que 0 y menor o igual que la cantidad de serie");                    
+                    this.vistaAgregar.jtf_numSerie.setText("");
                     this.vistaAgregar.jtf_numSerie.grabFocus();
                     return;
                 }
@@ -52,6 +53,7 @@ public class ControladorAgregarAutoGUI implements ActionListener {
                 String marca = this.vistaAgregar.jtf_marca.getText();
                 if (!marca.matches("[^0-9]+")) {
                     JOptionPane.showMessageDialog(null, "La marca no debe contener números.");
+                    this.vistaAgregar.jtf_marca.setText("");
                     this.vistaAgregar.jtf_marca.grabFocus();
                     return;
                 }
@@ -60,6 +62,7 @@ public class ControladorAgregarAutoGUI implements ActionListener {
                 if (!color.matches("[^0-9]+")) {
                     JOptionPane.showMessageDialog(null, "El color no debe contener números.");
                     this.vistaAgregar.jtf_color.grabFocus();
+                    this.vistaAgregar.jtf_color.setText("");
                     return;
                 }
 
