@@ -26,42 +26,59 @@ public class ControladorAgregarAutoGUI implements ActionListener {
     }
 
     @Override
-    //EVENTO BOTON REGISTRAR
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.vistaAgregar.jbt_AgregarAuto) {
-            while (true) {
-                try {
-                    carrito = new Auto();
-                    carrito.setAnhoSerie(Integer.parseInt(this.vistaAgregar.jtf_anhoSerie.getText()));
-                    carrito.setCantTotalSerie(Integer.parseInt(this.vistaAgregar.jtf_canSerie.getText()));
-                    carrito.setnumeroSerie(Integer.parseInt(this.vistaAgregar.jtf_numSerie.getText()));
-                    carrito.setMarca(this.vistaAgregar.jtf_marca.getText());
-                    carrito.setColor(this.vistaAgregar.jtf_color.getText());
+            try {
+                carrito = new Auto();
 
-                    if (Integer.parseInt(this.vistaAgregar.jtf_anhoSerie.getText()) >= 1000) {
-                        if (Integer.parseInt(this.vistaAgregar.jtf_numSerie.getText()) <= Integer.parseInt(this.vistaAgregar.jtf_canSerie.getText()) && Integer.parseInt(this.vistaAgregar.jtf_numSerie.getText()) > 0) {
-                            //Agrega a la coleccion
-                            this.ctrlColeccion.getColeccionAutos().getAutos().add(carrito);
-                            //Para mostrar que se guardó correctamente
-                            javax.swing.JOptionPane.showMessageDialog(vistaAgregar, "La auto del año : " + this.vistaAgregar.jtf_anhoSerie.getText()
-                                    + "\nCon el numero de serie : " + this.vistaAgregar.jtf_numSerie.getText()
-                                    + "\nFue agregado con Exito");
-                            this.vistaAgregar.dispose();
-                        } else {
-                            JOptionPane.showMessageDialog(null, "EROR, el número de serie debe ser igual o menor que la cantidad de la serie y mayor que 0");
-                            this.vistaAgregar.jtf_numSerie.grabFocus();
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "El año de la serie debe ser mayor o igual que 4 digitos");
-                        this.vistaAgregar.jtf_anhoSerie.setText("");
-                        this.vistaAgregar.jtf_anhoSerie.grabFocus();
-                    }
+                int anhoSerie = Integer.parseInt(this.vistaAgregar.jtf_anhoSerie.getText());
+                int cantSerie = Integer.parseInt(this.vistaAgregar.jtf_canSerie.getText());
+                int numSerie = Integer.parseInt(this.vistaAgregar.jtf_numSerie.getText());
 
-                    break;
-                } catch (NumberFormatException error_1) {
-                    JOptionPane.showMessageDialog(null, "Error, con el año de serie o numero de serie o cantidad de serie. DEBEN SER VALORES NUMERICOS, además todos los recuadros deben estar llenos");
-                    break;
+                // Validaciones para campos numéricos
+                if (anhoSerie < 1000) {
+                    JOptionPane.showMessageDialog(null, "El año de la serie debe ser mayor o igual que 4 dígitos");
+                    this.vistaAgregar.jtf_anhoSerie.setText("");
+                    this.vistaAgregar.jtf_anhoSerie.grabFocus();
+                    return;
                 }
+                if (numSerie <= 0 || numSerie > cantSerie) {
+                    JOptionPane.showMessageDialog(null, "El número de serie debe ser mayor que 0 y menor o igual que la cantidad de serie");
+                    this.vistaAgregar.jtf_numSerie.grabFocus();
+                    return;
+                }
+
+                // Validaciones para campos alfanuméricos
+                String marca = this.vistaAgregar.jtf_marca.getText();
+                if (!marca.matches("[^0-9]+")) {
+                    JOptionPane.showMessageDialog(null, "La marca no debe contener números.");
+                    this.vistaAgregar.jtf_marca.grabFocus();
+                    return;
+                }
+
+                String color = this.vistaAgregar.jtf_color.getText();
+                if (!color.matches("[^0-9]+")) {
+                    JOptionPane.showMessageDialog(null, "El color no debe contener números.");
+                    this.vistaAgregar.jtf_color.grabFocus();
+                    return;
+                }
+
+                // Si todas las validaciones pasan, asignar valores al auto y agregarlo a la colección
+                carrito.setAnhoSerie(anhoSerie);
+                carrito.setCantTotalSerie(cantSerie);
+                carrito.setnumeroSerie(numSerie);
+                carrito.setMarca(marca);
+                carrito.setColor(color);
+
+                this.ctrlColeccion.getColeccionAutos().getAutos().add(carrito);
+
+                // Mostrar mensaje de éxito
+                JOptionPane.showMessageDialog(vistaAgregar, "El auto del año: " + anhoSerie
+                        + "\nCon el número de serie: " + numSerie
+                        + "\nFue agregado con éxito");
+                this.vistaAgregar.dispose();
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Error: Asegúrate de que todos los campos numéricos estén llenos con valores válidos.");
             }
         }
     }
