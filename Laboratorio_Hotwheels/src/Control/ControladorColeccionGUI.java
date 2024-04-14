@@ -47,35 +47,54 @@ public class ControladorColeccionGUI implements ActionListener {
         //Evento Borrar Auto
         //No está borrando carros
         if (e.getSource() == this.unaColeccion.jButtonBorrarAuto) {
-
+            //while(true){
             if (this.coleccionAutos.getAutos().size() != 0) {
-                int anhoSBoton = Integer.parseInt(this.unaColeccion.jtf_anhoSerieC.getText());
-                int numBoton = Integer.parseInt(this.unaColeccion.jtf_numSerieC.getText());
+                try {
+                    int anhoSBoton = Integer.parseInt(this.unaColeccion.jtf_anhoSerieC.getText());
+                    int numBoton = Integer.parseInt(this.unaColeccion.jtf_numSerieC.getText());
 
-                int resultBorrar = this.coleccionAutos.borrarAuto(anhoSBoton, numBoton);
+                    int resultBorrar = this.coleccionAutos.borrarAuto(anhoSBoton, numBoton);
 
-                if (resultBorrar == 1) {
-                    javax.swing.JOptionPane.showMessageDialog(unaColeccion, "se ha borrado correctamente el auto.");
+                    if (resultBorrar == 1) {
+                        javax.swing.JOptionPane.showMessageDialog(unaColeccion, "se ha borrado correctamente el auto.");
+                    }else{
+                    JOptionPane.showMessageDialog(null, "No se encuentra el auto");
+                    }
+                }catch(NumberFormatException errorBorrar){
+                JOptionPane.showMessageDialog(null, "Error con los datos ingresados, deben tener datos numericos ambos espacios");
                 }
             } else {
-                javax.swing.JOptionPane.showMessageDialog(null, "No hay autos en la coleccion para borrar");
-
+                javax.swing.JOptionPane.showMessageDialog(null, "No hay autos en la coleccion para borrar ");
+                //}
             }
         }
 
         //Evento Listar Autos
         if (e.getSource() == this.unaColeccion.jButtonListarAuto) {
             String listaAutos = coleccionAutos.listarColeccion();
+            if(listaAutos.equals("")){
+            JOptionPane.showMessageDialog(null, "La lista etá vacía");
+            }else{
             JOptionPane.showMessageDialog(null, listaAutos, "Lista de Autos", JOptionPane.INFORMATION_MESSAGE);
+            
+            }
         }
 
         //Evento Buscar autos
         if (e.getSource() == this.unaColeccion.jButtonBuscarAuto) {
             // Implementar la lógica para buscar un auto
-            anhoS = Integer.parseInt(this.unaColeccion.jtf_anhoSerieC.getText());
-            numS = Integer.parseInt(this.unaColeccion.jtf_numSerieC.getText());
-            String resultadoBusqueda = coleccionAutos.buscarAuto(anhoS, numS);
-            JOptionPane.showMessageDialog(null, resultadoBusqueda, "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
+            while (true) {
+                try {
+                    anhoS = Integer.parseInt(this.unaColeccion.jtf_anhoSerieC.getText());
+                    numS = Integer.parseInt(this.unaColeccion.jtf_numSerieC.getText());
+                    String resultadoBusqueda = coleccionAutos.buscarAuto(anhoS, numS);
+                    JOptionPane.showMessageDialog(null, resultadoBusqueda, "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                } catch (NumberFormatException a) {
+                    JOptionPane.showMessageDialog(null, "Error, debes ingresar un valor NUMERICO en ambos recuadros");
+                    break;
+                }
+            }
         }
     }
 
