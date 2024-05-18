@@ -18,7 +18,6 @@ public class ControlReservaGUI implements ActionListener {
     private ReservaDAO unaReservaDao;
     private VistaReservaGUI vista;
     private String result;
-    private List<String> lista = new ArrayList<>();
 
     public ControlReservaGUI() {
         this.unaReserva = new Reserva();
@@ -47,9 +46,15 @@ public class ControlReservaGUI implements ActionListener {
 
         //Listar todas las reservas hechas
         if (e.getSource() == this.vista.jButtonListar) {
-
-            lista = unaReservaDao.listarReservas("");
-            JOptionPane.showMessageDialog(this.vista, lista.get(0));
+            List<Reserva> lista = unaReservaDao.listarReservas("");
+            for (Reserva reserva : lista) {
+                result += ("Número de Reserva: " + reserva.getNumReserva()) + "\n";
+                result += ("Fecha: " + reserva.getFecha())+ "\n";
+                result += ("Cédula del Docente: " + reserva.getUnDocente().getCedula())+ "\n";
+                result += ("Número de Equipo: " + reserva.getEquipo().getNumeroEquipo())+ "\n";
+                result += ("--------------------------------------")+ "\n";
+            }
+            JOptionPane.showMessageDialog(this.vista, result);
         }
         //Ejecutar vista de agregar al docente
         if (e.getSource() == this.vista.jButtonRegisDocente) {
