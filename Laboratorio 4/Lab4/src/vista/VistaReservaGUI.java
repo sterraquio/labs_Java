@@ -26,12 +26,12 @@ public class VistaReservaGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextFieldApellido = new javax.swing.JTextField();
+        jTextFieldCedProfe = new javax.swing.JTextField();
         jButtonAgregar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldNombre = new javax.swing.JTextField();
+        jTextFieldNumEquip = new javax.swing.JTextField();
         jButtonListar = new javax.swing.JButton();
         jButtonBuscarReserva = new javax.swing.JButton();
         jButtonRegisDocente = new javax.swing.JButton();
@@ -71,8 +71,8 @@ public class VistaReservaGUI extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(72, 72, 72)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                            .addComponent(jTextFieldApellido)))
+                            .addComponent(jTextFieldNumEquip, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                            .addComponent(jTextFieldCedProfe)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addComponent(jButtonAgregar))
@@ -94,11 +94,11 @@ public class VistaReservaGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNumEquip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldCedProfe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(jButtonAgregar)
                 .addGap(18, 18, 18)
@@ -161,7 +161,7 @@ public class VistaReservaGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    public javax.swing.JTextField jTextFieldApellido;
-    public javax.swing.JTextField jTextFieldNombre;
+    public javax.swing.JTextField jTextFieldCedProfe;
+    public javax.swing.JTextField jTextFieldNumEquip;
     // End of variables declaration//GEN-END:variables
 }

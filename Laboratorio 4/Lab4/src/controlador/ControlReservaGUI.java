@@ -37,11 +37,11 @@ public class ControlReservaGUI implements ActionListener {
         Timestamp fechaHora = new Timestamp(new Date().getTime());
         //Agregar reserva
         if (e.getSource() == this.vista.jButtonAgregar) {
-
         }
         //Buscar reserva con los números de la cedula del docente
+            int ced=-1;
         if (e.getSource() == this.vista.jButtonBuscarReserva) {
-
+            ced = this.vista.
         }
 
         //Listar todas las reservas hechas
