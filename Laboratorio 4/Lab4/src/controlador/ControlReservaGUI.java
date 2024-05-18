@@ -18,6 +18,7 @@ public class ControlReservaGUI implements ActionListener {
     private ReservaDAO unaReservaDao;
     private VistaReservaGUI vista;
     private String result;
+    
 
     public ControlReservaGUI() {
         this.unaReserva = new Reserva();
