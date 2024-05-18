@@ -80,7 +80,7 @@ public class ReservaDAO {
             JOptionPane.showMessageDialog(null, "Error al listar los datos: " + e);
         }
 
-        return listaReservas;
+        return listaReservas.get();
     }
 
     //Buscar
