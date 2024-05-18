@@ -37,11 +37,32 @@ public class ControlReservaGUI implements ActionListener {
         Timestamp fechaHora = new Timestamp(new Date().getTime());
         //Agregar reserva
         if (e.getSource() == this.vista.jButtonAgregar) {
+            
         }
+
         //Buscar reserva con los números de la cedula del docente
-            int ced=-1;
+        int ced = -1;
+        boolean verdad=false;
         if (e.getSource() == this.vista.jButtonBuscarReserva) {
-            ced = this.vista.
+            try {
+                List<Reserva> lista = unaReservaDao.listarReservas("");
+                ced = Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
+                for (Reserva reserva : lista) {
+                    if (ced == reserva.getUnDocente().getCedula()) {
+                        Reserva reservita = unaReservaDao.buscarReserva(ced);
+                        String mensajito = "Número de Reserva: " + reservita.getNumReserva() + "\n"
+                                + "Fecha: " + reservita.getFecha() + "\n"
+                                + "Cédula del Docente: " + reservita.getUnDocente().getCedula() + "\n"
+                                + "Número de Equipo: " + reservita.getEquipo().getNumeroEquipo();
+                        JOptionPane.showMessageDialog(null, mensajito, "Detalles de la Reserva", JOptionPane.INFORMATION_MESSAGE);
+                        verdad = true;
+                    }   
+                }
+                if(!verdad){JOptionPane.showMessageDialog(this.vista, "La cedula ingresada no coincide con ninguna de la base de datos.");}
+            } catch (NumberFormatException exd) {
+                JOptionPane.showMessageDialog(this.vista, "Error, debe haber números en la seccion de las cedula del docente");
+            }
+
         }
 
         //Listar todas las reservas hechas
@@ -49,10 +70,10 @@ public class ControlReservaGUI implements ActionListener {
             List<Reserva> lista = unaReservaDao.listarReservas("");
             for (Reserva reserva : lista) {
                 result += ("Número de Reserva: " + reserva.getNumReserva()) + "\n";
-                result += ("Fecha: " + reserva.getFecha())+ "\n";
-                result += ("Cédula del Docente: " + reserva.getUnDocente().getCedula())+ "\n";
-                result += ("Número de Equipo: " + reserva.getEquipo().getNumeroEquipo())+ "\n";
-                result += ("--------------------------------------")+ "\n";
+                result += ("Fecha: " + reserva.getFecha()) + "\n";
+                result += ("Cédula del Docente: " + reserva.getUnDocente().getCedula()) + "\n";
+                result += ("Número de Equipo: " + reserva.getEquipo().getNumeroEquipo()) + "\n";
+                result += ("--------------------------------------") + "\n";
             }
             JOptionPane.showMessageDialog(this.vista, result);
         }
