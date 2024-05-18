@@ -46,16 +46,15 @@ public class ControlReservaGUI implements ActionListener {
             cedDocente = Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
             numEquipo = Integer.parseInt(this.vista.jTextFieldNumEquip.getText());
             for (Reserva reserva : lista) {
-
                 if (reserva.getNumReserva() > consecutivoGrande) {
                     if (cedDocente == reserva.getUnDocente().getCedula() && numEquipo == reserva.getEquipo().getNumeroEquipo()) {
-                        this.unaReserva.setNumReserva(reserva.getNumReserva()+1);
+                        this.unaReserva.setNumReserva(reserva.getNumReserva() + 1);
                         this.unaReserva.setFecha(fechaHora);
                         this.unaReserva.getEquipo().setNumeroEquipo(numEquipo);
                         this.unaReserva.getUnDocente().setCedula(cedDocente);
                         unaReservaDao.insertarReserva(unaReserva);
                         JOptionPane.showMessageDialog(this.vista, "Se ha agregado con éxtioooooooooooooooooo");
-                        
+
                     }
                 }
 
