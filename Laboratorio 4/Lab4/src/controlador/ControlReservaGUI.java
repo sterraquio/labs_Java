@@ -3,7 +3,10 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Timestamp;
+import java.util.AbstractList;
 import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import vista.VistaReservaGUI;
 import modelo.Reserva;
@@ -14,7 +17,8 @@ public class ControlReservaGUI implements ActionListener {
     private Reserva unaReserva;
     private ReservaDAO unaReservaDao;
     private VistaReservaGUI vista;
-    private String lista  = "";
+    private String result;
+    private List<String> lista = new ArrayList<>();
 
     public ControlReservaGUI() {
         this.unaReserva = new Reserva();
@@ -43,11 +47,9 @@ public class ControlReservaGUI implements ActionListener {
 
         //Listar todas las reservas hechas
         if (e.getSource() == this.vista.jButtonListar) {
-            for (int i = 0; i < unaReservaDao.getListaReservas().size(); i++) {
-                lista += unaReservaDao.listarReservas("");
-                lista += unaReservaDao.getListaReservas().get(i);
-            }
-            JOptionPane.showMessageDialog(this.vista, lista);
+
+            lista = unaReservaDao.listarReservas("");
+            JOptionPane.showMessageDialog(this.vista, lista.get(0));
         }
         //Ejecutar vista de agregar al docente
         if (e.getSource() == this.vista.jButtonRegisDocente) {

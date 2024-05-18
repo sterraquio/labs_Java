@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ReservaDAO {
-    private List<Reserva> listaReservas = new ArrayList();
+
     private Reserva unaReserva = new Reserva();
     Conexion miConexion = new Conexion();
 
@@ -52,6 +52,7 @@ public class ReservaDAO {
 
     //Listar
     public List listarReservas(String value) {
+        List<Reserva> listaReservas = new ArrayList();
 
         String query = "SELECT * FROM reserva ORDER BY consecutivo ASC";
         String query_Busqueda = "SELEC * FROM reserva WHERE consecutivo=" + value;
@@ -80,7 +81,7 @@ public class ReservaDAO {
             JOptionPane.showMessageDialog(null, "Error al listar los datos: " + e);
         }
 
-        return listaReservas.get();
+        return listaReservas;
     }
 
     //Buscar
@@ -115,13 +116,4 @@ public class ReservaDAO {
         return unaReserva;
     }
 
-    public List<Reserva> getListaReservas() {
-        return listaReservas;
-    }
-
-    public void setListaReservas(List<Reserva> listaReservas) {
-        this.listaReservas = listaReservas;
-    }
-
-    
 }
