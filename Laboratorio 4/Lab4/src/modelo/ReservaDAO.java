@@ -20,7 +20,7 @@ public class ReservaDAO {
     ResultSet rs;
 
     public static int consecutivo_reserva = 0;
-    public static String fechaReserva_reserva = "";
+    public static Timestamp fechaReserva_reserva;
     public static int docenteCedula_reserva = 0;
     public static int numeroEquipo_reserva = 0;
 
@@ -71,7 +71,7 @@ public class ReservaDAO {
                 Reserva unaReserva = new Reserva();
 
                 unaReserva.setNumReserva(rs.getInt("consecutivo"));
-                unaReserva.setFecha(rs.getString("fechaReserva"));
+                unaReserva.setFecha(rs.getTimestamp("fechaReserva"));
                 unaReserva.getUnDocente().setCedula(rs.getInt("docenteCedula"));
                 unaReserva.getEquipo().setNumeroEquipo(rs.getInt("numeroEquipo"));
                 listaReservas.add(unaReserva);
@@ -101,7 +101,7 @@ public class ReservaDAO {
             if (rs.next()) {
                 unaReserva.setNumReserva(rs.getInt("consecutivo"));
                 consecutivo_reserva = unaReserva.getNumReserva();
-                unaReserva.setFecha(rs.getString("fechaReserva"));
+                unaReserva.setFecha(rs.getTimestamp("fechaReserva"));
                 fechaReserva_reserva = unaReserva.getFecha();
                 unaReserva.getUnDocente().setCedula(rs.getInt("docenteCedula"));
                 docenteCedula_reserva = unaReserva.getUnDocente().getCedula();

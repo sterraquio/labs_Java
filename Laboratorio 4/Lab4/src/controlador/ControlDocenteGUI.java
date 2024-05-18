@@ -74,7 +74,7 @@ public class ControlDocenteGUI implements ActionListener {
 
                 modeloDocenteDao.insertarDocente(modeloDocente);
 
-                javax.swing.JOptionPane.showMessageDialog(vistaDocente, "docente se agrego con exito : " + nombre + " " + Apellido);
+                javax.swing.JOptionPane.showMessageDialog(vistaDocente, "docente se agrego con exito : " + nombre);
                 vistaDocente.dispose();
 
             } catch (NumberFormatException ex) {

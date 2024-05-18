@@ -18,7 +18,6 @@ public class ControlReservaGUI implements ActionListener {
     private ReservaDAO unaReservaDao;
     private VistaReservaGUI vista;
     private String result;
-    
 
     public ControlReservaGUI() {
         this.unaReserva = new Reserva();
@@ -35,15 +34,37 @@ public class ControlReservaGUI implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        int consecutivo;
+        int cedDocente;
+        int numEquipo;
+        int consecutivoGrande = Integer.MIN_VALUE;
         Timestamp fechaHora = new Timestamp(new Date().getTime());
         //Agregar reserva
         if (e.getSource() == this.vista.jButtonAgregar) {
-            
+            List<Reserva> lista = unaReservaDao.listarReservas("");
+            cedDocente = Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
+            numEquipo = Integer.parseInt(this.vista.jTextFieldNumEquip.getText());
+            for (Reserva reserva : lista) {
+
+                if (reserva.getNumReserva() > consecutivoGrande) {
+                    if (cedDocente == reserva.getUnDocente().getCedula() && numEquipo == reserva.getEquipo().getNumeroEquipo()) {
+                        this.unaReserva.setNumReserva(reserva.getNumReserva()+1);
+                        this.unaReserva.setFecha(fechaHora);
+                        this.unaReserva.getEquipo().setNumeroEquipo(numEquipo);
+                        this.unaReserva.getUnDocente().setCedula(cedDocente);
+                        unaReservaDao.insertarReserva(unaReserva);
+                        JOptionPane.showMessageDialog(this.vista, "Se ha agregado con éxtioooooooooooooooooo");
+                        
+                    }
+                }
+
+            }
         }
 
         //Buscar reserva con los números de la cedula del docente
         int ced = -1;
-        boolean verdad=false;
+        boolean verdad = false;
         if (e.getSource() == this.vista.jButtonBuscarReserva) {
             try {
                 List<Reserva> lista = unaReservaDao.listarReservas("");
@@ -57,9 +78,11 @@ public class ControlReservaGUI implements ActionListener {
                                 + "Número de Equipo: " + reservita.getEquipo().getNumeroEquipo();
                         JOptionPane.showMessageDialog(null, mensajito, "Detalles de la Reserva", JOptionPane.INFORMATION_MESSAGE);
                         verdad = true;
-                    }   
+                    }
                 }
-                if(!verdad){JOptionPane.showMessageDialog(this.vista, "La cedula ingresada no coincide con ninguna de la base de datos.");}
+                if (!verdad) {
+                    JOptionPane.showMessageDialog(this.vista, "La cedula ingresada no coincide con ninguna de la base de datos.");
+                }
             } catch (NumberFormatException exd) {
                 JOptionPane.showMessageDialog(this.vista, "Error, debe haber números en la seccion de las cedula del docente");
             }

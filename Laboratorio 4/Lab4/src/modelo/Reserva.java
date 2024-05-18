@@ -1,11 +1,13 @@
 
 package modelo;
 
+import java.sql.Timestamp;
+
 
 public class Reserva {
     // Atributos:
 
-    private String fecha;
+    private Timestamp fecha;
     private int numReserva;
     private Docente unDocente = new Docente();
     private EquipoComputo equipo= new EquipoComputo();
@@ -13,13 +15,15 @@ public class Reserva {
     public Reserva() {
     }
 
-    public String getFecha() {
+    public Timestamp getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Timestamp fecha) {
         this.fecha = fecha;
     }
+
+
 
     public int getNumReserva() {
         return numReserva;

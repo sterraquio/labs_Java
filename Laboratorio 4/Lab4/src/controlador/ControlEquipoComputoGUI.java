@@ -40,6 +40,7 @@ public class ControlEquipoComputoGUI implements ActionListener {
                             this.unEquipo.setCapacidadDD(capacidadDD);
                             this.unEquipoDao.insertarPersona(unEquipo);
                             JOptionPane.showMessageDialog(this.vista, "Se ha ingresado correctamente el equipo");
+                            this.vista.dispose();
                         }
                     } else {
                         JOptionPane.showMessageDialog(this.vista, "Error, hay espacios en los recuadros de Marca y capacidada");
