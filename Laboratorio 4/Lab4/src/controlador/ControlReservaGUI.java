@@ -77,6 +77,7 @@ public class ControlReservaGUI implements ActionListener {
                                 + "Número de Equipo: " + reservita.getEquipo().getNumeroEquipo();
                         JOptionPane.showMessageDialog(null, mensajito, "Detalles de la Reserva", JOptionPane.INFORMATION_MESSAGE);
                         verdad = true;
+                        break;
                     }
                 }
                 if (!verdad) {

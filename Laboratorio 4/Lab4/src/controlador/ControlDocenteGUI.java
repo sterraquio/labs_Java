@@ -20,7 +20,6 @@ public class ControlDocenteGUI implements ActionListener {
 
     public ControlDocenteGUI() {
         this.vistaDocente = new VistaDocenteGUI();
-        this.ctrlReserva = new ControlReservaGUI();
         this.modeloDocenteDao = new DocenteDAO();
 
         vistaDocente.setVisible(true);
@@ -97,13 +96,7 @@ public class ControlDocenteGUI implements ActionListener {
         this.vistaDocente = vistaDocente;
     }
 
-    public ControlReservaGUI getCtrlReserva() {
-        return ctrlReserva;
-    }
 
-    public void setCtrlReserva(ControlReservaGUI ctrlReserva) {
-        this.ctrlReserva = ctrlReserva;
-    }
 
     public Docente getModeloDocente() {
         return modeloDocente;
