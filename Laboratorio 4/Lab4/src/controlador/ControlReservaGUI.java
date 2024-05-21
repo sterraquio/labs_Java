@@ -35,6 +35,7 @@ public class ControlReservaGUI implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        boolean verdadRegistrar = false;
         int consecutivo;
         int cedDocente;
         int numEquipo;
@@ -46,18 +47,24 @@ public class ControlReservaGUI implements ActionListener {
             cedDocente = Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
             numEquipo = Integer.parseInt(this.vista.jTextFieldNumEquip.getText());
             for (Reserva reserva : lista) {
-                if (reserva.getNumReserva() > consecutivoGrande) {
-                    if (cedDocente == reserva.getUnDocente().getCedula() && numEquipo == reserva.getEquipo().getNumeroEquipo()) {
-                        this.unaReserva.setNumReserva(reserva.getNumReserva() + 1);
+                //Por qué no funciona está validación???
+                if (cedDocente == reserva.getUnDocente().getCedula() && numEquipo == reserva.getEquipo().getNumeroEquipo()) { //cedDocente == reserva.getUnDocente().getCedula()
+                    if (true ) { //numEquipo == reserva.getEquipo().getNumeroEquipo()
+                        //this.unaReserva.setNumReserva(reserva.getNumReserva() + 1);
                         this.unaReserva.setFecha(fechaHora);
                         this.unaReserva.getEquipo().setNumeroEquipo(numEquipo);
                         this.unaReserva.getUnDocente().setCedula(cedDocente);
                         unaReservaDao.insertarReserva(unaReserva);
                         JOptionPane.showMessageDialog(this.vista, "Se ha agregado con éxtioooooooooooooooooo");
-
+                        this.vista.jTextFieldCedProfe.setText("");
+                        this.vista.jTextFieldNumEquip.setText("");
+                        verdadRegistrar = true;
+                        break;
                     }
                 }
-
+            }
+            if (!verdadRegistrar) {
+                JOptionPane.showMessageDialog(this.vista, "error, no coincide la CÉDULA del profesor o el NÚMERO de inventario del equipo de computo con la base de datos.");
             }
         }
 
@@ -76,6 +83,7 @@ public class ControlReservaGUI implements ActionListener {
                                 + "Cédula del Docente: " + reservita.getUnDocente().getCedula() + "\n"
                                 + "Número de Equipo: " + reservita.getEquipo().getNumeroEquipo();
                         JOptionPane.showMessageDialog(null, mensajito, "Detalles de la Reserva", JOptionPane.INFORMATION_MESSAGE);
+                        this.vista.jTextFieldCedProfe.setText("");
                         verdad = true;
                         break;
                     }

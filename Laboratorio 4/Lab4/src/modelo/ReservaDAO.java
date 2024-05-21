@@ -70,7 +70,7 @@ public class ReservaDAO {
             while (rs.next()) {
                 Reserva unaReserva = new Reserva();
 
-                unaReserva.setNumReserva(rs.getInt("consecutivo"));
+                //unaReserva.setNumReserva(rs.getInt("consecutivo"));
                 unaReserva.setFecha(rs.getTimestamp("fechaReserva"));
                 unaReserva.getUnDocente().setCedula(rs.getInt("docenteCedula"));
                 unaReserva.getEquipo().setNumeroEquipo(rs.getInt("numeroEquipo"));

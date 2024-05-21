@@ -28,6 +28,7 @@ public class ControlDocenteGUI implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        //Registrar 
         if (ae.getSource() == this.vistaDocente.jButtonAgregar) {
             // Verificación de campos vacíos
             if (this.vistaDocente.jTextFieldCed.getText().isEmpty()
