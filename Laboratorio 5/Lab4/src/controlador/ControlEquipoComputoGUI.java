@@ -13,7 +13,7 @@ public class ControlEquipoComputoGUI implements ActionListener {
     private VistaEquipoComputoGUI vista;//vista
     private EquipoComputo unEquipo;//Clase EquipoComputo
     private EquipoComputoDao unEquipoDao;//Clase EquipoComputoDao
-    
+        
     //constructor
     public ControlEquipoComputoGUI() {
         this.vista = new VistaEquipoComputoGUI();//inicializa la vista  
@@ -53,7 +53,7 @@ public class ControlEquipoComputoGUI implements ActionListener {
                             this.unEquipo.setMarca(marca);
                             this.unEquipo.setCapacidadDD(capacidadDD);
                             //se utiliza un metodo de la clase EquipoComputoDao para agregar un EquipoComputo
-                            this.unEquipoDao.insertarPersona(unEquipo);
+                            this.unEquipoDao.insertarEquicoComputo(unEquipo);
                             JOptionPane.showMessageDialog(this.vista, "Se ha ingresado correctamente el equipo");
                             this.vista.dispose();
                         }
@@ -69,6 +69,7 @@ public class ControlEquipoComputoGUI implements ActionListener {
             }
 
         }
+        
         // Botón de consultar
         if(e.getSource() == this.vista.jButtonConsultar){
         

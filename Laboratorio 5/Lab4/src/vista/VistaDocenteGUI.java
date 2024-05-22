@@ -36,6 +36,10 @@ public class VistaDocenteGUI extends javax.swing.JFrame {
         jTextFieldApellido = new javax.swing.JTextField();
         jTextFieldProfesion = new javax.swing.JTextField();
         jButtonAgregar = new javax.swing.JButton();
+        jButtonModificar = new javax.swing.JButton();
+        jButtonEliminar = new javax.swing.JButton();
+        jButtonListar = new javax.swing.JButton();
+        jButtonConsultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -51,12 +55,27 @@ public class VistaDocenteGUI extends javax.swing.JFrame {
 
         jButtonAgregar.setText("Agregar");
 
+        jButtonModificar.setText("Modificar");
+
+        jButtonEliminar.setText("Eliminar");
+
+        jButtonListar.setText("Listar");
+
+        jButtonConsultar.setText("Consultar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jButtonAgregar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonListar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonConsultar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(154, 154, 154)
                         .addComponent(jLabel1))
@@ -74,9 +93,11 @@ public class VistaDocenteGUI extends javax.swing.JFrame {
                             .addComponent(jTextFieldApellido)
                             .addComponent(jTextFieldProfesion)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(jButtonAgregar)))
-                .addContainerGap(164, Short.MAX_VALUE))
+                        .addGap(11, 11, 11)
+                        .addComponent(jButtonModificar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonEliminar)))
+                .addGap(122, 145, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,9 +119,18 @@ public class VistaDocenteGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTextFieldProfesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jButtonAgregar)
-                .addGap(18, 18, 18))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonAgregar)
+                        .addComponent(jButtonListar)
+                        .addComponent(jButtonConsultar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonModificar)
+                            .addComponent(jButtonEliminar))))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -145,6 +175,10 @@ public class VistaDocenteGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButtonAgregar;
+    public javax.swing.JButton jButtonConsultar;
+    public javax.swing.JButton jButtonEliminar;
+    public javax.swing.JButton jButtonListar;
+    public javax.swing.JButton jButtonModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

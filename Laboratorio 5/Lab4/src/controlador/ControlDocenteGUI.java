@@ -13,6 +13,7 @@ import vista.VistaDocenteGUI;
  */
 //clase que agrega los listeners a los botones de la vista
 public class ControlDocenteGUI implements ActionListener {
+
     // atributos 
     private VistaDocenteGUI vistaDocente;//vista
     private Docente modeloDocente;//clase docente 
@@ -25,9 +26,12 @@ public class ControlDocenteGUI implements ActionListener {
 
         vistaDocente.setVisible(true);//hace visible la vista
         vistaDocente.jButtonAgregar.addActionListener(this);//agrega el listener al boton
+        this.vistaDocente.jButtonConsultar.addActionListener(this);// Listener al botón
+        this.vistaDocente.jButtonEliminar.addActionListener(this);// Listener al botón
+        this.vistaDocente.jButtonListar.addActionListener(this);// Listener al botón
+        this.vistaDocente.jButtonModificar.addActionListener(this);// Listener al botón
     }
 
-    
     //metodo del escucha 
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -44,13 +48,12 @@ public class ControlDocenteGUI implements ActionListener {
                 JOptionPane.showMessageDialog(vistaDocente, "Todos los campos deben estar llenos.");
                 return;
             }
-            
+
             try {
                 modeloDocente = new Docente();//inicializa la clase docente 
 
                 //pasa lo que esta en el jtf a una variable
                 int cedula = Integer.parseInt(this.vistaDocente.jTextFieldCed.getText().trim());
-                
 
                 //pasa lo que esta en el jtf a una variable 
                 String nombre = this.vistaDocente.jTextFieldNombre.getText().toLowerCase().trim();
@@ -88,7 +91,6 @@ public class ControlDocenteGUI implements ActionListener {
                 modeloDocente.setNombres(nombre);
                 modeloDocente.setApellidos(Apellido);
                 modeloDocente.setProfesion(Profesion);
-                
 
                 //se utiliza un metodo de la clase docenteDao para agregar un Docente
                 modeloDocenteDao.insertarDocente(modeloDocente);
@@ -106,10 +108,26 @@ public class ControlDocenteGUI implements ActionListener {
                 JOptionPane.showMessageDialog(vistaDocente, "Ocurrió un error: " + ex.getMessage());
             }
         }
-    }
-    
-    //gets y sets
+        // Botón de consultar
+        if (ae.getSource() == this.vistaDocente.jButtonConsultar) {
 
+        }
+        // Botón de listar
+        if (ae.getSource() == this.vistaDocente.jButtonListar) {
+
+        }
+        // Botón de modificar
+        if (ae.getSource() == this.vistaDocente.jButtonModificar) {
+
+        }
+        // Botón de Eliminar
+        if (ae.getSource() == this.vistaDocente.jButtonEliminar) {
+
+        }
+
+    }
+
+    //gets y sets
     public VistaDocenteGUI getVistaDocente() {
         return vistaDocente;
     }
@@ -117,8 +135,6 @@ public class ControlDocenteGUI implements ActionListener {
     public void setVistaDocente(VistaDocenteGUI vistaDocente) {
         this.vistaDocente = vistaDocente;
     }
-
-
 
     public Docente getModeloDocente() {
         return modeloDocente;
