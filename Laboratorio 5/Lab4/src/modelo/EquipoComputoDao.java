@@ -118,15 +118,16 @@ public class EquipoComputoDao {
     //Modificar Docente
     public boolean actualizarEquiposComputo(EquipoComputo unEquipo){
         String query= "UPDATE equipocomputo SET numeroInventario=?, marca=?, capacidadDisco=?"
-                + "WHERE cedula=?";
+                + "WHERE numeroInventario=?";
         
         try{
             this.con= this.miConexion.obtenerconexion();
             
             pst= this.con.prepareStatement(query);
             pst.setInt(1, unEquipo.getNumeroEquipo());
-            pst.setString(2, unEquipo.getMarca());
+            pst.setString(2, unEquipo.getMarca()+"");
             pst.setString(3, unEquipo.getCapacidadDD());
+            pst.setInt(4, unEquipo.getNumeroEquipo());
             System.out.println(pst);
             pst.execute();
             

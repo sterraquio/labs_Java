@@ -99,7 +99,7 @@ public class ControlEquipoComputoGUI implements ActionListener {
             EquipoComputo equipitoTemp = new EquipoComputo();//Crear un nuevo objeto para almacenar el resultado del la lista que contendra el método listarEquipos
             List<EquipoComputo> ListaEquipito;//Lista que almacenará lo retornado por el método listar
 
-            String resultado = "#invetario--Capacidad--Marca";//Para separar los atributos de la consulta
+            String resultado = "#invetario--Capacidad--Marca\n";//Para separar los atributos de la consulta
 
             ListaEquipito = this.unEquipoDao.listarEquipos();//Asignar a la lista el reusltado del método
 
@@ -154,6 +154,8 @@ public class ControlEquipoComputoGUI implements ActionListener {
                 if (this.unEquipoDao.eliminarPersona(inventario)) {
                     JOptionPane.showMessageDialog(this.vista, "Datos ELIMINADOSSSSSSSSSSSSSS");
                     this.vista.jTextFieldNumInvent.setText("");
+                    this.vista.jTextFieldMarca.setText("");
+                    this.vista.jTextFieldCapacidadDD.setText("");
                 } else {
                     JOptionPane.showMessageDialog(this.vista, "No se ha eliminado :c");
                 }
