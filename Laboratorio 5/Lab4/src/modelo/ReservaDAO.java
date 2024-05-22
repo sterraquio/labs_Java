@@ -54,27 +54,33 @@ public class ReservaDAO {
     public List listarReservas(String value) {
         List<Reserva> listaReservas = new ArrayList();
 
+        //Seleciona todas las columnas de la tabla reserva y las ordena de manera ascendente 
+        //dependiendo de la columna consecutivo
         String query = "SELECT * FROM reserva ORDER BY consecutivo ASC";
+        
+        //busca un valor de la tabla reserva que coicida con el "value"
         String query_Busqueda = "SELEC * FROM reserva WHERE consecutivo=" + value;
 
         try {
-            this.con = this.miConexion.obtenerconexion();
-            if (value.equalsIgnoreCase("")) {
-                pst = this.con.prepareStatement(query);
+            this.con = this.miConexion.obtenerconexion();//obtener la conexion
+            
+            if (value.equalsIgnoreCase("")) {//verifica si value es vacio si lo es ignora si hay mayusculas o minusculas 
+                pst = this.con.prepareStatement(query);//si es vacia prepara para consultar todos los registros de la tabla
                 rs = pst.executeQuery();
             } else {
-                pst = this.con.prepareStatement(query_Busqueda);
-                rs = pst.executeQuery();
+                pst = this.con.prepareStatement(query_Busqueda);//si no es vacia prepara para consulatar el registro 
+                //donde el "consecutivo" coincide con el valor de value
+                rs = pst.executeQuery();//se ejecuta la consulta preparada y el resultado se asigna a un objeto rs
             }
 
-            while (rs.next()) {
-                Reserva unaReserva = new Reserva();
+            while (rs.next()) {//se utiliza para mover el cursor al siguiente registro
+                Reserva unaReserva = new Reserva(); //inicializa el objeto
 
                 //unaReserva.setNumReserva(rs.getInt("consecutivo"));
                 unaReserva.setFecha(rs.getTimestamp("fechaReserva"));
                 unaReserva.getUnDocente().setCedula(rs.getInt("docenteCedula"));
                 unaReserva.getEquipo().setNumeroEquipo(rs.getInt("numeroEquipo"));
-                listaReservas.add(unaReserva);
+                listaReservas.add(unaReserva);//agrega los datos a una lista de tipo reserva
             }
 
         } catch (SQLException e) {

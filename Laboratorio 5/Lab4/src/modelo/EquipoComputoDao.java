@@ -15,7 +15,7 @@ public class EquipoComputoDao {
 
     Conexion miConexion = new Conexion();
 
-    Connection con;
+    Connection con;//establecer la conexion con una base de datos 
     PreparedStatement pst; //para ejecutar las consultas
     ResultSet rs; //para obtener los resultados de la consulta
 
@@ -25,14 +25,18 @@ public class EquipoComputoDao {
     public static String capacidadDDEquipo = "";
 
     //Registar persona
+    
     public boolean insertarPersona(EquipoComputo unEquipo) {
+         //insertar datos en una tabla 
+        //insert into permite agregar una nueva fila a la tabla de la bd
+        //primero van los encabezados de la tabla y despues los valores que se agregan en la casillas
         String query = "INSERT INTO equipocomputo(numeroInventario, marca, capacidadDisco)"
                 + "VALUES(?,?,?)";
 
         try {
-            this.con = this.miConexion.obtenerconexion();
+            this.con = this.miConexion.obtenerconexion();//obtengo la conexion
 
-            pst = this.con.prepareStatement(query);
+            pst = this.con.prepareStatement(query);//se prepara una sentencia y despues se utiliza para ejecutar operaciones
             pst.setInt(1, unEquipo.getNumeroEquipo());
             pst.setString(2, unEquipo.getMarca());
             pst.setString(3, unEquipo.getCapacidadDD());
