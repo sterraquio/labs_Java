@@ -123,8 +123,8 @@ public class DocenteDAO {
     
     //Modificar Docente
     public boolean actualizarDocente(Docente unDocente){
-        String query= "UPDATE docente SET cedula=?, nombres=?, apellidos=?, profesion=?"
-                + "WHERE cedula=?";
+        String query= "UPDATE docente SET cedula=?, nombres=?, apellidos=?, profesion=? WHERE cedula=?";
+                
         
         try{
             this.con= this.miConexion.obtenerconexion();

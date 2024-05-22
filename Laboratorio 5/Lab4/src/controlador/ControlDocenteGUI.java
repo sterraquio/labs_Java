@@ -133,7 +133,7 @@ public class ControlDocenteGUI implements ActionListener {
             Docente elDocente = new Docente();
             List<Docente> listaDeDocentes;
             
-            String lista = "CEDULA || NOMBRE || APELLIDO || PROFESION "+null+"\n";
+            String lista = "CEDULA || NOMBRE || APELLIDO || PROFESION "+"\n";
             
             listaDeDocentes = this.modeloDocenteDao.listarDocentes();
             
@@ -141,10 +141,9 @@ public class ControlDocenteGUI implements ActionListener {
                 elDocente = listaDeDocentes.get(i);
                 lista  += elDocente.getCedula() +" || "+ elDocente.getNombres()+" || "+ elDocente.getApellidos()+
                         " || "+ elDocente.getProfesion() +"\n";
-                
-                JOptionPane.showMessageDialog(vistaDocente, lista);
+                  
             }
-            
+            JOptionPane.showMessageDialog(vistaDocente, lista);
 
         }
         // Botón de modificar
