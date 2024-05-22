@@ -91,7 +91,7 @@ public class ReservaDAO {
     }
 
     //Buscar reserva con la cedula del docente
-    public Reserva buscarReserva(int docenteCedula) {
+    public Reserva buscarReservaPorCedula(int docenteCedula) {
         //busca una de la tabla reserva el campo donde la cedula sea igual al indicador "?" donde sera proporcionado
         //mas tarde de manera dinamica 
         String query = "SELECT * FROM reserva WHERE docenteCedula = ?";
@@ -116,6 +116,10 @@ public class ReservaDAO {
                 docenteCedula_reserva = unaReserva.getUnDocente().getCedula();
                 unaReserva.getEquipo().setNumeroEquipo(rs.getInt("numeroEquipo"));
                 numeroEquipo_reserva = unaReserva.getEquipo().getNumeroEquipo();
+                
+                String result ="";
+                
+                
             }
 
         } catch (SQLException e) {
@@ -124,6 +128,43 @@ public class ReservaDAO {
 
         return unaReserva;
     }
+    
+    public Reserva buscarReservaÑPorNumeroR(int NumReserva) {
+        //busca una de la tabla reserva el campo donde la cedula sea igual al indicador "?" donde sera proporcionado
+        //mas tarde de manera dinamica 
+        String query = "SELECT * FROM reserva WHERE docenteCedula = ?";
+        Reserva unaReserva = new Reserva();//inicializa el objeto
+
+        try {
+            this.con = this.miConexion.obtenerconexion();//conexion
+            pst = this.con.prepareStatement(query);//prepara para una operacion
+
+            //se pasan los parametro ingresados por el usuario
+            pst.setInt(1, NumReserva);//se pasa docenteCedula a "?"
+            System.out.println("contenido del query:\n" + pst);
+            rs = pst.executeQuery();//se ejecuta la consulta preparada y se obtiene los resultados
+
+            if (rs.next()) {
+                // se recuperan los datos de la consulta y se asignan a objetos de reserva
+                unaReserva.setNumReserva(rs.getInt("consecutivo"));
+                consecutivo_reserva = unaReserva.getNumReserva();
+                unaReserva.setFecha(rs.getTimestamp("fechaReserva"));
+                fechaReserva_reserva = unaReserva.getFecha();
+                unaReserva.getUnDocente().setCedula(rs.getInt("docenteCedula"));
+                docenteCedula_reserva = unaReserva.getUnDocente().getCedula();
+                unaReserva.getEquipo().setNumeroEquipo(rs.getInt("numeroEquipo"));
+                numeroEquipo_reserva = unaReserva.getEquipo().getNumeroEquipo();
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener los datos de la persona: " + e.getMessage());
+        }
+
+        return unaReserva;
+    }
+    
+    
+    
     //Eliminar reserva con el número de reserva
     public boolean EliminarReserva(int numeroReserva){
         String query = "SELECT * FROM reserva WHERE consecutivo ="+numeroReserva;

@@ -49,8 +49,10 @@ public class ControlReservaGUI implements ActionListener {
         int consecutivo;
         int cedDocente;
         int numEquipo;
+        
         Timestamp fechaHora = new Timestamp(new Date().getTime());
         //Agregar reserva
+        
         if (e.getSource() == this.vista.jButtonAgregar) {
             List<Reserva> lista = unaReservaDao.listarReservas("");
             cedDocente = Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
@@ -86,7 +88,9 @@ public class ControlReservaGUI implements ActionListener {
         boolean verdad = false;//bandera
         if (e.getSource() == this.vista.jButtonBuscarReserva) {
             try {
-              
+                ced =Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
+                 unaReserva = this.unaReservaDao.buscarReservaPorCedula(ced);
+       
             } catch (NumberFormatException exd) {
                 JOptionPane.showMessageDialog(this.vista, "Error, debe haber números en la seccion de las cedula del docente");
             }

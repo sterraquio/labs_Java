@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class Conexion {
     private String db_nombre="reservaequipos";//nombre de la base de datos
     private String user="root";//user para entrar a la base
-    private String password="";//contraseña para entrar a la base
-    private String url="jdbc:mysql://localhost:3306/"+this.db_nombre;//url para establecer la coneccion 
+    private String password="root";//contraseña para entrar a la base
+    private String url="jdbc:mysql://127.0.0.1:3306/"+this.db_nombre;//url para establecer la coneccion 
     
     Connection conexion = null;
     
