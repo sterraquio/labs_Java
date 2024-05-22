@@ -72,7 +72,6 @@ public class ControlEquipoComputoGUI implements ActionListener {
             }
 
         }
-<<<<<<< Updated upstream
 
         // Botón de consultar
         if (e.getSource() == this.vista.jButtonConsultar) {
@@ -164,24 +163,24 @@ public class ControlEquipoComputoGUI implements ActionListener {
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this.vista, "El campo de Número de inventario es obligatorio\nY debe estar en formato númerico");
             }
-=======
-        // Botón de consultar
-        if(e.getSource() == this.vista.jButtonConsultar){
-        
-        }
-        // Botón de listar
-        if(e.getSource() == this.vista.jButtonListar){
-        
-        }
-        // Botón de modificar
-        if(e.getSource() == this.vista.jButtonModificar){
-        
-        }
-        // Botón de Eliminar
-        if(e.getSource() == this.vista.jButtonEliminar){
-        
->>>>>>> Stashed changes
-        }
-    }
 
+            // Botón de consultar
+            if (e.getSource() == this.vista.jButtonConsultar) {
+
+            }
+            // Botón de listar
+            if (e.getSource() == this.vista.jButtonListar) {
+
+            }
+            // Botón de modificar
+            if (e.getSource() == this.vista.jButtonModificar) {
+
+            }
+            // Botón de Eliminar
+            if (e.getSource() == this.vista.jButtonEliminar) {
+
+            }
+        }
+
+    }
 }

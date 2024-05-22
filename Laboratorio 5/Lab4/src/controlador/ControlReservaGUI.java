@@ -57,17 +57,21 @@ public class ControlReservaGUI implements ActionListener {
             numEquipo = Integer.parseInt(this.vista.jTextFieldNumEquip.getText());
             for (Reserva reserva : lista) {
                 //Por qué no funciona está validación???
-                if (cedDocente == reserva.getUnDocente().getCedula() && numEquipo == reserva.getEquipo().getNumeroEquipo()) { //cedDocente == reserva.getUnDocente().getCedula()
-                    if (true) { //numEquipo == reserva.getEquipo().getNumeroEquipo()
+                if (true) {
+                    if (true) {
                         //this.unaReserva.setNumReserva(reserva.getNumReserva() + 1);
                         this.unaReserva.setFecha(fechaHora);
                         this.unaReserva.getEquipo().setNumeroEquipo(numEquipo);
                         this.unaReserva.getUnDocente().setCedula(cedDocente);
-                        unaReservaDao.insertarReserva(unaReserva);
-                        JOptionPane.showMessageDialog(this.vista, "Se ha agregado con éxtioooooooooooooooooo" + null + "\n"
-                                + "Numero de reserva : " + this.unaReserva.getNumReserva());
+                        if (unaReservaDao.insertarReserva(unaReserva)) {
+
+                            JOptionPane.showMessageDialog(this.vista, "Se ha agregado con éxtioooooooooooooooooo" + null + "\n"
+                                    + "Numero de reserva : " + this.unaReserva.getNumReserva());
                         this.vista.jTextFieldCedProfe.setText("");
                         this.vista.jTextFieldNumEquip.setText("");
+                        }else{
+                        JOptionPane.showMessageDialog(this.vista, "No se ha ingresado, porque ");
+                        }
                         verdadRegistrar = true;
                         break;
                     }
