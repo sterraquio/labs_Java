@@ -34,6 +34,10 @@ public class VistaEquipoComputoGUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextFieldNumInvent = new javax.swing.JTextField();
         jTextFieldMarca = new javax.swing.JTextField();
+        jButtonListar = new javax.swing.JButton();
+        jButtonConsultar = new javax.swing.JButton();
+        jButtonModificar = new javax.swing.JButton();
+        jButtonEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -46,6 +50,14 @@ public class VistaEquipoComputoGUI extends javax.swing.JFrame {
         jLabel3.setText("Marca");
 
         jLabel4.setText("Capacidad de disco duro");
+
+        jButtonListar.setText("Listar");
+
+        jButtonConsultar.setText("Consultar");
+
+        jButtonModificar.setText("Modificar");
+
+        jButtonEliminar.setText("Eliminar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,9 +80,18 @@ public class VistaEquipoComputoGUI extends javax.swing.JFrame {
                             .addComponent(jTextFieldMarca)
                             .addComponent(jTextFieldCapacidadDD)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(jButtonAgregar)))
-                .addContainerGap(135, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jButtonAgregar)
+                        .addGap(30, 30, 30)
+                        .addComponent(jButtonListar)
+                        .addGap(28, 28, 28)
+                        .addComponent(jButtonConsultar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonModificar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonEliminar)))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,9 +109,16 @@ public class VistaEquipoComputoGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextFieldCapacidadDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(jButtonAgregar)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAgregar)
+                    .addComponent(jButtonListar)
+                    .addComponent(jButtonConsultar))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonModificar)
+                    .addComponent(jButtonEliminar))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,6 +163,10 @@ public class VistaEquipoComputoGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButtonAgregar;
+    public javax.swing.JButton jButtonConsultar;
+    public javax.swing.JButton jButtonEliminar;
+    public javax.swing.JButton jButtonListar;
+    public javax.swing.JButton jButtonModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

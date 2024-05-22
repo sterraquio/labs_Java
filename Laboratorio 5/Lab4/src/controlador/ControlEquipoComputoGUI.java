@@ -22,6 +22,10 @@ public class ControlEquipoComputoGUI implements ActionListener {
 
         this.vista.setVisible(true);//vista visible 
         this.vista.jButtonAgregar.addActionListener(this);//agrega el listener al boton
+        this.vista.jButtonConsultar.addActionListener(this);// Listener al botón
+        this.vista.jButtonEliminar.addActionListener(this);// Listener al botón
+        this.vista.jButtonListar.addActionListener(this);// Listener al botón
+        this.vista.jButtonModificar.addActionListener(this);// Listener al botón
     }
 
     
@@ -64,6 +68,22 @@ public class ControlEquipoComputoGUI implements ActionListener {
                 JOptionPane.showMessageDialog(this.vista, "Error con: " + err.getMessage());
             }
 
+        }
+        // Botón de consultar
+        if(e.getSource() == this.vista.jButtonConsultar){
+        
+        }
+        // Botón de listar
+        if(e.getSource() == this.vista.jButtonListar){
+        
+        }
+        // Botón de modificar
+        if(e.getSource() == this.vista.jButtonModificar){
+        
+        }
+        // Botón de Eliminar
+        if(e.getSource() == this.vista.jButtonEliminar){
+        
         }
     }
 
