@@ -133,7 +133,7 @@ public class ControlDocenteGUI implements ActionListener {
             Docente elDocente = new Docente();
             List<Docente> listaDeDocentes;
             
-            String lista = "CEDULA || NOMBRE || APELLIDO || PROFESION ";
+            String lista = "CEDULA || NOMBRE || APELLIDO || PROFESION "+null+"\n";
             
             listaDeDocentes = this.modeloDocenteDao.listarDocentes();
             
@@ -152,6 +152,7 @@ public class ControlDocenteGUI implements ActionListener {
             //se obtienen los datos de la lista        
             //se valida que los datos numéricos no vengan vacios o con datos diferentes a números por conversión de tipos o parseo
             try{
+              
                 this.modeloDocente.setCedula(Integer.parseInt(this.vistaDocente.jTextFieldCed.getText()));
                 
                 this.modeloDocente.setApellidos(this.vistaDocente.jTextFieldApellido.getText());
