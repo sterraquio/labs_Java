@@ -11,21 +11,24 @@ import vista.VistaDocenteGUI;
  *
  * @author UNIVALLE
  */
+//clase que agrega los listeners a los botones de la vista
 public class ControlDocenteGUI implements ActionListener {
+    // atributos 
+    private VistaDocenteGUI vistaDocente;//vista
+    private Docente modeloDocente;//clase docente 
+    private DocenteDAO modeloDocenteDao;//clase docenteDao
 
-    private VistaDocenteGUI vistaDocente;
-    private ControlReservaGUI ctrlReserva;
-    private Docente modeloDocente;
-    private DocenteDAO modeloDocenteDao;
-
+    //constructor
     public ControlDocenteGUI() {
-        this.vistaDocente = new VistaDocenteGUI();
-        this.modeloDocenteDao = new DocenteDAO();
+        this.vistaDocente = new VistaDocenteGUI();//inicializa la vista
+        this.modeloDocenteDao = new DocenteDAO();//inicializa la clase Dao
 
-        vistaDocente.setVisible(true);
-        vistaDocente.jButtonAgregar.addActionListener(this);
+        vistaDocente.setVisible(true);//hace visible la vista
+        vistaDocente.jButtonAgregar.addActionListener(this);//agrega el listener al boton
     }
 
+    
+    //metodo del escucha 
     @Override
     public void actionPerformed(ActionEvent ae) {
         //Registrar 
@@ -35,23 +38,34 @@ public class ControlDocenteGUI implements ActionListener {
                     || this.vistaDocente.jTextFieldNombre.getText().isEmpty()
                     || this.vistaDocente.jTextFieldApellido.getText().isEmpty()
                     || this.vistaDocente.jTextFieldProfesion.getText().isEmpty()) {
+                //el isEmpty sirve para conpara la longitud de una cadena de texto es decir 
+                //que si es 0 devuelve true si no un false,si devuelve 0 es porque esta vacia
 
                 JOptionPane.showMessageDialog(vistaDocente, "Todos los campos deben estar llenos.");
                 return;
             }
+            
             try {
-                modeloDocente = new Docente();
+                modeloDocente = new Docente();//inicializa la clase docente 
 
-                int cedula = Integer.parseInt(this.vistaDocente.jTextFieldCed.getText());
+                //pasa lo que esta en el jtf a una variable
+                int cedula = Integer.parseInt(this.vistaDocente.jTextFieldCed.getText().trim());
+                
 
-                String nombre = this.vistaDocente.jTextFieldNombre.getText().toLowerCase();
+                //pasa lo que esta en el jtf a una variable 
+                String nombre = this.vistaDocente.jTextFieldNombre.getText().toLowerCase().trim();
+                //el toLowerCase convierte los caracteres de la cadena todos en minusculas
+                //el .trim elimina los espacios vacios al inicio y al final
+                //verifica que la variable de tipo String contenga caracteres numericos
                 if (!nombre.matches("[^0-9]+")) {
                     JOptionPane.showMessageDialog(null, "El nombre  no debe contener números.");
-                    this.vistaDocente.jTextFieldNombre.setText("");
-                    this.vistaDocente.jTextFieldNombre.grabFocus();
+                    this.vistaDocente.jTextFieldNombre.setText("");//coloca una cadena "" en el jtf
+                    this.vistaDocente.jTextFieldNombre.grabFocus();//centra el foco en el jtf
                     return;
                 }
-                String Apellido = this.vistaDocente.jTextFieldNombre.getText().toLowerCase();
+                //pasa lo que esta en el jtf a una variable 
+                String Apellido = this.vistaDocente.jTextFieldNombre.getText().toLowerCase().trim();
+                //verifica que la variable de tipo String no contenga caracteres numericos
                 if (!Apellido.matches("[^0-9]+")) {
                     JOptionPane.showMessageDialog(null, "El apellido no debe contener números.");
                     this.vistaDocente.jTextFieldApellido.setText("");
@@ -59,7 +73,9 @@ public class ControlDocenteGUI implements ActionListener {
                     return;
                 }
 
-                String Profesion = this.vistaDocente.jTextFieldNombre.getText().toLowerCase();
+                //pasa lo que esta en el jtf a una variable 
+                String Profesion = this.vistaDocente.jTextFieldNombre.getText().toLowerCase().trim();
+                //verifica que la variable de tipo String no contenga caracteres numericos
                 if (!Profesion.matches("[^0-9]+")) {
                     JOptionPane.showMessageDialog(null, "la profesion no debe contener números.");
                     this.vistaDocente.jTextFieldNombre.setText("");
@@ -67,11 +83,14 @@ public class ControlDocenteGUI implements ActionListener {
                     return;
                 }
 
+                //Despues de las validaciones se asigna a los atributos de Docente
                 modeloDocente.setCedula(cedula);
                 modeloDocente.setNombres(nombre);
                 modeloDocente.setApellidos(Apellido);
                 modeloDocente.setProfesion(Profesion);
+                
 
+                //se utiliza un metodo de la clase docenteDao para agregar un Docente
                 modeloDocenteDao.insertarDocente(modeloDocente);
 
                 javax.swing.JOptionPane.showMessageDialog(vistaDocente, "docente se agrego con exito : " + nombre);
@@ -88,6 +107,8 @@ public class ControlDocenteGUI implements ActionListener {
             }
         }
     }
+    
+    //gets y sets
 
     public VistaDocenteGUI getVistaDocente() {
         return vistaDocente;

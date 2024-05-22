@@ -12,30 +12,34 @@ import vista.VistaReservaGUI;
 import modelo.Reserva;
 import modelo.ReservaDAO;
 
+//clase que agrega los listeners a los botones de la vista
 public class ControlReservaGUI implements ActionListener {
-
-    private Reserva unaReserva;
-    private ReservaDAO unaReservaDao;
-    private VistaReservaGUI vista;
-    private String result;
+    
+    //atributos 
+    private Reserva unaReserva;//clase Reserva
+    private ReservaDAO unaReservaDao; // clase ReservaDao
+    private VistaReservaGUI vista;//vista
+    private String result;//atributo para listar
 
     public ControlReservaGUI() {
-        this.unaReserva = new Reserva();
-        this.unaReservaDao = new ReservaDAO();
-        this.vista = new VistaReservaGUI();
+        this.unaReserva = new Reserva();//inicializo la reserva
+        this.unaReservaDao = new ReservaDAO();//incializo la reservaDao
+        this.vista = new VistaReservaGUI();//inicializo la vista
 
-        this.vista.setVisible(true);
+        this.vista.setVisible(true);//la vista se hace visible
+        //agrega el escucha el listener a los botones
         this.vista.jButtonAgregar.addActionListener(this);
         this.vista.jButtonBuscarReserva.addActionListener(this);
         this.vista.jButtonListar.addActionListener(this);
         this.vista.jButtonRegisDocente.addActionListener(this);
         this.vista.jButtonRegisEquipo.addActionListener(this);
     }
+    //metodo del escucha
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        boolean verdadRegistrar = false;
+        boolean verdadRegistrar = false;//bandera para sabes si se agrego reserva
         int consecutivo;
         int cedDocente;
         int numEquipo;
@@ -55,7 +59,8 @@ public class ControlReservaGUI implements ActionListener {
                         this.unaReserva.getEquipo().setNumeroEquipo(numEquipo);
                         this.unaReserva.getUnDocente().setCedula(cedDocente);
                         unaReservaDao.insertarReserva(unaReserva);
-                        JOptionPane.showMessageDialog(this.vista, "Se ha agregado con éxtioooooooooooooooooo");
+                        JOptionPane.showMessageDialog(this.vista, "Se ha agregado con éxtioooooooooooooooooo"+null+"\n"+
+                                "Numero de reserva : "+this.unaReserva.getNumReserva());
                         this.vista.jTextFieldCedProfe.setText("");
                         this.vista.jTextFieldNumEquip.setText("");
                         verdadRegistrar = true;
@@ -69,8 +74,8 @@ public class ControlReservaGUI implements ActionListener {
         }
 
         //Buscar reserva con los números de la cedula del docente
-        int ced = -1;
-        boolean verdad = false;
+        int ced = -1;//bandera
+        boolean verdad = false;//bandera
         if (e.getSource() == this.vista.jButtonBuscarReserva) {
             try {
                 List<Reserva> lista = unaReservaDao.listarReservas("");
