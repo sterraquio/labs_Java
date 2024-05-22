@@ -118,16 +118,25 @@ public class EquipoComputoDao {
     //Modificar Docente
     public boolean actualizarEquiposComputo(EquipoComputo unEquipo){
         String query= "UPDATE equipocomputo SET numeroInventario=?, marca=?, capacidadDisco=?"
+<<<<<<< Updated upstream
                 + "WHERE numeroInventario=?";
+=======
+                + "WHERE cedula=?";
+>>>>>>> Stashed changes
         
         try{
             this.con= this.miConexion.obtenerconexion();
             
             pst= this.con.prepareStatement(query);
             pst.setInt(1, unEquipo.getNumeroEquipo());
+<<<<<<< Updated upstream
             pst.setString(2, unEquipo.getMarca()+"");
             pst.setString(3, unEquipo.getCapacidadDD());
             pst.setInt(4, unEquipo.getNumeroEquipo());
+=======
+            pst.setString(2, unEquipo.getMarca());
+            pst.setString(3, unEquipo.getCapacidadDD());
+>>>>>>> Stashed changes
             System.out.println(pst);
             pst.execute();
             
