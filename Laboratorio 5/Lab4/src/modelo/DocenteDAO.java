@@ -148,7 +148,8 @@ public class DocenteDAO {
     
     //Eliminar Docente
     public boolean eliminarDocente(int cedula){
-        String query= "DELETE FROM docente WHERE cedula="+cedula;
+        String query= "DELETE FROM docente WHERE cedula = ?";
+
         
         try{
             //Obtener la conexión
