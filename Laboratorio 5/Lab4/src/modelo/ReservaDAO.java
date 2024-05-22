@@ -76,7 +76,7 @@ public class ReservaDAO {
             while (rs.next()) {//se utiliza para mover el cursor al siguiente registro
                 Reserva unaReserva = new Reserva(); //inicializa el objeto
 
-                //unaReserva.setNumReserva(rs.getInt("consecutivo"));
+                unaReserva.setNumReserva(rs.getInt("consecutivo"));
                 unaReserva.setFecha(rs.getTimestamp("fechaReserva"));
                 unaReserva.getUnDocente().setCedula(rs.getInt("docenteCedula"));
                 unaReserva.getEquipo().setNumeroEquipo(rs.getInt("numeroEquipo"));

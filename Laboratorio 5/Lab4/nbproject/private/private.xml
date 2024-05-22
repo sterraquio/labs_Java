@@ -3,20 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/modelo/Conexion.java</file>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/modelo/EquipoComputoDao.java</file>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/modelo/ReservaDAO.java</file>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/modelo/Reserva.java</file>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/vista/VistaEquipoComputoGUI.java</file>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/vista/VistaReservaGUI.java</file>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/modelo/Docente.java</file>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/modelo/DocenteDAO.java</file>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/principal/Principal.java</file>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/controlador/ControlEquipoComputoGUI.java</file>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/controlador/ControlDocenteGUI.java</file>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/controlador/ControlReservaGUI.java</file>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/vista/VistaDocenteGUI.java</file>
-            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%204/Lab4/src/modelo/EquipoComputo.java</file>
+            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%205/Lab4/src/modelo/EquipoComputoDao.java</file>
+            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%205/Lab4/src/modelo/DocenteDAO.java</file>
+            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%205/Lab4/src/modelo/ReservaDAO.java</file>
+            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%205/Lab4/src/controlador/ControlEquipoComputoGUI.java</file>
+            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%205/Lab4/src/modelo/Reserva.java</file>
+            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%205/Lab4/src/modelo/Conexion.java</file>
+            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%205/Lab4/src/vista/VistaReservaGUI.java</file>
+            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%205/Lab4/src/controlador/ControlReservaGUI.java</file>
+            <file>file:/C:/Users/sterr/Desktop/Big/Univalle/Tecn.Desarrollo%20de%20soft/Practicas,%20ejercicios%20y%20proyectos/Java_netbeans/laboratorio/Laboratorio%205/Lab4/src/controlador/ControlDocenteGUI.java</file>
         </group>
     </open-files>
 </project-private>

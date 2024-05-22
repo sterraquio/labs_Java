@@ -7,24 +7,29 @@ import java.util.AbstractList;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
+import javax.swing.table.TableModel;
 import javax.swing.JOptionPane;
+import javax.swing.event.TableModelListener;
 import vista.VistaReservaGUI;
 import modelo.Reserva;
 import modelo.ReservaDAO;
 
 //clase que agrega los listeners a los botones de la vista
-public class ControlReservaGUI implements ActionListener {
-    
+public class ControlReservaGUI implements ActionListener, TableModel {
+
     //atributos 
     private Reserva unaReserva;//clase Reserva
     private ReservaDAO unaReservaDao; // clase ReservaDao
     private VistaReservaGUI vista;//vista
     private String result;//atributo para listar
+    private List<Reserva> listaReservas;
 
+    //Constructor
     public ControlReservaGUI() {
         this.unaReserva = new Reserva();//inicializo la reserva
         this.unaReservaDao = new ReservaDAO();//incializo la reservaDao
         this.vista = new VistaReservaGUI();//inicializo la vista
+        this.listaReservas = unaReservaDao.listarReservas(""); //Inicializo lista para mostrar las reservas
 
         this.vista.setVisible(true);//la vista se hace visible
         //agrega el escucha el listener a los botones
@@ -53,14 +58,14 @@ public class ControlReservaGUI implements ActionListener {
             for (Reserva reserva : lista) {
                 //Por qué no funciona está validación???
                 if (cedDocente == reserva.getUnDocente().getCedula() && numEquipo == reserva.getEquipo().getNumeroEquipo()) { //cedDocente == reserva.getUnDocente().getCedula()
-                    if (true ) { //numEquipo == reserva.getEquipo().getNumeroEquipo()
+                    if (true) { //numEquipo == reserva.getEquipo().getNumeroEquipo()
                         //this.unaReserva.setNumReserva(reserva.getNumReserva() + 1);
                         this.unaReserva.setFecha(fechaHora);
                         this.unaReserva.getEquipo().setNumeroEquipo(numEquipo);
                         this.unaReserva.getUnDocente().setCedula(cedDocente);
                         unaReservaDao.insertarReserva(unaReserva);
-                        JOptionPane.showMessageDialog(this.vista, "Se ha agregado con éxtioooooooooooooooooo"+null+"\n"+
-                                "Numero de reserva : "+this.unaReserva.getNumReserva());
+                        JOptionPane.showMessageDialog(this.vista, "Se ha agregado con éxtioooooooooooooooooo" + null + "\n"
+                                + "Numero de reserva : " + this.unaReserva.getNumReserva());
                         this.vista.jTextFieldCedProfe.setText("");
                         this.vista.jTextFieldNumEquip.setText("");
                         verdadRegistrar = true;
@@ -122,6 +127,92 @@ public class ControlReservaGUI implements ActionListener {
         if (e.getSource() == this.vista.jButtonRegisEquipo) {
             ControlEquipoComputoGUI vistaComputo = new ControlEquipoComputoGUI();
         }
+
+    }
+
+    @Override
+    public int getRowCount() {
+        //Cantidad de filas, es decir, datos/filas
+        return listaReservas.size();
+    }
+
+    @Override
+    public int getColumnCount() {
+        //Cantidad de columnas
+        return 4;
+    }
+
+    @Override
+    //Método para asignarle nombre a cada columna
+    public String getColumnName(int columnIndex) {
+        String titulo = null;
+        // Para darle nombre a cada columna
+        switch (columnIndex) {
+
+            case 0:
+                titulo = "Consecutivo";
+                break;
+            case 1:
+                titulo = "Fecha Reserva";
+                break;
+            case 2:
+                titulo = "Cedula del docente";
+                break;
+            case 3:
+                titulo = "Numero de equipo";
+                break;
+        }
+        return titulo;
+    }
+
+    @Override
+    public Class<?> getColumnClass(int columnIndex) {
+        //Retorna el tipo de clase que es cada columna
+        return this.listaReservas.getClass();
+    }
+
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        // Hace que no se puedan editar la tabla
+        return columnIndex != 0;
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        Reserva reservita = listaReservas.get(rowIndex);
+        
+        //Insertar los valores a la tabla
+        switch (columnIndex) {
+            
+            case 0:
+                reservita.getNumReserva();
+                break;
+            case 1:
+                reservita.getFecha();
+                break;
+            case 2:
+                reservita.getUnDocente().getCedula();
+                break;
+            case 3:
+                reservita.getEquipo().getNumeroEquipo();
+                break;
+        }
+        //Debe retornar un objeto completo
+        return reservita;
+    }
+
+    @Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+
+    }
+
+    @Override
+    public void addTableModelListener(TableModelListener l) {
+
+    }
+
+    @Override
+    public void removeTableModelListener(TableModelListener l) {
 
     }
 
