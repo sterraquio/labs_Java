@@ -173,7 +173,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonRegisEquipo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Registrar Equipo Computo"/>
+        <Property name="text" type="java.lang.String" value="Equipo de computos"/>
         <Property name="actionCommand" type="java.lang.String" value="Equipo Computo"/>
       </Properties>
       <AuxValues>

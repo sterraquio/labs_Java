@@ -61,7 +61,7 @@ public class VistaReservaGUI extends javax.swing.JFrame {
 
         jButtonRegisDocente.setText("Docente");
 
-        jButtonRegisEquipo.setText("Registrar Equipo Computo");
+        jButtonRegisEquipo.setText("Equipo de computos");
         jButtonRegisEquipo.setActionCommand("Equipo Computo");
 
         jLabel5.setText("Acciones para reservas");
