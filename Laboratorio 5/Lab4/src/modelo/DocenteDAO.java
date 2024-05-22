@@ -5,6 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 
@@ -49,6 +53,100 @@ public class DocenteDAO {
             return false;
         }
             
+        
+    }
+    
+    
+    //Consultar Persona
+    public Docente consultarDocente(int cedula){
+        String query = "SELECT * FROM persona WHERE id = ?";
+        Docente unDocente= new Docente();
+        
+        try{
+            this.con= this.miConexion.obtenerconexion();
+            pst = this.con.prepareStatement(query);
+            
+            //se pasan los parametro ingresados por el usuario
+            pst.setInt(1, cedula);
+            System.out.println("contenido del query:\n"+pst);
+            rs= pst.executeQuery();
+            
+            if(rs.next()){
+                unDocente.setCedula(rs.getInt("id"));
+                cedula_docente= unDocente.getCedula();
+                
+                unDocente.setNombres(rs.getString("nombres"));
+                nombres_docente= unDocente.getNombres();
+                
+                unDocente.setApellidos(rs.getString("apellidos"));
+                apellidos_docente= unDocente.getApellidos();
+                
+                unDocente.setProfesion(rs.getString("profesion"));
+                profesion_docente= unDocente.getProfesion();
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Docente no encontrado ");
+            }
+            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener los datos del docente: "+e);
+        }
+        
+        return unDocente;
+    }
+    
+    //Listar personas
+    public List listarPesonas(){
+        List<Docente> ListaDocentes = new ArrayList();
+        String query = "SELECT * FROM persona ORDER BY nombres ASC";
+                
+        try{
+            this.con= this.miConexion.obtenerconexion();
+            
+            pst= this.con.prepareStatement(query);
+            rs= pst.executeQuery();            
+            
+            while(rs.next()){
+                Docente unDocente= new Docente();
+                
+                unDocente.setCedula(rs.getInt("id"));
+                unDocente.setNombres(rs.getString("nombres"));
+                unDocente.setApellidos(rs.getInt("Edad"));
+                unDocente.set(rs.getString("user"));
+                listaPersonas.add(unaPersona);
+            }
+            
+        }catch(SQLException e ){
+            JOptionPane.showMessageDialog(null, "Error al listar los datos: "+e);
+        }
+        
+        return listaPersonas;
+    }
+    
+    //Modificar Persona
+    public boolean actualizarPersona(Persona unaPersona){
+        String query= "UPDATE persona SET nombres=?, edad=?, user=?, actualizado=?"
+                + "WHERE id=?";
+        Timestamp fechaHora = new Timestamp(new Date().getTime());
+        
+        try{
+            this.con= this.miConexion.obtenerconexion();
+            
+            pst= this.con.prepareStatement(query);
+            pst.setString(1, unaPersona.getNombres());
+            pst.setInt(2, unaPersona.getEdad());
+            pst.setString(3, unaPersona.getUser());
+            pst.setTimestamp(4, fechaHora);
+            pst.setInt(5, unaPersona.getCedula());
+            System.out.println(pst);
+            pst.execute();
+            
+            return true;
+        }catch(SQLException e){
+            
+            JOptionPane.showMessageDialog(null, "Error al modificar los datos (Clase DAO):\n"+e);
+            return false;
+        }
         
     }
     
