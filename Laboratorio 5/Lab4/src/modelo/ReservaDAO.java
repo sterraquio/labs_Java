@@ -142,6 +142,24 @@ public class ReservaDAO {
         }
         
     }
+    
+    
+    public boolean modificarReserva(Reserva unaReserva){
+        String query = "UPDATE reserva SET fk_docenteCedula =?, fk_numeroEquipo =? WHERE consecutivo="+unaReserva.getNumReserva();
+        
+        try{
+            this.con = this.miConexion.obtenerconexion();
+            pst = this.con.prepareStatement(query);
+            pst.setString(1, unaReserva.getUnDocente()+"");
+            pst.setString(2, this.unaReserva.getEquipo()+"");
+            System.out.println("pst = " + pst);
+            
+            return true;
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "ocurrio un error : "+e.getMessage());
+            return false;
+        }
+    }
    
 
 }

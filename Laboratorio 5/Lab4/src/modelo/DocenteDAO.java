@@ -123,7 +123,7 @@ public class DocenteDAO {
     
     //Modificar Docente
     public boolean actualizarDocente(Docente unDocente){
-        String query= "UPDATE docente SET cedula=?, nombres=?, apellidos=?, profesion=? WHERE cedula=?";
+        String query= "UPDATE docente SET cedula=?, nombres=?, apellidos=?, profesion=? WHERE cedula="+unDocente.getCedula();
                 
         
         try{
@@ -134,7 +134,7 @@ public class DocenteDAO {
             pst.setString(2, unDocente.getNombres());
             pst.setString(3, unDocente.getApellidos());
             pst.setString(4, unDocente.getProfesion());
-            pst.setInt(5, unDocente.getCedula());
+           
             System.out.println(pst);
             pst.execute();
             
