@@ -114,19 +114,26 @@ public class ControlEquipoComputoGUI implements ActionListener {
         }
         // Botón de modificar
         if (e.getSource() == this.vista.jButtonModificar) {
+            //Validar que no hayan letras en los campos
             try {
                 //Validación si ya se hizo previamente la consulta del equipo
-                if(verdad){
-                
+                if (verdad) {
+
                     //Guardar en un objeto los datos que se quieren modificar
                     this.unEquipo.setNumeroEquipo(Integer.parseInt(this.vista.jTextFieldNumInvent.getText()));
                     this.unEquipo.setCapacidadDD(this.vista.jTextFieldCapacidadDD.getText() + " GB");
                     this.unEquipo.setMarca(this.vista.jTextFieldMarca.getText());
                     //Validar si los campos no estén vacíos
-                    if(!this.unEquipo.getMarca().equals("")&& !this.unEquipo.getCapacidadDD().equals("") ){
-                    
-                    }else{
-                    JOptionPane.showMessageDialog(this.vista, "No se pueden actualizar los datos \n Datos no actualizados");
+                    if (!this.unEquipo.getMarca().equals("") && !this.unEquipo.getCapacidadDD().equals("")) {
+                        //Ejecutar método para insertar los datos en la base de datos
+                        if (this.unEquipoDao.actualizarEquiposComputo(unEquipo)) {
+                            JOptionPane.showMessageDialog(this.vista, "Se ha actualizado con éxtio");
+                            this.vista.jTextFieldCapacidadDD.setText("");
+                            this.vista.jTextFieldMarca.setText("");
+                            this.vista.jTextFieldNumInvent.setText("");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this.vista, "No se pueden actualizar los datos \n Datos no actualizados");
                     }
                 }
 
@@ -136,7 +143,18 @@ public class ControlEquipoComputoGUI implements ActionListener {
         }
         // Botón de Eliminar
         if (e.getSource() == this.vista.jButtonEliminar) {
+            try {
+                int inventario = Integer.parseInt(this.vista.jTextFieldNumInvent.getText());
+                if (this.unEquipoDao.eliminarPersona(inventario)) {
+                    JOptionPane.showMessageDialog(this.vista, "Datos ELIMINADOSSSSSSSSSSSSSS");
+                    this.vista.jTextFieldNumInvent.setText("");
+                }else{
+                  JOptionPane.showMessageDialog(this.vista, "No se ha eliminado :c");
+                }
 
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this.vista, "El campo de Número de inventario es obligatorio\nY debe estar en formato númerico");
+            }
         }
     }
 
