@@ -59,7 +59,7 @@ public class DocenteDAO {
     
     //Consultar Persona
     public Docente consultarDocente(int cedula){
-        String query = "SELECT * FROM persona WHERE id = ?";
+        String query = "SELECT * FROM docente WHERE cedula = ?";
         Docente unDocente= new Docente();
         
         try{
@@ -72,7 +72,7 @@ public class DocenteDAO {
             rs= pst.executeQuery();
             
             if(rs.next()){
-                unDocente.setCedula(rs.getInt("id"));
+                unDocente.setCedula(rs.getInt("cedula"));
                 cedula_docente= unDocente.getCedula();
                 
                 unDocente.setNombres(rs.getString("nombres"));
@@ -96,9 +96,9 @@ public class DocenteDAO {
     }
     
     //Listar personas
-    public List listarPesonas(){
+    public List listarDocentes(){
         List<Docente> ListaDocentes = new ArrayList();
-        String query = "SELECT * FROM persona ORDER BY nombres ASC";
+        String query = "SELECT * FROM docente ORDER BY cedula ASC";
                 
         try{
             this.con= this.miConexion.obtenerconexion();
@@ -109,35 +109,33 @@ public class DocenteDAO {
             while(rs.next()){
                 Docente unDocente= new Docente();
                 
-                unDocente.setCedula(rs.getInt("id"));
+                unDocente.setCedula(rs.getInt("cedula"));
                 unDocente.setNombres(rs.getString("nombres"));
-                unDocente.setApellidos(rs.getInt("Edad"));
-                unDocente.set(rs.getString("user"));
-                listaPersonas.add(unaPersona);
+                unDocente.setApellidos(rs.getString("apellidos"));
+                unDocente.setProfesion(rs.getString("profesion"));
+                ListaDocentes.add(unDocente);
             }
             
         }catch(SQLException e ){
             JOptionPane.showMessageDialog(null, "Error al listar los datos: "+e);
         }
         
-        return listaPersonas;
+        return ListaDocentes;
     }
     
     //Modificar Persona
-    public boolean actualizarPersona(Persona unaPersona){
-        String query= "UPDATE persona SET nombres=?, edad=?, user=?, actualizado=?"
-                + "WHERE id=?";
-        Timestamp fechaHora = new Timestamp(new Date().getTime());
+    public boolean actualizarDocente(Docente unDocente){
+        String query= "UPDATE docente SET cedula=?, nombres=?, apellidos=?, profesion=?"
+                + "WHERE cedula=?";
         
         try{
             this.con= this.miConexion.obtenerconexion();
             
             pst= this.con.prepareStatement(query);
-            pst.setString(1, unaPersona.getNombres());
-            pst.setInt(2, unaPersona.getEdad());
-            pst.setString(3, unaPersona.getUser());
-            pst.setTimestamp(4, fechaHora);
-            pst.setInt(5, unaPersona.getCedula());
+            pst.setInt(1, unDocente.getCedula());
+            pst.setString(2, unDocente.getNombres());
+            pst.setString(3, unDocente.getApellidos());
+            pst.setString(4, unDocente.getProfesion());
             System.out.println(pst);
             pst.execute();
             
@@ -145,6 +143,27 @@ public class DocenteDAO {
         }catch(SQLException e){
             
             JOptionPane.showMessageDialog(null, "Error al modificar los datos (Clase DAO):\n"+e);
+            return false;
+        }
+        
+    }
+    
+    //Eliminar Persona
+    public boolean eliminarPersona(int cedula){
+        String query= "DELETE FROM docente WHERE cedula="+cedula;
+        
+        try{
+            //Obtener la conexión
+            this.con= this.miConexion.obtenerconexion();
+            //Pasar la consulta
+            pst = this.con.prepareStatement(query);
+            System.out.println(pst);
+            //Ejecutar la consulta
+            pst.execute();
+            
+            return true;
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al eliminar los datos: "+e);
             return false;
         }
         

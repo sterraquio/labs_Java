@@ -68,18 +68,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonBuscarReserva" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonAgregar" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonListar" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jbt_LisDocente" max="32767" attributes="0"/>
-                                  <Component id="jButtonRegisDocente" max="32767" attributes="0"/>
-                                  <Component id="jbt_BusDocente" min="-2" pref="144" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jButtonRegisDocente" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -89,21 +83,11 @@
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jbt_BusEquipo" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jbt_LisEquipos" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jButtonRegisEquipo" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jButtonRegisEquipo" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="126" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -134,37 +118,13 @@
                           <Component id="jButtonAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonRegisEquipo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonBuscarReserva" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jbt_BusEquipo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButtonListar" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="jbt_LisEquipos" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="jButtonRegisDocente" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jbt_BusDocente" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="jbt_LisDocente" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="115" max="32767" attributes="0"/>
+              <EmptySpace pref="245" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -177,7 +137,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonAgregar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Agregar reserva"/>
+        <Property name="text" type="java.lang.String" value="Reservas"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -203,25 +163,9 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonListar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Listar Reservas"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButtonBuscarReserva">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Buscar reserva"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JButton" name="jButtonRegisDocente">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Registar Docente"/>
+        <Property name="text" type="java.lang.String" value="Docente"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -230,6 +174,7 @@
     <Component class="javax.swing.JButton" name="jButtonRegisEquipo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrar Equipo Computo"/>
+        <Property name="actionCommand" type="java.lang.String" value="Equipo Computo"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -248,48 +193,6 @@
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="text" type="java.lang.String" value="Acciones para Equipos Computo"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbt_BusDocente">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Buscar Docente"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbt_LisDocente">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Listar Docentes"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbt_BusEquipo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Buscar Equipo Computo"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbt_LisEquipos">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Listar Equipos Computo"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Modificar Reserva"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jButton2"/>
       </Properties>
     </Component>
   </SubComponents>
