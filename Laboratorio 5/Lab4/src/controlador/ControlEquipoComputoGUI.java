@@ -117,7 +117,7 @@ public class ControlEquipoComputoGUI implements ActionListener {
             //Validar que no hayan letras en los campos
             try {
                 //Validación si ya se hizo previamente la consulta del equipo
-                if (verdad) {
+                if (true) {
 
                     //Guardar en un objeto los datos que se quieren modificar
                     this.unEquipo.setNumeroEquipo(Integer.parseInt(this.vista.jTextFieldNumInvent.getText()));
@@ -131,10 +131,16 @@ public class ControlEquipoComputoGUI implements ActionListener {
                             this.vista.jTextFieldCapacidadDD.setText("");
                             this.vista.jTextFieldMarca.setText("");
                             this.vista.jTextFieldNumInvent.setText("");
+                        } else {
+                            JOptionPane.showMessageDialog(this.vista, "Datos no actualizados!!!");
+
                         }
                     } else {
                         JOptionPane.showMessageDialog(this.vista, "No se pueden actualizar los datos \n Datos no actualizados");
                     }
+                } else {
+                    JOptionPane.showMessageDialog(this.vista, "error con el primer If");
+
                 }
 
             } catch (NumberFormatException ex) {
@@ -148,8 +154,8 @@ public class ControlEquipoComputoGUI implements ActionListener {
                 if (this.unEquipoDao.eliminarPersona(inventario)) {
                     JOptionPane.showMessageDialog(this.vista, "Datos ELIMINADOSSSSSSSSSSSSSS");
                     this.vista.jTextFieldNumInvent.setText("");
-                }else{
-                  JOptionPane.showMessageDialog(this.vista, "No se ha eliminado :c");
+                } else {
+                    JOptionPane.showMessageDialog(this.vista, "No se ha eliminado :c");
                 }
 
             } catch (NumberFormatException ex) {
