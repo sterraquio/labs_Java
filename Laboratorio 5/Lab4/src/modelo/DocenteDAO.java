@@ -5,9 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -95,7 +93,7 @@ public class DocenteDAO {
         return unDocente;
     }
     
-    //Listar personas
+    //Listar Docente
     public List listarDocentes(){
         List<Docente> ListaDocentes = new ArrayList();
         String query = "SELECT * FROM docente ORDER BY cedula ASC";
@@ -123,7 +121,7 @@ public class DocenteDAO {
         return ListaDocentes;
     }
     
-    //Modificar Persona
+    //Modificar Docente
     public boolean actualizarDocente(Docente unDocente){
         String query= "UPDATE docente SET cedula=?, nombres=?, apellidos=?, profesion=?"
                 + "WHERE cedula=?";
@@ -148,7 +146,7 @@ public class DocenteDAO {
         
     }
     
-    //Eliminar Persona
+    //Eliminar Docente
     public boolean eliminarPersona(int cedula){
         String query= "DELETE FROM docente WHERE cedula="+cedula;
         
