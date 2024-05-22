@@ -92,19 +92,22 @@ public class ReservaDAO {
 
     //Buscar
     public Reserva buscarReserva(int docenteCedula) {
+        //busca una de la tabla reserva el campo donde la cedula sea igual al indicador "?" donde sera proporcionado
+        //mas tarde de manera dinamica 
         String query = "SELECT * FROM reserva WHERE docenteCedula = ?";
-        Reserva unaReserva = new Reserva();
+        Reserva unaReserva = new Reserva();//inicializa el objeto
 
         try {
-            this.con = this.miConexion.obtenerconexion();
-            pst = this.con.prepareStatement(query);
+            this.con = this.miConexion.obtenerconexion();//conexion
+            pst = this.con.prepareStatement(query);//prepara para una operacion
 
             //se pasan los parametro ingresados por el usuario
-            pst.setInt(1, docenteCedula);
+            pst.setInt(1, docenteCedula);//se pasa docenteCedula a "?"
             System.out.println("contenido del query:\n" + pst);
-            rs = pst.executeQuery();
+            rs = pst.executeQuery();//se ejecuta la consulta preparada y se obtiene los resultados
 
             if (rs.next()) {
+                // se recuperan los datos de la consulta y se asignan a objetos de reserva
                 unaReserva.setNumReserva(rs.getInt("consecutivo"));
                 consecutivo_reserva = unaReserva.getNumReserva();
                 unaReserva.setFecha(rs.getTimestamp("fechaReserva"));
