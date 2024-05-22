@@ -5,9 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -25,9 +23,9 @@ public class EquipoComputoDao {
     public static String marcaEquipo = "";
     public static String capacidadDDEquipo = "";
 
-    //Registar persona
+    //Registar un Equipo Computo
     
-    public boolean insertarPersona(EquipoComputo unEquipo) {
+    public boolean insertarEquicoComputo(EquipoComputo unEquipo) {
          //insertar datos en una tabla 
         //insert into permite agregar una nueva fila a la tabla de la bd
         //primero van los encabezados de la tabla y despues los valores que se agregan en la casillas
@@ -52,8 +50,8 @@ public class EquipoComputoDao {
 
     }
   
-    //Consultar Persona
-    public Docente consultarDocente(int cedula){
+    //Consultar EquipoComputo
+    public EquipoComputo consultarEquiposComputo(int numInventario){
         String query = "SELECT * FROM equipocomputo WHERE numeroInventario = ?";
         EquipoComputo unEquipo= new EquipoComputo();
         
@@ -62,18 +60,19 @@ public class EquipoComputoDao {
             pst = this.con.prepareStatement(query);
             
             //se pasan los parametro ingresados por el usuario
-            pst.setInt(1, cedula);
+            pst.setInt(1, numInventario);
             System.out.println("contenido del query:\n"+pst);
             rs= pst.executeQuery();
             
             if(rs.next()){
                 unEquipo.setNumeroEquipo(rs.getInt("numeroInventario"));
                 numInventarioEquipo = unEquipo.getNumeroEquipo();
-                unEquipo.setNombres(rs.getString("nombres"));
-                nombres_docente= unDocente.getNombres();
                 
-                unEquipo.setApellidos(rs.getString("apellidos"));
-                apellidos_docente= unDocente.getApellidos();
+                unEquipo.setMarca(rs.getString("marca"));
+                marcaEquipo= unEquipo.getMarca();
+               
+                unEquipo.setCapacidadDD(rs.getString("capacidadDisco"));
+                capacidadDDEquipo= unEquipo.getCapacidadDD();
                 
                 
                 
@@ -85,13 +84,13 @@ public class EquipoComputoDao {
             JOptionPane.showMessageDialog(null, "Error al obtener los datos del docente: "+e);
         }
         
-        return unDocente;
+        return unEquipo;
     }
     
-    //Listar Docente
-    public List listarDocentes(){
-        List<Docente> ListaDocentes = new ArrayList();
-        String query = "SELECT * FROM docente ORDER BY cedula ASC";
+    //Listar EquiposComputo
+    public List listarEquipos(){
+        List<EquipoComputo> ListaEquipos = new ArrayList();
+        String query = "SELECT * FROM equipocomputo ORDER BY numeroInventario ASC";
                 
         try{
             this.con= this.miConexion.obtenerconexion();
@@ -100,35 +99,34 @@ public class EquipoComputoDao {
             rs= pst.executeQuery();            
             
             while(rs.next()){
-                Docente unDocente= new Docente();
+                EquipoComputo unEquipo= new EquipoComputo();
                 
-                unDocente.setCedula(rs.getInt("cedula"));
-                unDocente.setNombres(rs.getString("nombres"));
-                unDocente.setApellidos(rs.getString("apellidos"));
-                unDocente.setProfesion(rs.getString("profesion"));
-                ListaDocentes.add(unDocente);
+                unEquipo.setNumeroEquipo(rs.getInt("numeroInventario"));
+                unEquipo.setMarca(rs.getString("marca"));
+                unEquipo.setCapacidadDD(rs.getString("capacidadDisco"));
+                
+                ListaEquipos.add(unEquipo);
             }
             
         }catch(SQLException e ){
             JOptionPane.showMessageDialog(null, "Error al listar los datos: "+e);
         }
         
-        return ListaDocentes;
+        return ListaEquipos;
     }
     
     //Modificar Docente
-    public boolean actualizarDocente(Docente unDocente){
-        String query= "UPDATE docente SET cedula=?, nombres=?, apellidos=?, profesion=?"
+    public boolean actualizarEquiposComputo(EquipoComputo unEquipo){
+        String query= "UPDATE equipocomputo SET numeroInventario=?, marca=?, capacidadDisco=?"
                 + "WHERE cedula=?";
         
         try{
             this.con= this.miConexion.obtenerconexion();
             
             pst= this.con.prepareStatement(query);
-            pst.setInt(1, unDocente.getCedula());
-            pst.setString(2, unDocente.getNombres());
-            pst.setString(3, unDocente.getApellidos());
-            pst.setString(4, unDocente.getProfesion());
+            pst.setInt(1, unEquipo.getNumeroEquipo());
+            pst.setString(2, unEquipo.getMarca());
+            pst.setString(3, unEquipo.getCapacidadDD());
             System.out.println(pst);
             pst.execute();
             
@@ -143,7 +141,7 @@ public class EquipoComputoDao {
     
     //Eliminar Docente
     public boolean eliminarPersona(int cedula){
-        String query= "DELETE FROM docente WHERE cedula="+cedula;
+        String query= "DELETE FROM equipocomputo WHERE numeroInventario="+cedula;
         
         try{
             //Obtener la conexión
