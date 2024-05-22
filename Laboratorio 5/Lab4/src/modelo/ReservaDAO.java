@@ -90,7 +90,7 @@ public class ReservaDAO {
         return listaReservas;
     }
 
-    //Buscar
+    //Buscar reserva con la cedula del docente
     public Reserva buscarReserva(int docenteCedula) {
         //busca una de la tabla reserva el campo donde la cedula sea igual al indicador "?" donde sera proporcionado
         //mas tarde de manera dinamica 
@@ -124,7 +124,7 @@ public class ReservaDAO {
 
         return unaReserva;
     }
-    
+    //Eliminar reserva con el número de reserva
     public boolean EliminarReserva(int numeroReserva){
         String query = "SELECT * FROM reserva WHERE consecutivo ="+numeroReserva;
         

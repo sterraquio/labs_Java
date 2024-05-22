@@ -56,29 +56,28 @@ public class ControlReservaGUI implements ActionListener {
             cedDocente = Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
             numEquipo = Integer.parseInt(this.vista.jTextFieldNumEquip.getText());
             for (Reserva reserva : lista) {
-                //Por qué no funciona está validación???
-                if (true) {
+                try {
                     if (true) {
-                        //this.unaReserva.setNumReserva(reserva.getNumReserva() + 1);
-                        this.unaReserva.setFecha(fechaHora);
-                        this.unaReserva.getEquipo().setNumeroEquipo(numEquipo);
-                        this.unaReserva.getUnDocente().setCedula(cedDocente);
-                        if (unaReservaDao.insertarReserva(unaReserva)) {
+                        if (true) {
+                            //this.unaReserva.setNumReserva(reserva.getNumReserva() + 1);
+                            this.unaReserva.setFecha(fechaHora);
+                            this.unaReserva.getEquipo().setNumeroEquipo(numEquipo);
+                            this.unaReserva.getUnDocente().setCedula(cedDocente);
+                            if (unaReservaDao.insertarReserva(unaReserva)) {
 
-                            JOptionPane.showMessageDialog(this.vista, "Se ha agregado con éxtioooooooooooooooooo" + null + "\n"
-                                    + "Numero de reserva : " + this.unaReserva.getNumReserva());
-                        this.vista.jTextFieldCedProfe.setText("");
-                        this.vista.jTextFieldNumEquip.setText("");
-                        }else{
-                        JOptionPane.showMessageDialog(this.vista, "No se ha ingresado, porque ");
+                                JOptionPane.showMessageDialog(this.vista, "Se ha agregado con éxtioooooooooooooooooo");
+                                this.vista.jTextFieldCedProfe.setText("");
+                                this.vista.jTextFieldNumEquip.setText("");
+                            } else {
+                                JOptionPane.showMessageDialog(this.vista, "No se ha ingresado, porque no se ha encontrado la cedula del docente o el numero del equipo ");
+                            }
+                            verdadRegistrar = true;
+                            break;
                         }
-                        verdadRegistrar = true;
-                        break;
                     }
+                } catch (NumberFormatException exd) {
+                    JOptionPane.showMessageDialog(this.vista, "Los campos deben ser números y deben tener algún valor");
                 }
-            }
-            if (!verdadRegistrar) {
-                JOptionPane.showMessageDialog(this.vista, "error, no coincide la CÉDULA del profesor o el NÚMERO de inventario del equipo de computo con la base de datos.");
             }
         }
 
@@ -87,24 +86,7 @@ public class ControlReservaGUI implements ActionListener {
         boolean verdad = false;//bandera
         if (e.getSource() == this.vista.jButtonBuscarReserva) {
             try {
-                List<Reserva> lista = unaReservaDao.listarReservas("");
-                ced = Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
-                for (Reserva reserva : lista) {
-                    if (ced == reserva.getUnDocente().getCedula()) {
-                        Reserva reservita = unaReservaDao.buscarReserva(ced);
-                        String mensajito = "Número de Reserva: " + reservita.getNumReserva() + "\n"
-                                + "Fecha: " + reservita.getFecha() + "\n"
-                                + "Cédula del Docente: " + reservita.getUnDocente().getCedula() + "\n"
-                                + "Número de Equipo: " + reservita.getEquipo().getNumeroEquipo();
-                        JOptionPane.showMessageDialog(null, mensajito, "Detalles de la Reserva", JOptionPane.INFORMATION_MESSAGE);
-                        this.vista.jTextFieldCedProfe.setText("");
-                        verdad = true;
-                        break;
-                    }
-                }
-                if (!verdad) {
-                    JOptionPane.showMessageDialog(this.vista, "La cedula ingresada no coincide con ninguna de la base de datos.");
-                }
+              
             } catch (NumberFormatException exd) {
                 JOptionPane.showMessageDialog(this.vista, "Error, debe haber números en la seccion de las cedula del docente");
             }
