@@ -62,7 +62,7 @@ CREATE TABLE `equipocomputo` (
 
 INSERT INTO `equipocomputo` (`numeroInventario`, `marca`, `capacidadDisco`) VALUES
 (0, 'hp', '512 GB'),
-(1, 'asda', 'asdasGB'),
+(1, 'asda', '512GB'),
 (2, 'ferrari', '1024GB'),
 (3, 'razer', '1024GB');
 
