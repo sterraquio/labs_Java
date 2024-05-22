@@ -6,14 +6,17 @@ import javax.swing.JOptionPane;
 import vista.VistaEquipoComputoGUI;
 import modelo.EquipoComputo;
 import modelo.EquipoComputoDao;
+import java.util.List;
 
 //clase que agrega los listeners a los botones de la vista
 public class ControlEquipoComputoGUI implements ActionListener {
+
     //atributos
+    private boolean consultado = false;
     private VistaEquipoComputoGUI vista;//vista
     private EquipoComputo unEquipo;//Clase EquipoComputo
     private EquipoComputoDao unEquipoDao;//Clase EquipoComputoDao
-        
+
     //constructor
     public ControlEquipoComputoGUI() {
         this.vista = new VistaEquipoComputoGUI();//inicializa la vista  
@@ -28,10 +31,10 @@ public class ControlEquipoComputoGUI implements ActionListener {
         this.vista.jButtonModificar.addActionListener(this);// Listener al botón
     }
 
-    
     //metodo del escucha 
     @Override
     public void actionPerformed(ActionEvent e) {
+        boolean verdad = false;//Variable para saber si se hizo la consulta de manera correcta
         //Boton agregar 
         if (e.getSource() == this.vista.jButtonAgregar) {
             //validaciones
@@ -42,12 +45,12 @@ public class ControlEquipoComputoGUI implements ActionListener {
                 String capacidadDD = this.vista.jTextFieldCapacidadDD.getText().trim() + "GB";
                 //el toLowerCase convierte los caracteres de la cadena todos en minusculas 
                 //el .trim elimina los espacios vacios al inicio y al final
-                
+
                 if (numInventario >= 0) {
                     if (!marca.equals("") || !capacidadDD.equals("")) {//verifica que no tenga cadenas de texto vacias
-                        if (!marca.matches("[^0-9]+" )) {//verifica que si contiene caracteres de tipo numerico
+                        if (!marca.matches("[^0-9]+")) {//verifica que si contiene caracteres de tipo numerico
                             JOptionPane.showMessageDialog(this.vista, "El recuadro de marca no debe tener números");
-                        }else{
+                        } else {
                             //Despues de las validaciones se asigna a los atributos de EquipoComputo
                             this.unEquipo.setNumeroEquipo(numInventario);
                             this.unEquipo.setMarca(marca);
@@ -69,22 +72,71 @@ public class ControlEquipoComputoGUI implements ActionListener {
             }
 
         }
-        
+
         // Botón de consultar
-        if(e.getSource() == this.vista.jButtonConsultar){
-        
+        if (e.getSource() == this.vista.jButtonConsultar) {
+            try {
+                if (true) {
+
+                    //Poner en un objeto el resultado del método consultaEquipos
+                    this.unEquipo = this.unEquipoDao.consultarEquiposComputo(Integer.parseInt(this.vista.jTextFieldNumInvent.getText()));
+
+                    //Poner en los Texfield la consulta
+                    this.vista.jTextFieldCapacidadDD.setText(this.unEquipo.getCapacidadDD());
+                    this.vista.jTextFieldMarca.setText(this.unEquipo.getMarca());
+                    verdad = true;
+                } else if (!verdad) {
+                    JOptionPane.showMessageDialog(this.vista, "No se ha encontrado el equipo con ese número.");
+                }
+
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this.vista, "El campo Número de inventario es obligatorio\nY deben ser en formato numérico");
+            }
+
         }
         // Botón de listar
-        if(e.getSource() == this.vista.jButtonListar){
-        
+        if (e.getSource() == this.vista.jButtonListar) {
+            EquipoComputo equipitoTemp = new EquipoComputo();//Crear un nuevo objeto para almacenar el resultado del la lista que contendra el método listarEquipos
+            List<EquipoComputo> ListaEquipito;//Lista que almacenará lo retornado por el método listar
+
+            String resultado = "#invetario--Capacidad--Marca";//Para separar los atributos de la consulta
+
+            ListaEquipito = this.unEquipoDao.listarEquipos();//Asignar a la lista el reusltado del método
+
+            for (int i = 0; i < ListaEquipito.size(); i++) {//Búcle para acceder a todos los datos de la tabla
+                equipitoTemp = ListaEquipito.get(i);
+
+                //Almacenar los resultados de la lista
+                resultado += equipitoTemp.getNumeroEquipo() + "--" + equipitoTemp.getCapacidadDD() + "--" + equipitoTemp.getMarca() + "\n";
+
+            }
+            JOptionPane.showMessageDialog(this.vista, resultado);//Mostrar el resultado de la lista
         }
         // Botón de modificar
-        if(e.getSource() == this.vista.jButtonModificar){
-        
+        if (e.getSource() == this.vista.jButtonModificar) {
+            try {
+                //Validación si ya se hizo previamente la consulta del equipo
+                if(verdad){
+                
+                    //Guardar en un objeto los datos que se quieren modificar
+                    this.unEquipo.setNumeroEquipo(Integer.parseInt(this.vista.jTextFieldNumInvent.getText()));
+                    this.unEquipo.setCapacidadDD(this.vista.jTextFieldCapacidadDD.getText() + " GB");
+                    this.unEquipo.setMarca(this.vista.jTextFieldMarca.getText());
+                    //Validar si los campos no estén vacíos
+                    if(!this.unEquipo.getMarca().equals("")&& !this.unEquipo.getCapacidadDD().equals("") ){
+                    
+                    }else{
+                    JOptionPane.showMessageDialog(this.vista, "No se pueden actualizar los datos \n Datos no actualizados");
+                    }
+                }
+
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this.vista, "El campo número de inventario es obligatorios\nY debe ser en formato numérico");
+            }
         }
         // Botón de Eliminar
-        if(e.getSource() == this.vista.jButtonEliminar){
-        
+        if (e.getSource() == this.vista.jButtonEliminar) {
+
         }
     }
 
