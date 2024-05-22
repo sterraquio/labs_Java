@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.Docente;
 import modelo.DocenteDAO;
@@ -100,7 +101,7 @@ public class ControlDocenteGUI implements ActionListener {
 
             } catch (NumberFormatException ex) {
                 // Manejo de excepción si el campo cedula no es un número
-                JOptionPane.showMessageDialog(vistaDocente, "La cédula no debe tener texto. Introduce un número válido.");
+                JOptionPane.showMessageDialog(vistaDocente, "La cédula no debe tener texto. Introduce un número válido.(￣ω￣)");
                 this.vistaDocente.jTextFieldCed.setText("");
                 this.vistaDocente.jTextFieldCed.grabFocus();
             } catch (Exception ex) {
@@ -110,21 +111,98 @@ public class ControlDocenteGUI implements ActionListener {
         }
         // Botón de consultar
         if (ae.getSource() == this.vistaDocente.jButtonConsultar) {
+            try{
+                this.modeloDocente = modeloDocenteDao.consultarDocente(Integer.parseInt(this.vistaDocente.jTextFieldCed.getText().trim()));
+                
+                this.vistaDocente.jTextFieldCed.setText(this.modeloDocente.getCedula()+"");
+                this.vistaDocente.jTextFieldNombre.setText(this.modeloDocente.getNombres());
+                this.vistaDocente.jTextFieldApellido.setText(this.modeloDocente.getApellidos());
+                this.vistaDocente.jTextFieldProfesion.setText(this.modeloDocente.getProfesion());
+                
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(vistaDocente, "revise que el campo cedula este completo y no contenga letras ⤜(ʘ_ʘ)⤏");
+                this.vistaDocente.jTextFieldCed.grabFocus();
+            }
+            
+           
 
         }
         // Botón de listar
         if (ae.getSource() == this.vistaDocente.jButtonListar) {
+            
+            Docente elDocente = new Docente();
+            List<Docente> listaDeDocentes;
+            
+            String lista = "CEDULA || NOMBRE || APELLIDO || PROFESION ";
+            
+            listaDeDocentes = this.modeloDocenteDao.listarDocentes();
+            
+            for (int i=0; i< listaDeDocentes.size();i++){
+                elDocente = listaDeDocentes.get(i);
+                lista  += elDocente.getCedula() +" || "+ elDocente.getNombres()+" || "+ elDocente.getApellidos()+
+                        " || "+ elDocente.getProfesion() +"\n";
+                
+                JOptionPane.showMessageDialog(vistaDocente, lista);
+            }
+            
 
         }
         // Botón de modificar
         if (ae.getSource() == this.vistaDocente.jButtonModificar) {
+            //se obtienen los datos de la lista        
+            //se valida que los datos numéricos no vengan vacios o con datos diferentes a números por conversión de tipos o parseo
+            try{
+                this.modeloDocente.setCedula(Integer.parseInt(this.vistaDocente.jTextFieldCed.getText()));
+                
+                this.modeloDocente.setApellidos(this.vistaDocente.jTextFieldApellido.getText());
+                this.modeloDocente.setNombres(this.vistaDocente.jTextFieldNombre.getText());        
+                this.modeloDocente.setProfesion(this.vistaDocente.jTextFieldProfesion.getText());
+                
+                
+                //se valida que los campos tipo texto no esten vacíos
+                if(!this.modeloDocente.getNombres().equals("") && !this.modeloDocente.getApellidos().equals("")&& !this.modeloDocente.getProfesion().equals("")){
+                    //se ejecuta la inserción en la base de datos
+                    if(this.modeloDocenteDao.actualizarDocente(modeloDocente)){
+                        JOptionPane.showMessageDialog(this.vistaDocente, "Datos actualizados con éxito ʕ•́ᴥ•̀ʔっ");
+                        limpiarCampos();
+                    }else{
+                        JOptionPane.showMessageDialog(this.vistaDocente, "Datos no actualizados (ㆆ_ㆆ)");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(this.vistaDocente,"Todos los campos son obligatorios\nY ninguno debe ir en blanco (👍≖‿‿≖)👍");
+                }                
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(this.vistaDocente,"Los campos Cédula y Edad son obligatorios\nY deben ser en formato numérico (⌐■_■)");
+            }
 
         }
         // Botón de Eliminar
         if (ae.getSource() == this.vistaDocente.jButtonEliminar) {
 
-        }
+        
+          try{
+                int cedula= Integer.parseInt(this.vistaDocente.jTextFieldCed.getText());
+            
+                if(this.modeloDocenteDao.eliminarDocente(cedula)){
+                    JOptionPane.showMessageDialog(this.vistaDocente, "Datos Eliminados!!! (¬‿¬ )");
+                    limpiarCampos();
+                }else{
+                    JOptionPane.showMessageDialog(this.vistaDocente, "Datos No Eliminados!!!");
+                }
+                
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(this.vistaDocente,"El campo Cédula es obligatorio\nY deben ser en formato numérico");
+            }            
+        } 
 
+    }
+    
+     public void limpiarCampos(){
+        this.vistaDocente.jTextFieldCed.setText("");
+        this.vistaDocente.jTextFieldNombre.setText("");
+        this.vistaDocente.jTextFieldApellido.setText("");
+        this.vistaDocente.jTextFieldProfesion.setText("");
+        
     }
 
     //gets y sets
