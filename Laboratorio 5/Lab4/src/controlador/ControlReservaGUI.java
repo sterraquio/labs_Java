@@ -35,7 +35,9 @@ public class ControlReservaGUI implements ActionListener, TableModel {
         //agrega el escucha el listener a los botones
         this.vista.jButtonAgregar.addActionListener(this);
         this.vista.jButtonBuscarReserva.addActionListener(this);
+        this.vista.jButtonEliminarReserva.addActionListener(this);
         this.vista.jButtonListar.addActionListener(this);
+        this.vista.jButtonModificarReserva.addActionListener(this);
         this.vista.jButtonRegisDocente.addActionListener(this);
         this.vista.jButtonRegisEquipo.addActionListener(this);
     }
@@ -180,10 +182,10 @@ public class ControlReservaGUI implements ActionListener, TableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Reserva reservita = listaReservas.get(rowIndex);
-        
+
         //Insertar los valores a la tabla
         switch (columnIndex) {
-            
+
             case 0:
                 reservita.getNumReserva();
                 break;
