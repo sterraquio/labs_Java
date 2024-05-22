@@ -124,5 +124,24 @@ public class ReservaDAO {
 
         return unaReserva;
     }
+    
+    public boolean EliminarReserva(int numeroReserva){
+        String query = "SELECT * FROM reserva WHERE consecutivo ="+numeroReserva;
+        
+        try{
+            this.con = this.miConexion.obtenerconexion();
+            pst = this.con.prepareStatement(query);
+            System.out.println("pst = " + pst);
+            return true;
+            
+            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Ocurrio un error al eliminar : "+e.getMessage());
+            return false;
+            
+        }
+        
+    }
+   
 
 }
