@@ -11,8 +11,11 @@ import java.util.Date;
 import java.util.List;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //***************************************************************************************************************************  
 //Constructor
+=======
+>>>>>>> parent of 9b43629 (estetica)
 =======
 >>>>>>> parent of 9b43629 (estetica)
 public class ReservaDAO {
@@ -30,9 +33,12 @@ public class ReservaDAO {
     public static int numeroEquipo_reserva = 0;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //***************************************************************************************************************************  
     //Ingresar reserva
 =======
+=======
+>>>>>>> parent of 9b43629 (estetica)
     //Ingresar
 >>>>>>> parent of 9b43629 (estetica)
     public boolean insertarReserva(Reserva unaReserva) {
@@ -61,10 +67,13 @@ public class ReservaDAO {
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 //***************************************************************************************************************************  
     //Listar todas las reservas
 
 =======
+=======
+>>>>>>> parent of 9b43629 (estetica)
 
     //Listar
 >>>>>>> parent of 9b43629 (estetica)
@@ -108,7 +117,10 @@ public class ReservaDAO {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //***************************************************************************************************************************  
+=======
+>>>>>>> parent of 9b43629 (estetica)
 =======
 >>>>>>> parent of 9b43629 (estetica)
     //Buscar reserva con la cedula del docente
@@ -149,11 +161,14 @@ public class ReservaDAO {
         return unaReserva;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     //***************************************************************************************************************************  
     //Buscar reserva por el número de reserva
     public Reserva buscarReservaPorNumeroR(int NumReserva) {
 =======
+=======
+>>>>>>> parent of 9b43629 (estetica)
     
     public Reserva buscarReservaÑPorNumeroR(int NumReserva) {
 >>>>>>> parent of 9b43629 (estetica)
@@ -195,6 +210,9 @@ public class ReservaDAO {
     
     
     
+<<<<<<< HEAD
+>>>>>>> parent of 9b43629 (estetica)
+=======
 >>>>>>> parent of 9b43629 (estetica)
     //Eliminar reserva con el número de reserva
     public boolean EliminarReserva(int numeroReserva) {

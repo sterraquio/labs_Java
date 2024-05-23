@@ -38,9 +38,14 @@ public class ControlReservaGUI implements ActionListener {
         this.vista.jButtonListar.addActionListener(this);
         this.vista.jButtonModificarReserva.addActionListener(this);
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.vista.jButtonVistaDocente.addActionListener(this);
         this.vista.jButtonVistaEquipos.addActionListener(this);
  
+=======
+        this.vista.jButtonRegisDocente.addActionListener(this);
+        this.vista.jButtonRegisEquipo.addActionListener(this);
+>>>>>>> parent of 9b43629 (estetica)
 =======
         this.vista.jButtonRegisDocente.addActionListener(this);
         this.vista.jButtonRegisEquipo.addActionListener(this);
