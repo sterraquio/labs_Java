@@ -160,7 +160,7 @@ public class ReservaDAO {
             }
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al obtener los datos de la persona: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al obtener los datos de la reserva: " + e.getMessage());
         }
 
         return unaReserva;

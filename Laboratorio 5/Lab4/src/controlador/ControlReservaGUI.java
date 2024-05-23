@@ -117,8 +117,21 @@ public class ControlReservaGUI implements ActionListener {
             JOptionPane.showMessageDialog(this.vista, result);
         }
 //***************************************************************************************************************************        
- 
 
+        if (e.getSource() == this.vista.jButtonConsultarReservasPorNumeroReserva) {
+            try{
+                this.unaReserva = unaReservaDao.buscarReservaPorNumeroR(Integer.parseInt(this.vista.jTextFieldNumReserva.getText().trim()));
+                
+                this.vista.jTextFieldNumReserva.setText(this.unaReserva.getNumReserva()+"");
+                this.vista.jTextFieldCedProfe.setText(this.unaReserva.getUnDocente().getCedula()+"");
+                this.vista.jTextFieldNumEquip.setText(this.unaReserva.getEquipo().getNumeroEquipo()+"");
+                
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(vista, "Error revise el numero de reserva ingresado que no contenga letras y este correcto ");
+                this.vista.jTextFieldNumReserva.grabFocus();
+            }
+
+        }
 
 //***************************************************************************************************************************        
         //Ejecutar vista de agregar al docente
