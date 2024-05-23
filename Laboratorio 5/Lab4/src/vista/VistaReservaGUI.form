@@ -59,7 +59,7 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jButtonListar" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonBuscarReserva" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonListarReservaDocente" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jButtonModificarReserva" min="-2" max="-2" attributes="0"/>
                               <Component id="jButtonEliminarReserva" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -144,7 +144,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonListarReservasDocente" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButtonBuscarReserva" min="-2" max="-2" attributes="0"/>
+              <Component id="jButtonListarReservaDocente" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jButtonModificarReserva" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -228,9 +228,9 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonBuscarReserva">
+    <Component class="javax.swing.JButton" name="jButtonListarReservaDocente">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Consultar reserva por n&#xfa;mero de reserva"/>
+        <Property name="text" type="java.lang.String" value="Listar reserva por la cedula"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

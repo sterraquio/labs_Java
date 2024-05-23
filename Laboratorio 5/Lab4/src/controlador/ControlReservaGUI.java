@@ -36,7 +36,7 @@ public class ControlReservaGUI implements ActionListener {
         this.vista.setVisible(true);//la vista se hace visible
         //agrega el escucha el listener a los botones
         this.vista.jButtonAgregar.addActionListener(this);
-        this.vista.jButtonBuscarReserva.addActionListener(this);
+        this.vista.jButtonListarReservaDocente.addActionListener(this);
         this.vista.jButtonEliminarReserva.addActionListener(this);
         this.vista.jButtonListar.addActionListener(this);
         this.vista.jButtonModificarReserva.addActionListener(this);
@@ -60,7 +60,7 @@ public class ControlReservaGUI implements ActionListener {
         //Agregar reserva
         
 //***************************************************************************************************************************        
-        if (e.getSource() == this.vista.jButtonAgregarReserva) {
+        if (e.getSource() == this.vista.jButtonAgregar) {
             List<Reserva> lista = unaReservaDao.listarReservas("");
             cedDocente = Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
             numEquipo = Integer.parseInt(this.vista.jTextFieldNumEquip.getText());
@@ -92,12 +92,21 @@ public class ControlReservaGUI implements ActionListener {
 
 //***************************************************************************************************************************
         //Buscar reserva con los números de la cedula del docente
-        int ced = -1;//bandera
-        boolean verdad = false;//bandera
-        if (e.getSource() == this.vista.jButtonBuscarReserva) {
+        if (e.getSource() == this.vista.jButtonListarReservaDocente) {
+            Reserva  unaReserva = new Reserva();
+            List<Reserva> ListaReservasDocente;
+            
+            String lista = "NOMBRE PROFE || NUMERO EQUIPO || NUMERO RESERVA "+"\n";
+            ListaReservasDocente = this.unaReservaDao.listarReservasDocente(cedDocente);
+            
+            for (int i=0; i<ListaReservasDocente.size(); i++){
+                unaReserva = ListaReservasDocente.get(i);
+                lista += unaReserva.getUnDocente().getCedula()+" || "+
+                        
+            }
             try {
                 ced =Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
-                 unaReserva = this.unaReservaDao.buscarReservaPorCedula(ced);
+                 unaReserva = this.unaReservaDao.listarReservasDocente(docenteCedula);
        
             } catch (NumberFormatException exd) {
                 JOptionPane.showMessageDialog(this.vista, "Error, debe haber números en la seccion de las cedula del docente");

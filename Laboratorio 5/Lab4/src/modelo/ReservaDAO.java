@@ -96,42 +96,38 @@ public class ReservaDAO {
     }
 
 //***************************************************************************************************************************  
-    //Buscar todas las reservas del docente con la cedula del docente
-    public Reserva buscarReservaPorCedula(int docenteCedula) {
+    //Listar reservas por cada porfesor
+    public List listarReservasDocente(int docenteCedula) {
         //busca una de la tabla reserva el campo donde la cedula sea igual al indicador "?" donde sera proporcionado
         //mas tarde de manera dinamica 
+        List<Reserva> ListaReservasDocente = new ArrayList();
         String query = "SELECT * FROM reserva WHERE docenteCedula = ?";
-        Reserva unaReserva = new Reserva();//inicializa el objeto
 
         try {
             this.con = this.miConexion.obtenerconexion();//conexion
             pst = this.con.prepareStatement(query);//prepara para una operacion
-
-            //se pasan los parametro ingresados por el usuario
-            pst.setInt(1, docenteCedula);//se pasa docenteCedula a "?"
-            System.out.println("contenido del query:\n" + pst);
             rs = pst.executeQuery();//se ejecuta la consulta preparada y se obtiene los resultados
 
-            if (rs.next()) {
+            while (rs.next()) {
+                
+                Reserva unaReserva = new Reserva();
+                
+                
                 // se recuperan los datos de la consulta y se asignan a objetos de reserva
                 unaReserva.setNumReserva(rs.getInt("consecutivo"));
-                consecutivo_reserva = unaReserva.getNumReserva();
                 unaReserva.setFecha(rs.getTimestamp("fechaReserva"));
-                fechaReserva_reserva = unaReserva.getFecha();
                 unaReserva.getUnDocente().setCedula(rs.getInt("docenteCedula"));
-                docenteCedula_reserva = unaReserva.getUnDocente().getCedula();
                 unaReserva.getEquipo().setNumeroEquipo(rs.getInt("numeroEquipo"));
-                numeroEquipo_reserva = unaReserva.getEquipo().getNumeroEquipo();
+                ListaReservasDocente.add(unaReserva);
 
-                String result = "";
 
             }
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al obtener los datos de la persona: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al listar las reservas del docente: " + e.getMessage());
         }
 
-        return unaReserva;
+        return (Reserva) ListaReservasDocente;
     }
 
     //***************************************************************************************************************************  
