@@ -174,6 +174,7 @@ public class ReservaDAO {
             this.con = this.miConexion.obtenerconexion();
             pst = this.con.prepareStatement(query);
             System.out.println("pst = " + pst);
+            pst.execute();
             return true;
 
         } catch (SQLException e) {
@@ -186,15 +187,16 @@ public class ReservaDAO {
 //***************************************************************************************************************************  
     //Modifica la reserva por el número de reserva 
     public boolean modificarReserva(Reserva unaReserva) {
-        String query = "UPDATE reserva SET fechaReserva=?, fk_docenteCedula =?, fk_numeroEquipo =? WHERE consecutivo=" + unaReserva.getNumReserva();
+        String query = "UPDATE reserva SET fechaReserva=?, docenteCedula =?, numeroEquipo =? WHERE consecutivo=" + unaReserva.getNumReserva();
         Timestamp fechaHora = new Timestamp(new Date().getTime());
         try {
             this.con = this.miConexion.obtenerconexion();
             pst = this.con.prepareStatement(query);
             pst.setTimestamp(1,   fechaHora);
-            pst.setString(2, this.unaReserva.getUnDocente() + "");
-            pst.setString(3, this.unaReserva.getEquipo() + "");
+            pst.setInt(2, unaReserva.getUnDocente().getCedula());
+            pst.setInt(3, unaReserva.getEquipo().getNumeroEquipo() );
             System.out.println("pst = " + pst);
+            pst.execute();
 
             return true;
         } catch (SQLException e) {

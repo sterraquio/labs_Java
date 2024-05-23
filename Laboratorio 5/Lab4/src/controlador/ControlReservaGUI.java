@@ -41,6 +41,7 @@ public class ControlReservaGUI implements ActionListener {
         this.vista.jButtonModificarReserva.addActionListener(this);
         this.vista.jButtonAbrirVistaDocente.addActionListener(this);
         this.vista.jButtonAbrirVistaEquipos.addActionListener(this);
+        this.vista.jButtonConsultarReservasPorNumeroReserva.addActionListener(this);
 
     }
 
@@ -49,6 +50,7 @@ public class ControlReservaGUI implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        boolean verdadConsulta = false;//Bandera para saber si se consultó primero 
         boolean verdadRegistrar = false;//bandera para sabes si se agrego reserva
         int consecutivo;
         int cedDocente;
@@ -117,16 +119,17 @@ public class ControlReservaGUI implements ActionListener {
             JOptionPane.showMessageDialog(this.vista, result);
         }
 //***************************************************************************************************************************        
-
+//Boton consultar reservas por reserva número de reservass
         if (e.getSource() == this.vista.jButtonConsultarReservasPorNumeroReserva) {
-            try{
+            try {
                 this.unaReserva = unaReservaDao.buscarReservaPorNumeroR(Integer.parseInt(this.vista.jTextFieldNumReserva.getText().trim()));
-                
-                this.vista.jTextFieldNumReserva.setText(this.unaReserva.getNumReserva()+"");
-                this.vista.jTextFieldCedProfe.setText(this.unaReserva.getUnDocente().getCedula()+"");
-                this.vista.jTextFieldNumEquip.setText(this.unaReserva.getEquipo().getNumeroEquipo()+"");
-                
-            }catch(NumberFormatException ex){
+
+                this.vista.jTextFieldNumReserva.setText(this.unaReserva.getNumReserva() + "");
+                this.vista.jTextFieldCedProfe.setText(this.unaReserva.getUnDocente().getCedula() + "");
+                this.vista.jTextFieldNumEquip.setText(this.unaReserva.getEquipo().getNumeroEquipo() + "");
+                verdadConsulta = true;
+
+            } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(vista, "Error revise el numero de reserva ingresado que no contenga letras y este correcto ");
                 this.vista.jTextFieldNumReserva.grabFocus();
             }
@@ -134,11 +137,60 @@ public class ControlReservaGUI implements ActionListener {
         }
 
 //***************************************************************************************************************************        
+        //Eliminar reserva a partir del número de reserva
+        if (e.getSource() == this.vista.jButtonEliminarReserva) {
+            try {
+                int numReserva = Integer.parseInt(this.vista.jTextFieldNumReserva.getText());
+
+                if (this.unaReservaDao.EliminarReserva(numReserva)) {
+                    JOptionPane.showMessageDialog(this.vista, "Datos Eliminados!!!");
+                    this.vista.jTextFieldCedProfe.setText("");
+                    this.vista.jTextFieldNumEquip.setText("");
+                    this.vista.jTextFieldNumReserva.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(this.vista, "Datos No Eliminados!!!");
+                }
+
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this.vista, "El campo numero reserva no debe estar vacío \nY deben ser en formato numérico");
+
+            }
+        }
+
+        //***************************************************************************************************************************        
+        //Modificar reserva por el número de reserva
+        if (e.getSource() == this.vista.jButtonModificarReserva) {
+            if (true) {
+
+                try {
+                    this.unaReserva.getEquipo().setNumeroEquipo(Integer.parseInt(this.vista.jTextFieldNumEquip.getText()));
+                    this.unaReserva.getUnDocente().setCedula(Integer.parseInt(this.vista.jTextFieldCedProfe.getText()));
+                    this.unaReserva.setNumReserva(Integer.parseInt(this.vista.jTextFieldNumReserva.getText()));
+
+                    if (this.unaReservaDao.modificarReserva(this.unaReserva)) {
+                        JOptionPane.showMessageDialog(this.vista, "Si se actualizooooooooooooo");
+                        this.vista.jTextFieldCedProfe.setText("");
+                        this.vista.jTextFieldNumEquip.setText("");
+                        this.vista.jTextFieldNumReserva.setText("");
+                    } else {
+                        JOptionPane.showMessageDialog(this.vista, "No se ha actualizado :c");
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(this.vista, "El campo reserva no debe estar vacío\nY deben ser en formato numérico");
+
+                }
+            }
+            
+            
+
+        }
+
+//***************************************************************************************************************************        
         //Ejecutar vista de agregar al docente
         if (e.getSource() == this.vista.jButtonAbrirVistaDocente) {
             ControlDocenteGUI vistaDocente = new ControlDocenteGUI();
-//***************************************************************************************************************************            
         }
+//***************************************************************************************************************************            
         //Ejecutar vista de agregar al equipo de conmputo
         if (e.getSource() == this.vista.jButtonAbrirVistaEquipos) {
             ControlEquipoComputoGUI vistaComputo = new ControlEquipoComputoGUI();
