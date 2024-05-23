@@ -3,10 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/home/camilotr/Documentos/GitHub/lab2_Java/Laboratorio%205/Lab4/src/vista/VistaReservaGUI.java</file>
             <file>file:/home/camilotr/Documentos/GitHub/lab2_Java/Laboratorio%205/Lab4/src/controlador/ControlDocenteGUI.java</file>
             <file>file:/home/camilotr/Documentos/GitHub/lab2_Java/Laboratorio%205/Lab4/src/controlador/ControlReservaGUI.java</file>
             <file>file:/home/camilotr/Documentos/GitHub/lab2_Java/Laboratorio%205/Lab4/src/controlador/ControlEquipoComputoGUI.java</file>
+=======
+            <file>file:/C:/Users/OITEL/Desktop/Delete/labs_Java/Laboratorio%205/Lab4/src/vista/VistaEquipoComputoGUI.java</file>
+            <file>file:/C:/Users/OITEL/Desktop/Delete/labs_Java/Laboratorio%205/Lab4/src/vista/VistaReservaGUI.java</file>
+            <file>file:/C:/Users/OITEL/Desktop/Delete/labs_Java/Laboratorio%205/Lab4/src/controlador/ControlDocenteGUI.java</file>
+            <file>file:/C:/Users/OITEL/Desktop/Delete/labs_Java/Laboratorio%205/Lab4/src/controlador/ControlReservaGUI.java</file>
+            <file>file:/C:/Users/OITEL/Desktop/Delete/labs_Java/Laboratorio%205/Lab4/src/modelo/EquipoComputoDao.java</file>
+            <file>file:/C:/Users/OITEL/Desktop/Delete/labs_Java/Laboratorio%205/Lab4/src/vista/VistaDocenteGUI.java</file>
+            <file>file:/C:/Users/OITEL/Desktop/Delete/labs_Java/Laboratorio%205/Lab4/src/controlador/ControlEquipoComputoGUI.java</file>
+            <file>file:/C:/Users/OITEL/Desktop/Delete/labs_Java/Laboratorio%205/Lab4/src/modelo/DocenteDAO.java</file>
+            <file>file:/C:/Users/OITEL/Desktop/Delete/labs_Java/Laboratorio%205/Lab4/src/modelo/ReservaDAO.java</file>
+>>>>>>> parent of 9b43629 (estetica)
         </group>
     </open-files>
 </project-private>

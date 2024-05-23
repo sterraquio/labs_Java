@@ -8,7 +8,6 @@ import modelo.EquipoComputo;
 import modelo.EquipoComputoDao;
 import java.util.List;
 
-//***************************************************************************************************************************
 //clase que agrega los listeners a los botones de la vista
 public class ControlEquipoComputoGUI implements ActionListener {
 
@@ -17,7 +16,7 @@ public class ControlEquipoComputoGUI implements ActionListener {
     private VistaEquipoComputoGUI vista;//vista
     private EquipoComputo unEquipo;//Clase EquipoComputo
     private EquipoComputoDao unEquipoDao;//Clase EquipoComputoDao
-//***************************************************************************************************************************    
+
     //constructor
     public ControlEquipoComputoGUI() {
         this.vista = new VistaEquipoComputoGUI();//inicializa la vista  
@@ -31,7 +30,7 @@ public class ControlEquipoComputoGUI implements ActionListener {
         this.vista.jButtonListar.addActionListener(this);// Listener al botón
         this.vista.jButtonModificar.addActionListener(this);// Listener al botón
     }
-//***************************************************************************************************************************
+
     //metodo del escucha 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -72,7 +71,7 @@ public class ControlEquipoComputoGUI implements ActionListener {
             }
 
         }
-//***************************************************************************************************************************
+
         // Botón de consultar
         if (e.getSource() == this.vista.jButtonConsultar) {
             try {
@@ -94,7 +93,6 @@ public class ControlEquipoComputoGUI implements ActionListener {
             }
 
         }
-//***************************************************************************************************************************        
         // Botón de listar
         if (e.getSource() == this.vista.jButtonListar) {
             EquipoComputo equipitoTemp = new EquipoComputo();//Crear un nuevo objeto para almacenar el resultado del la lista que contendra el método listarEquipos
@@ -113,7 +111,6 @@ public class ControlEquipoComputoGUI implements ActionListener {
             }
             JOptionPane.showMessageDialog(this.vista, resultado);//Mostrar el resultado de la lista
         }
-//***************************************************************************************************************************        
         // Botón de modificar
         if (e.getSource() == this.vista.jButtonModificar) {
             //Validar que no hayan letras en los campos
@@ -149,7 +146,6 @@ public class ControlEquipoComputoGUI implements ActionListener {
                 JOptionPane.showMessageDialog(this.vista, "El campo número de inventario es obligatorios\nY debe ser en formato numérico");
             }
         }
-//***************************************************************************************************************************        
         // Botón de Eliminar
         if (e.getSource() == this.vista.jButtonEliminar) {
             try {
@@ -166,30 +162,24 @@ public class ControlEquipoComputoGUI implements ActionListener {
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this.vista, "El campo de Número de inventario es obligatorio\nY debe estar en formato númerico");
             }
-        }
-//***************************************************************************************************************************            
 
             // Botón de consultar
             if (e.getSource() == this.vista.jButtonConsultar) {
 
             }
-//***************************************************************************************************************************            
             // Botón de listar
             if (e.getSource() == this.vista.jButtonListar) {
 
             }
-//***************************************************************************************************************************            
             // Botón de modificar
             if (e.getSource() == this.vista.jButtonModificar) {
 
             }
-//***************************************************************************************************************************            
             // Botón de Eliminar
             if (e.getSource() == this.vista.jButtonEliminar) {
 
             }
-//***************************************************************************************************************************            
         }
 
     }
-
+}

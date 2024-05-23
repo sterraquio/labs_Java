@@ -13,7 +13,6 @@ import vista.VistaReservaGUI;
 import modelo.Reserva;
 import modelo.ReservaDAO;
 
-//***************************************************************************************************************************
 //clase que agrega los listeners a los botones de la vista
 public class ControlReservaGUI implements ActionListener {
 
@@ -23,8 +22,6 @@ public class ControlReservaGUI implements ActionListener {
     private VistaReservaGUI vista;//vista
     private String result;//atributo para listar
     private List<Reserva> listaReservas;
-    
-//***************************************************************************************************************************
 
     //Constructor
     public ControlReservaGUI() {
@@ -35,17 +32,20 @@ public class ControlReservaGUI implements ActionListener {
 
         this.vista.setVisible(true);//la vista se hace visible
         //agrega el escucha el listener a los botones
-        this.vista.jButtonAgregarReserva.addActionListener(this);
+        this.vista.jButtonAgregar.addActionListener(this);
         this.vista.jButtonBuscarReserva.addActionListener(this);
         this.vista.jButtonEliminarReserva.addActionListener(this);
-        this.vista.jButtonListarReservasTotales.addActionListener(this);
+        this.vista.jButtonListar.addActionListener(this);
         this.vista.jButtonModificarReserva.addActionListener(this);
+<<<<<<< HEAD
         this.vista.jButtonVistaDocente.addActionListener(this);
         this.vista.jButtonVistaEquipos.addActionListener(this);
  
+=======
+        this.vista.jButtonRegisDocente.addActionListener(this);
+        this.vista.jButtonRegisEquipo.addActionListener(this);
+>>>>>>> parent of 9b43629 (estetica)
     }
-    
-//***************************************************************************************************************************    
     //metodo del escucha
 
     @Override
@@ -59,8 +59,7 @@ public class ControlReservaGUI implements ActionListener {
         Timestamp fechaHora = new Timestamp(new Date().getTime());
         //Agregar reserva
         
-//***************************************************************************************************************************        
-        if (e.getSource() == this.vista.jButtonAgregarReserva) {
+        if (e.getSource() == this.vista.jButtonAgregar) {
             List<Reserva> lista = unaReservaDao.listarReservas("");
             cedDocente = Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
             numEquipo = Integer.parseInt(this.vista.jTextFieldNumEquip.getText());
@@ -90,7 +89,6 @@ public class ControlReservaGUI implements ActionListener {
             }
         }
 
-//***************************************************************************************************************************
         //Buscar reserva con los números de la cedula del docente
         int ced = -1;//bandera
         boolean verdad = false;//bandera
@@ -104,10 +102,9 @@ public class ControlReservaGUI implements ActionListener {
             }
 
         }
-//***************************************************************************************************************************        
 
         //Listar todas las reservas hechas
-        if (e.getSource() == this.vista.jButtonListarReservasTotales) {
+        if (e.getSource() == this.vista.jButtonListar) {
             List<Reserva> lista = unaReservaDao.listarReservas("");
             for (Reserva reserva : lista) {
                 result += ("Número de Reserva: " + reserva.getNumReserva()) + "\n";
@@ -118,32 +115,14 @@ public class ControlReservaGUI implements ActionListener {
             }
             JOptionPane.showMessageDialog(this.vista, result);
         }
-//***************************************************************************************************************************  
-//listar reservas hechas por un docente 
-if(e.getSource() == this.vista.jbt_listarReservasDocente){
-               List<Reserva> lista = unaReservaDao.buscarReservaPorCedula(Integer.parseInt(this.vista.jTextFieldCedProfe.getText()));
-            for (Reserva reserva : lista) {
-                result += ("Número de Reserva: " + reserva.getNumReserva()) + "\n";
-                result += ("Fecha: " + reserva.getFecha()) + "\n";
-                result += ("Cédula del Docente: " + reserva.getUnDocente().getCedula()) + "\n";
-                result += ("Número de Equipo: " + reserva.getEquipo().getNumeroEquipo()) + "\n";
-                result += ("--------------------------------------") + "\n";
-            }
-            JOptionPane.showMessageDialog(this.vista, result);
-    
-}
-        
-//***************************************************************************************************************************        
         //Ejecutar vista de agregar al docente
-        if (e.getSource() == this.vista.jButtonVistaDocente) {
+        if (e.getSource() == this.vista.jButtonRegisDocente) {
             ControlDocenteGUI vistaDocente = new ControlDocenteGUI();
-//***************************************************************************************************************************            
         }
         //Ejecutar vista de agregar al equipo de conmputo
-        if (e.getSource() == this.vista.jButtonVistaEquipos) {
+        if (e.getSource() == this.vista.jButtonRegisEquipo) {
             ControlEquipoComputoGUI vistaComputo = new ControlEquipoComputoGUI();
         }
-//***************************************************************************************************************************        
 
     }
 

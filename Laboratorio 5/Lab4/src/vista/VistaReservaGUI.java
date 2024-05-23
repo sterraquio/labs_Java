@@ -25,23 +25,22 @@ public class VistaReservaGUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTextFieldCedProfe = new javax.swing.JTextField();
-        jButtonAgregarReserva = new javax.swing.JButton();
+        jButtonAgregar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldNumEquip = new javax.swing.JTextField();
-        jButtonVistaDocente = new javax.swing.JButton();
-        jButtonVistaEquipos = new javax.swing.JButton();
+        jButtonRegisDocente = new javax.swing.JButton();
+        jButtonRegisEquipo = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButtonListarReservasTotales = new javax.swing.JButton();
+        jButtonListar = new javax.swing.JButton();
         jButtonBuscarReserva = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldNumReserva = new javax.swing.JTextField();
         jButtonModificarReserva = new javax.swing.JButton();
         jButtonEliminarReserva = new javax.swing.JButton();
-        jbt_listarReservasDocente = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -58,7 +57,7 @@ public class VistaReservaGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonAgregarReserva.setText("Agregar reserva");
+        jButtonAgregar.setText("Agregar reserva");
 
         jLabel1.setText("Sistema de registro de la Universidad");
 
@@ -66,18 +65,18 @@ public class VistaReservaGUI extends javax.swing.JFrame {
 
         jLabel4.setText("Cédula del profesor");
 
-        jButtonVistaDocente.setText("Docente");
+        jButtonRegisDocente.setText("Docente");
 
-        jButtonVistaEquipos.setText("Equipo de computos");
-        jButtonVistaEquipos.setActionCommand("Equipo Computo");
+        jButtonRegisEquipo.setText("Equipo de computos");
+        jButtonRegisEquipo.setActionCommand("Equipo Computo");
 
         jLabel5.setText("Acciones para reservas");
 
-        jLabel6.setText("Abrir ventana para docentes");
+        jLabel6.setText("Acciones para Docentes");
 
-        jLabel7.setText("Abrir ventana para equipos de computo");
+        jLabel7.setText("Acciones para Equipos Computo");
 
-        jButtonListarReservasTotales.setText("Listar reservas");
+        jButtonListar.setText("Listar reservas");
 
         jButtonBuscarReserva.setText("Consultar reserva por número de reserva");
 
@@ -93,112 +92,86 @@ public class VistaReservaGUI extends javax.swing.JFrame {
 
         jButtonEliminarReserva.setText("Eliminar reserva por su número de reserva");
 
-        jbt_listarReservasDocente.setText("Listar reservas hechas por un Docente");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(397, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(72, 72, 72))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonVistaDocente)
-                        .addGap(134, 134, 134))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonVistaEquipos)
-                        .addGap(93, 93, 93))))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jLabel5))
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jButtonEliminarReserva)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(128, 128, 128)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(72, 72, 72)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldNumEquip)
+                            .addComponent(jTextFieldCedProfe, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNumReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jButtonAgregar))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel1))
+                                .addGap(34, 34, 34)
+                                .addComponent(jButtonRegisDocente))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2))
-                                .addGap(72, 72, 72)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldNumEquip)
-                                    .addComponent(jTextFieldCedProfe, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNumReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(151, 151, 151)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jButtonBuscarReserva))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(jButtonListarReservasTotales))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(jButtonAgregarReserva))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButtonModificarReserva))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jbt_listarReservasDocente)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel6)))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jButtonRegisEquipo)))
+                    .addComponent(jButtonListar)
+                    .addComponent(jButtonBuscarReserva)
+                    .addComponent(jButtonModificarReserva)
+                    .addComponent(jButtonEliminarReserva))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextFieldNumEquip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextFieldCedProfe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextFieldNumReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jTextFieldNumEquip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jTextFieldCedProfe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextFieldNumReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6))
                         .addGap(10, 10, 10)
-                        .addComponent(jButtonVistaDocente)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonVistaEquipos)))
-                .addGap(24, 24, 24)
-                .addComponent(jLabel5)
-                .addGap(30, 30, 30)
-                .addComponent(jButtonAgregarReserva)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbt_listarReservasDocente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonListarReservasTotales)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonAgregar)
+                            .addComponent(jButtonRegisEquipo)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jButtonRegisDocente)))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonListar)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonBuscarReserva)
-                .addGap(12, 12, 12)
+                .addGap(30, 30, 30)
                 .addComponent(jButtonModificarReserva)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonEliminarReserva)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -246,13 +219,13 @@ public class VistaReservaGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButtonAgregarReserva;
+    public javax.swing.JButton jButtonAgregar;
     public javax.swing.JButton jButtonBuscarReserva;
     public javax.swing.JButton jButtonEliminarReserva;
-    public javax.swing.JButton jButtonListarReservasTotales;
+    public javax.swing.JButton jButtonListar;
     public javax.swing.JButton jButtonModificarReserva;
-    public javax.swing.JButton jButtonVistaDocente;
-    public javax.swing.JButton jButtonVistaEquipos;
+    public javax.swing.JButton jButtonRegisDocente;
+    public javax.swing.JButton jButtonRegisEquipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -265,6 +238,5 @@ public class VistaReservaGUI extends javax.swing.JFrame {
     public javax.swing.JTextField jTextFieldCedProfe;
     public javax.swing.JTextField jTextFieldNumEquip;
     public javax.swing.JTextField jTextFieldNumReserva;
-    public javax.swing.JButton jbt_listarReservasDocente;
     // End of variables declaration//GEN-END:variables
 }

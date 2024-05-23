@@ -10,8 +10,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+<<<<<<< HEAD
 //***************************************************************************************************************************  
 //Constructor
+=======
+>>>>>>> parent of 9b43629 (estetica)
 public class ReservaDAO {
 
     private Reserva unaReserva = new Reserva();
@@ -26,8 +29,12 @@ public class ReservaDAO {
     public static int docenteCedula_reserva = 0;
     public static int numeroEquipo_reserva = 0;
 
+<<<<<<< HEAD
 //***************************************************************************************************************************  
     //Ingresar reserva
+=======
+    //Ingresar
+>>>>>>> parent of 9b43629 (estetica)
     public boolean insertarReserva(Reserva unaReserva) {
         String query = "INSERT INTO reserva(consecutivo, fechaReserva, docenteCedula, numeroEquipo)"
                 + "VALUES (?,?,?,?)";
@@ -53,9 +60,14 @@ public class ReservaDAO {
             return false;
         }
     }
+<<<<<<< HEAD
 //***************************************************************************************************************************  
     //Listar todas las reservas
 
+=======
+
+    //Listar
+>>>>>>> parent of 9b43629 (estetica)
     public List listarReservas(String value) {
         List<Reserva> listaReservas = new ArrayList();
 
@@ -95,7 +107,10 @@ public class ReservaDAO {
         return listaReservas;
     }
 
+<<<<<<< HEAD
 //***************************************************************************************************************************  
+=======
+>>>>>>> parent of 9b43629 (estetica)
     //Buscar reserva con la cedula del docente
     public Reserva buscarReservaPorCedula(int docenteCedula) {
         //busca una de la tabla reserva el campo donde la cedula sea igual al indicador "?" donde sera proporcionado
@@ -133,10 +148,15 @@ public class ReservaDAO {
 
         return unaReserva;
     }
+<<<<<<< HEAD
 
     //***************************************************************************************************************************  
     //Buscar reserva por el número de reserva
     public Reserva buscarReservaPorNumeroR(int NumReserva) {
+=======
+    
+    public Reserva buscarReservaÑPorNumeroR(int NumReserva) {
+>>>>>>> parent of 9b43629 (estetica)
         //busca una de la tabla reserva el campo donde la cedula sea igual al indicador "?" donde sera proporcionado
         //mas tarde de manera dinamica 
         String query = "SELECT * FROM reserva WHERE consecutivo = ?";
@@ -169,7 +189,13 @@ public class ReservaDAO {
 
         return unaReserva;
     }
+<<<<<<< HEAD
 //***************************************************************************************************************************  
+=======
+    
+    
+    
+>>>>>>> parent of 9b43629 (estetica)
     //Eliminar reserva con el número de reserva
     public boolean EliminarReserva(int numeroReserva) {
         String query = "DELETE FROM reserva WHERE consecutivo =" + numeroReserva;
