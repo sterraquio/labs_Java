@@ -84,7 +84,7 @@ public class ControlReservaGUI implements ActionListener {
         }
 
 //***************************************************************************************************************************
-        //Buscar reserva con los números de la cedula del docente
+        //Listar reservas por cedula del docente
         if (e.getSource() == this.vista.jButtonListarReservaDocente) {
             int docenteCedula = Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
             Reserva unaReserva = new Reserva();
@@ -116,20 +116,9 @@ public class ControlReservaGUI implements ActionListener {
             }
             JOptionPane.showMessageDialog(this.vista, result);
         }
-//***************************************************************************************************************************  
-//listar reservas hechas por un docente 
-/*if(e.getSource() == this.vista.jbt_listarReservasDocente){
-               List<Reserva> lista = unaReservaDao.buscarReservaPorCedula(Integer.parseInt(this.vista.jTextFieldCedProfe.getText()));
-            for (Reserva reserva : lista) {
-                result += ("Número de Reserva: " + reserva.getNumReserva()) + "\n";
-                result += ("Fecha: " + reserva.getFecha()) + "\n";
-                result += ("Cédula del Docente: " + reserva.getUnDocente().getCedula()) + "\n";
-                result += ("Número de Equipo: " + reserva.getEquipo().getNumeroEquipo()) + "\n";
-                result += ("--------------------------------------") + "\n";
-            }
-            JOptionPane.showMessageDialog(this.vista, result);
-    
-}*/
+//***************************************************************************************************************************        
+ 
+
 
 //***************************************************************************************************************************        
         //Ejecutar vista de agregar al docente

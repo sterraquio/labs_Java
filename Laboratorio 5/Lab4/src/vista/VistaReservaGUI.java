@@ -41,7 +41,7 @@ public class VistaReservaGUI extends javax.swing.JFrame {
         jTextFieldNumReserva = new javax.swing.JTextField();
         jButtonModificarReserva = new javax.swing.JButton();
         jButtonEliminarReserva = new javax.swing.JButton();
-        jButtonListarReservasDocente = new javax.swing.JButton();
+        jButtonConsultarReservasPorNumeroReserva = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -93,7 +93,7 @@ public class VistaReservaGUI extends javax.swing.JFrame {
 
         jButtonEliminarReserva.setText("Eliminar reserva por su número de reserva");
 
-        jButtonListarReservasDocente.setText("Consultar Reservas de un Docente");
+        jButtonConsultarReservasPorNumeroReserva.setText("Consultar reservas por numero de reserva");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,7 +116,7 @@ public class VistaReservaGUI extends javax.swing.JFrame {
                                 .addComponent(jButtonEliminarReserva)
                                 .addComponent(jLabel5)
                                 .addComponent(jButtonAgregar)
-                                .addComponent(jButtonListarReservasDocente))
+                                .addComponent(jButtonConsultarReservasPorNumeroReserva))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel3)
@@ -173,7 +173,7 @@ public class VistaReservaGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButtonListar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonListarReservasDocente)
+                .addComponent(jButtonConsultarReservasPorNumeroReserva)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonListarReservaDocente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -231,10 +231,10 @@ public class VistaReservaGUI extends javax.swing.JFrame {
     public javax.swing.JButton jButtonAbrirVistaDocente;
     public javax.swing.JButton jButtonAbrirVistaEquipos;
     public javax.swing.JButton jButtonAgregar;
+    public javax.swing.JButton jButtonConsultarReservasPorNumeroReserva;
     public javax.swing.JButton jButtonEliminarReserva;
     public javax.swing.JButton jButtonListar;
     public javax.swing.JButton jButtonListarReservaDocente;
-    public javax.swing.JButton jButtonListarReservasDocente;
     public javax.swing.JButton jButtonModificarReserva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

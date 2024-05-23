@@ -64,7 +64,7 @@
                               <Component id="jButtonEliminarReserva" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <Component id="jButtonAgregar" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonListarReservasDocente" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonConsultarReservasPorNumeroReserva" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -142,7 +142,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButtonListar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButtonListarReservasDocente" min="-2" max="-2" attributes="0"/>
+              <Component id="jButtonConsultarReservasPorNumeroReserva" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonListarReservaDocente" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -265,9 +265,9 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonListarReservasDocente">
+    <Component class="javax.swing.JButton" name="jButtonConsultarReservasPorNumeroReserva">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Consultar Reservas de un Docente"/>
+        <Property name="text" type="java.lang.String" value="Consultar reservas por numero de reserva"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
