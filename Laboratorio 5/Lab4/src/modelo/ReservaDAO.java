@@ -38,7 +38,7 @@ public class ReservaDAO {
 
             pst = this.con.prepareStatement(query);
             //Se comenta está línea de código porque el consecutivo ya es automatico por medio del SQL
-            //pst.setInt(1, unaReserva.getNumReserva());
+            pst.setInt(1, unaReserva.getNumReserva());
             pst.setTimestamp(2, fechaHora);
             //if(){}
             pst.setInt(3, unaReserva.getUnDocente().getCedula());
@@ -101,7 +101,7 @@ public class ReservaDAO {
         //busca una de la tabla reserva el campo donde la cedula sea igual al indicador "?" donde sera proporcionado
         //mas tarde de manera dinamica 
         List<Reserva> ListaReservasDocente = new ArrayList();
-        String query = "SELECT * FROM reserva WHERE docenteCedula = ?";
+        String query = "SELECT * FROM reserva WHERE docenteCedula = "+docenteCedula;
 
         try {
             this.con = this.miConexion.obtenerconexion();//conexion
@@ -127,7 +127,7 @@ public class ReservaDAO {
             JOptionPane.showMessageDialog(null, "Error al listar las reservas del docente: " + e.getMessage());
         }
 
-        return (Reserva) ListaReservasDocente;
+        return ListaReservasDocente;
     }
 
     //***************************************************************************************************************************  

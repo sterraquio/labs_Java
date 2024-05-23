@@ -23,9 +23,8 @@ public class ControlReservaGUI implements ActionListener {
     private VistaReservaGUI vista;//vista
     private String result;//atributo para listar
     private List<Reserva> listaReservas;
-    
-//***************************************************************************************************************************
 
+//***************************************************************************************************************************
     //Constructor
     public ControlReservaGUI() {
         this.unaReserva = new Reserva();//inicializo la reserva
@@ -42,12 +41,11 @@ public class ControlReservaGUI implements ActionListener {
         this.vista.jButtonModificarReserva.addActionListener(this);
         this.vista.jButtonAbrirVistaDocente.addActionListener(this);
         this.vista.jButtonAbrirVistaEquipos.addActionListener(this);
- 
+
     }
-    
+
 //***************************************************************************************************************************    
     //metodo del escucha
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -55,68 +53,59 @@ public class ControlReservaGUI implements ActionListener {
         int consecutivo;
         int cedDocente;
         int numEquipo;
-        
+
         Timestamp fechaHora = new Timestamp(new Date().getTime());
-        //Agregar reserva
-        
+
 //***************************************************************************************************************************        
+        //Agregar reserva
         if (e.getSource() == this.vista.jButtonAgregar) {
             List<Reserva> lista = unaReservaDao.listarReservas("");
             cedDocente = Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
             numEquipo = Integer.parseInt(this.vista.jTextFieldNumEquip.getText());
-            for (Reserva reserva : lista) {
-                try {
-                    if (true) {
-                        if (true) {
-                            //this.unaReserva.setNumReserva(reserva.getNumReserva() + 1);
-                            this.unaReserva.setFecha(fechaHora);
-                            this.unaReserva.getEquipo().setNumeroEquipo(numEquipo);
-                            this.unaReserva.getUnDocente().setCedula(cedDocente);
-                            if (unaReservaDao.insertarReserva(unaReserva)) {
+            try {
+                //this.unaReserva.setNumReserva(reserva.getNumReserva() + 1);
+                this.unaReserva.setFecha(fechaHora);
+                this.unaReserva.getEquipo().setNumeroEquipo(numEquipo);
+                this.unaReserva.getUnDocente().setCedula(cedDocente);
+                if (unaReservaDao.insertarReserva(unaReserva)) {
 
-                                JOptionPane.showMessageDialog(this.vista, "Se ha agregado con éxtioooooooooooooooooo");
-                                this.vista.jTextFieldCedProfe.setText("");
-                                this.vista.jTextFieldNumEquip.setText("");
-                            } else {
-                                JOptionPane.showMessageDialog(this.vista, "No se ha ingresado, porque no se ha encontrado la cedula del docente o el numero del equipo ");
-                            }
-                            verdadRegistrar = true;
-                            break;
-                        }
-                    }
-                } catch (NumberFormatException exd) {
-                    JOptionPane.showMessageDialog(this.vista, "Los campos deben ser números y deben tener algún valor");
+                    JOptionPane.showMessageDialog(this.vista, "Se ha agregado con éxtioooooooooooooooooo");
+                    this.vista.jTextFieldCedProfe.setText("");
+                    this.vista.jTextFieldNumEquip.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(this.vista, "No se ha ingresado, porque no se ha encontrado la cedula del docente o el numero del equipo ");
                 }
+                verdadRegistrar = true;
+
+            } catch (NumberFormatException exd) {
+                JOptionPane.showMessageDialog(this.vista, "Los campos deben ser números y deben tener algún valor");
             }
+
         }
 
 //***************************************************************************************************************************
         //Buscar reserva con los números de la cedula del docente
         if (e.getSource() == this.vista.jButtonListarReservaDocente) {
-            Reserva  unaReserva = new Reserva();
+            int docenteCedula = Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
+            Reserva unaReserva = new Reserva();
             List<Reserva> ListaReservasDocente;
-            
-            String lista = "NOMBRE PROFE || NUMERO EQUIPO || NUMERO RESERVA "+"\n";
-            ListaReservasDocente = this.unaReservaDao.listarReservasDocente(cedDocente);
-            
-            for (int i=0; i<ListaReservasDocente.size(); i++){
+
+            String lista = "CEDULA PROFE || NUMERO EQUIPO || NUMERO RESERVA " + "\n";
+            ListaReservasDocente = this.unaReservaDao.listarReservasDocente(docenteCedula);
+
+            for (int i = 0; i < ListaReservasDocente.size(); i++) {
                 unaReserva = ListaReservasDocente.get(i);
-                lista += unaReserva.getUnDocente().getCedula()+" || "+
-                        
+                lista += unaReserva.getUnDocente().getCedula() + " || " + unaReserva.getEquipo().getNumeroEquipo()
+                        + " || " + unaReserva.getNumReserva() + "\n";
+
             }
-            try {
-                ced =Integer.parseInt(this.vista.jTextFieldCedProfe.getText());
-                 unaReserva = this.unaReservaDao.listarReservasDocente(docenteCedula);
-       
-            } catch (NumberFormatException exd) {
-                JOptionPane.showMessageDialog(this.vista, "Error, debe haber números en la seccion de las cedula del docente");
-            }
+            JOptionPane.showMessageDialog(this.vista, lista);
 
         }
-//***************************************************************************************************************************        
 
+//***************************************************************************************************************************        
         //Listar todas las reservas hechas
-        if (e.getSource() == this.vista.jButtonListarReservasTotales) {
+        if (e.getSource() == this.vista.jButtonListar) {
             List<Reserva> lista = unaReservaDao.listarReservas("");
             for (Reserva reserva : lista) {
                 result += ("Número de Reserva: " + reserva.getNumReserva()) + "\n";
@@ -129,7 +118,7 @@ public class ControlReservaGUI implements ActionListener {
         }
 //***************************************************************************************************************************  
 //listar reservas hechas por un docente 
-if(e.getSource() == this.vista.jbt_listarReservasDocente){
+/*if(e.getSource() == this.vista.jbt_listarReservasDocente){
                List<Reserva> lista = unaReservaDao.buscarReservaPorCedula(Integer.parseInt(this.vista.jTextFieldCedProfe.getText()));
             for (Reserva reserva : lista) {
                 result += ("Número de Reserva: " + reserva.getNumReserva()) + "\n";
@@ -140,8 +129,8 @@ if(e.getSource() == this.vista.jbt_listarReservasDocente){
             }
             JOptionPane.showMessageDialog(this.vista, result);
     
-}
-        
+}*/
+
 //***************************************************************************************************************************        
         //Ejecutar vista de agregar al docente
         if (e.getSource() == this.vista.jButtonAbrirVistaDocente) {
