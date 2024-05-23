@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 //***************************************************************************************************************************  
+//Constructor
 public class ReservaDAO {
 
     private Reserva unaReserva = new Reserva();
@@ -24,9 +25,9 @@ public class ReservaDAO {
     public static Timestamp fechaReserva_reserva;
     public static int docenteCedula_reserva = 0;
     public static int numeroEquipo_reserva = 0;
-    
+
 //***************************************************************************************************************************  
-    //Ingresar
+    //Ingresar reserva
     public boolean insertarReserva(Reserva unaReserva) {
         String query = "INSERT INTO reserva(consecutivo, fechaReserva, docenteCedula, numeroEquipo)"
                 + "VALUES (?,?,?,?)";
@@ -36,7 +37,8 @@ public class ReservaDAO {
             this.con = this.miConexion.obtenerconexion();
 
             pst = this.con.prepareStatement(query);
-            pst.setInt(1, unaReserva.getNumReserva());
+            //Se comenta está línea de código porque el consecutivo ya es automatico por medio del SQL
+            //pst.setInt(1, unaReserva.getNumReserva());
             pst.setTimestamp(2, fechaHora);
             //if(){}
             pst.setInt(3, unaReserva.getUnDocente().getCedula());
@@ -52,20 +54,21 @@ public class ReservaDAO {
         }
     }
 //***************************************************************************************************************************  
-    //Listar
+    //Listar todas las reservas
+
     public List listarReservas(String value) {
         List<Reserva> listaReservas = new ArrayList();
 
         //Seleciona todas las columnas de la tabla reserva y las ordena de manera ascendente 
         //dependiendo de la columna consecutivo
         String query = "SELECT * FROM reserva ORDER BY consecutivo ASC";
-        
+
         //busca un valor de la tabla reserva que coicida con el "value"
         String query_Busqueda = "SELEC * FROM reserva WHERE consecutivo=" + value;
 
         try {
             this.con = this.miConexion.obtenerconexion();//obtener la conexion
-            
+
             if (value.equalsIgnoreCase("")) {//verifica si value es vacio si lo es ignora si hay mayusculas o minusculas 
                 pst = this.con.prepareStatement(query);//si es vacia prepara para consultar todos los registros de la tabla
                 rs = pst.executeQuery();
@@ -91,7 +94,7 @@ public class ReservaDAO {
 
         return listaReservas;
     }
-    
+
 //***************************************************************************************************************************  
     //Buscar reserva con la cedula del docente
     public Reserva buscarReservaPorCedula(int docenteCedula) {
@@ -119,10 +122,9 @@ public class ReservaDAO {
                 docenteCedula_reserva = unaReserva.getUnDocente().getCedula();
                 unaReserva.getEquipo().setNumeroEquipo(rs.getInt("numeroEquipo"));
                 numeroEquipo_reserva = unaReserva.getEquipo().getNumeroEquipo();
-                
-                String result ="";
-                
-                
+
+                String result = "";
+
             }
 
         } catch (SQLException e) {
@@ -131,12 +133,13 @@ public class ReservaDAO {
 
         return unaReserva;
     }
+
     //***************************************************************************************************************************  
-    
-    public Reserva buscarReservaÑPorNumeroR(int NumReserva) {
+    //Buscar reserva por el número de reserva
+    public Reserva buscarReservaPorNumeroR(int NumReserva) {
         //busca una de la tabla reserva el campo donde la cedula sea igual al indicador "?" donde sera proporcionado
         //mas tarde de manera dinamica 
-        String query = "SELECT * FROM reserva WHERE docenteCedula = ?";
+        String query = "SELECT * FROM reserva WHERE consecutivo = ?";
         Reserva unaReserva = new Reserva();//inicializa el objeto
 
         try {
@@ -166,43 +169,43 @@ public class ReservaDAO {
 
         return unaReserva;
     }
-    
+//***************************************************************************************************************************  
     //Eliminar reserva con el número de reserva
-    public boolean EliminarReserva(int numeroReserva){
-        String query = "SELECT * FROM reserva WHERE consecutivo ="+numeroReserva;
-        
-        try{
+    public boolean EliminarReserva(int numeroReserva) {
+        String query = "DELETE FROM reserva WHERE consecutivo =" + numeroReserva;
+
+        try {
             this.con = this.miConexion.obtenerconexion();
             pst = this.con.prepareStatement(query);
             System.out.println("pst = " + pst);
             return true;
-            
-            
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Ocurrio un error al eliminar : "+e.getMessage());
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Ocurrio un error al eliminar : " + e.getMessage());
             return false;
-            
+
         }
-        
+
     }
-    
-    
-    public boolean modificarReserva(Reserva unaReserva){
-        String query = "UPDATE reserva SET fk_docenteCedula =?, fk_numeroEquipo =? WHERE consecutivo="+unaReserva.getNumReserva();
-        
-        try{
+//***************************************************************************************************************************  
+    //Modifica la reserva por el número de reserva 
+    public boolean modificarReserva(Reserva unaReserva) {
+        String query = "UPDATE reserva SET fechaReserva=?, fk_docenteCedula =?, fk_numeroEquipo =? WHERE consecutivo=" + unaReserva.getNumReserva();
+        Timestamp fechaHora = new Timestamp(new Date().getTime());
+        try {
             this.con = this.miConexion.obtenerconexion();
             pst = this.con.prepareStatement(query);
-            pst.setString(1, unaReserva.getUnDocente()+"");
-            pst.setString(2, this.unaReserva.getEquipo()+"");
+            pst.setTimestamp(1,   fechaHora);
+            pst.setString(2, this.unaReserva.getUnDocente() + "");
+            pst.setString(3, this.unaReserva.getEquipo() + "");
             System.out.println("pst = " + pst);
-            
+
             return true;
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "ocurrio un error : "+e.getMessage());
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ocurrio un error : " + e.getMessage());
             return false;
         }
     }
-   
 
 }
+//***************************************************************************************************************************  

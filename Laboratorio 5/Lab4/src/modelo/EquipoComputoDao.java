@@ -7,8 +7,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.List;
-
-
+//***************************************************************************************************************************
 public class EquipoComputoDao {
     //Crear la conexión usando la clase Conexion;
 
@@ -22,9 +21,8 @@ public class EquipoComputoDao {
     public static int numInventarioEquipo = 0;
     public static String marcaEquipo = "";
     public static String capacidadDDEquipo = "";
-
+//***************************************************************************************************************************
     //Registar un Equipo Computo
-    
     public boolean insertarEquicoComputo(EquipoComputo unEquipo) {
          //insertar datos en una tabla 
         //insert into permite agregar una nueva fila a la tabla de la bd
@@ -49,7 +47,7 @@ public class EquipoComputoDao {
         }
 
     }
-  
+//***************************************************************************************************************************  
     //Consultar EquipoComputo
     public EquipoComputo consultarEquiposComputo(int numInventario){
         String query = "SELECT * FROM equipocomputo WHERE numeroInventario = ?";
@@ -86,7 +84,7 @@ public class EquipoComputoDao {
         
         return unEquipo;
     }
-    
+//***************************************************************************************************************************    
     //Listar EquiposComputo
     public List listarEquipos(){
         List<EquipoComputo> ListaEquipos = new ArrayList();
@@ -114,7 +112,7 @@ public class EquipoComputoDao {
         
         return ListaEquipos;
     }
-    
+//***************************************************************************************************************************    
     //Modificar Docente
     public boolean actualizarEquiposComputo(EquipoComputo unEquipo){
         String query= "UPDATE equipocomputo SET numeroInventario=?, marca=?, capacidadDisco=?"
@@ -139,9 +137,9 @@ public class EquipoComputoDao {
         }
         
     }
-    
+//***************************************************************************************************************************    
     //Eliminar Docente
-    public boolean eliminarPersona(int cedula){
+    public boolean eliminarEquipoComputo(int cedula){
         String query= "DELETE FROM equipocomputo WHERE numeroInventario="+cedula;
         
         try{
@@ -163,4 +161,4 @@ public class EquipoComputoDao {
     
     
 }
-
+//***************************************************************************************************************************

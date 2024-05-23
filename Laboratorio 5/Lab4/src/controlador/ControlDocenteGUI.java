@@ -32,6 +32,7 @@ public class ControlDocenteGUI implements ActionListener {
         this.vistaDocente.jButtonEliminar.addActionListener(this);// Listener al botón
         this.vistaDocente.jButtonListar.addActionListener(this);// Listener al botón
         this.vistaDocente.jButtonModificar.addActionListener(this);// Listener al botón
+        this.vistaDocente.jButtonCerrarVentana.addActionListener(this);//cerrar ventana
     }
 //***************************************************************************************************************************    
 
@@ -99,7 +100,7 @@ public class ControlDocenteGUI implements ActionListener {
                 modeloDocenteDao.insertarDocente(modeloDocente);
 
                 javax.swing.JOptionPane.showMessageDialog(vistaDocente, "docente se agrego con exito : " + nombre);
-                vistaDocente.dispose();
+                
 
             } catch (NumberFormatException ex) {
                 // Manejo de excepción si el campo cedula no es un número
@@ -182,11 +183,8 @@ public class ControlDocenteGUI implements ActionListener {
 //***************************************************************************************************************************        
         // Botón de Eliminar
         if (ae.getSource() == this.vistaDocente.jButtonEliminar) {
-
-        
           try{
                 int cedula= Integer.parseInt(this.vistaDocente.jTextFieldCed.getText());
-            
                 if(this.modeloDocenteDao.eliminarDocente(cedula)){
                     JOptionPane.showMessageDialog(this.vistaDocente, "Datos Eliminados!!! (¬‿¬ )");
                     limpiarCampos();
@@ -198,6 +196,12 @@ public class ControlDocenteGUI implements ActionListener {
                 JOptionPane.showMessageDialog(this.vistaDocente,"El campo Cédula es obligatorio\nY deben ser en formato numérico");
             }            
         } 
+        
+//***************************************************************************************************************************    
+//boton cerrar  ventana
+        if(ae.getSource()== this.vistaDocente.jButtonCerrarVentana){
+            this.vistaDocente.setVisible(false);
+        }
 
     }
 //***************************************************************************************************************************    
@@ -211,6 +215,8 @@ public class ControlDocenteGUI implements ActionListener {
     }
 //***************************************************************************************************************************     
 
+     
+     
     //gets y sets
     public VistaDocenteGUI getVistaDocente() {
         return vistaDocente;

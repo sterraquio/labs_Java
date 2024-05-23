@@ -40,6 +40,7 @@ public class VistaDocenteGUI extends javax.swing.JFrame {
         jButtonEliminar = new javax.swing.JButton();
         jButtonListar = new javax.swing.JButton();
         jButtonConsultar = new javax.swing.JButton();
+        jButtonCerrarVentana = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -62,6 +63,13 @@ public class VistaDocenteGUI extends javax.swing.JFrame {
         jButtonListar.setText("Listar");
 
         jButtonConsultar.setText("Consultar");
+
+        jButtonCerrarVentana.setText("Cerrar Ventana");
+        jButtonCerrarVentana.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCerrarVentanaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,8 +105,10 @@ public class VistaDocenteGUI extends javax.swing.JFrame {
                         .addGap(11, 11, 11)
                         .addComponent(jButtonModificar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonEliminar)))
-                .addGap(122, 145, Short.MAX_VALUE))
+                        .addComponent(jButtonEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonCerrarVentana)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,13 +140,19 @@ public class VistaDocenteGUI extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonModificar)
-                            .addComponent(jButtonEliminar))))
+                            .addComponent(jButtonEliminar)
+                            .addComponent(jButtonCerrarVentana))))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonCerrarVentanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarVentanaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButtonCerrarVentanaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,6 +192,7 @@ public class VistaDocenteGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButtonAgregar;
+    public javax.swing.JButton jButtonCerrarVentana;
     public javax.swing.JButton jButtonConsultar;
     public javax.swing.JButton jButtonEliminar;
     public javax.swing.JButton jButtonListar;

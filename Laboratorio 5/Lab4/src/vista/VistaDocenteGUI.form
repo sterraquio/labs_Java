@@ -60,9 +60,11 @@
                       <Component id="jButtonModificar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButtonEliminar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jButtonCerrarVentana" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="122" pref="145" max="32767" attributes="0"/>
+              <EmptySpace min="122" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,6 +104,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonModificar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonCerrarVentana" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -192,6 +195,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Consultar"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonCerrarVentana">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cerrar Ventana"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCerrarVentanaActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>

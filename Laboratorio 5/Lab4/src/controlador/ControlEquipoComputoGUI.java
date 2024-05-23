@@ -59,7 +59,6 @@ public class ControlEquipoComputoGUI implements ActionListener {
                             //se utiliza un metodo de la clase EquipoComputoDao para agregar un EquipoComputo
                             this.unEquipoDao.insertarEquicoComputo(unEquipo);
                             JOptionPane.showMessageDialog(this.vista, "Se ha ingresado correctamente el equipo");
-                            this.vista.dispose();
                         }
                     } else {
                         JOptionPane.showMessageDialog(this.vista, "Error, hay espacios en los recuadros de Marca y capacidada");
@@ -155,7 +154,7 @@ public class ControlEquipoComputoGUI implements ActionListener {
         if (e.getSource() == this.vista.jButtonEliminar) {
             try {
                 int inventario = Integer.parseInt(this.vista.jTextFieldNumInvent.getText());
-                if (this.unEquipoDao.eliminarPersona(inventario)) {
+                if (this.unEquipoDao.eliminarEquipoComputo(inventario)) {
                     JOptionPane.showMessageDialog(this.vista, "Datos ELIMINADOSSSSSSSSSSSSSS");
                     this.vista.jTextFieldNumInvent.setText("");
                     this.vista.jTextFieldMarca.setText("");

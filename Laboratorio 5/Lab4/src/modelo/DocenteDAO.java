@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-
+//***************************************************************************************************************************
 //clase para la conecciona la base de datos para un Docente 
 public class DocenteDAO {
     
@@ -25,6 +25,7 @@ public class DocenteDAO {
     public static String apellidos_docente="";
     public static String profesion_docente="";
     
+//***************************************************************************************************************************    
     //insertar docente 
     public boolean insertarDocente(Docente unDocente){
         //insertar datos en una tabla 
@@ -53,8 +54,7 @@ public class DocenteDAO {
             
         
     }
-    
-    
+//***************************************************************************************************************************    
     //Consultar Persona
     public Docente consultarDocente(int cedula){
         String query = "SELECT * FROM docente WHERE cedula = ?";
@@ -92,7 +92,7 @@ public class DocenteDAO {
         
         return unDocente;
     }
-    
+//***************************************************************************************************************************    
     //Listar Docente
     public List listarDocentes(){
         List<Docente> ListaDocentes = new ArrayList();
@@ -120,7 +120,7 @@ public class DocenteDAO {
         
         return ListaDocentes;
     }
-    
+//***************************************************************************************************************************    
     //Modificar Docente
     public boolean actualizarDocente(Docente unDocente){
         String query= "UPDATE docente SET cedula=?, nombres=?, apellidos=?, profesion=? WHERE cedula="+unDocente.getCedula();
@@ -146,13 +146,10 @@ public class DocenteDAO {
         }
         
     }
-    
+//***************************************************************************************************************************    
     //Eliminar Docente
     public boolean eliminarDocente(int cedula){
-        String query= "DELETE FROM docente WHERE cedula = "+cedula;
-        
-
-        
+        String query= "DELETE FROM docente WHERE cedula = "+cedula;   
         try{
             //Obtener la conexión
             this.con= this.miConexion.obtenerconexion();
@@ -169,6 +166,6 @@ public class DocenteDAO {
         }
         
     }
-    
-    
+      
 }
+//***************************************************************************************************************************
