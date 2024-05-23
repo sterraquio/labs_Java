@@ -12,14 +12,15 @@ import vista.VistaDocenteGUI;
  *
  * @author UNIVALLE
  */
+
+//***************************************************************************************************************************
 //clase que agrega los listeners a los botones de la vista
 public class ControlDocenteGUI implements ActionListener {
-
     // atributos 
     private VistaDocenteGUI vistaDocente;//vista
     private Docente modeloDocente;//clase docente 
     private DocenteDAO modeloDocenteDao;//clase docenteDao
-
+//***************************************************************************************************************************
     //constructor
     public ControlDocenteGUI() {
         this.vistaDocente = new VistaDocenteGUI();//inicializa la vista
@@ -32,6 +33,7 @@ public class ControlDocenteGUI implements ActionListener {
         this.vistaDocente.jButtonListar.addActionListener(this);// Listener al botón
         this.vistaDocente.jButtonModificar.addActionListener(this);// Listener al botón
     }
+//***************************************************************************************************************************    
 
     //metodo del escucha 
     @Override
@@ -68,7 +70,7 @@ public class ControlDocenteGUI implements ActionListener {
                     return;
                 }
                 //pasa lo que esta en el jtf a una variable 
-                String Apellido = this.vistaDocente.jTextFieldNombre.getText().toLowerCase().trim();
+                String Apellido = this.vistaDocente.jTextFieldApellido.getText().toLowerCase().trim();
                 //verifica que la variable de tipo String no contenga caracteres numericos
                 if (!Apellido.matches("[^0-9]+")) {
                     JOptionPane.showMessageDialog(null, "El apellido no debe contener números.");
@@ -78,7 +80,7 @@ public class ControlDocenteGUI implements ActionListener {
                 }
 
                 //pasa lo que esta en el jtf a una variable 
-                String Profesion = this.vistaDocente.jTextFieldNombre.getText().toLowerCase().trim();
+                String Profesion = this.vistaDocente.jTextFieldProfesion.getText().toLowerCase().trim();
                 //verifica que la variable de tipo String no contenga caracteres numericos
                 if (!Profesion.matches("[^0-9]+")) {
                     JOptionPane.showMessageDialog(null, "la profesion no debe contener números.");
@@ -109,6 +111,7 @@ public class ControlDocenteGUI implements ActionListener {
                 JOptionPane.showMessageDialog(vistaDocente, "Ocurrió un error: " + ex.getMessage());
             }
         }
+//***************************************************************************************************************************        
         // Botón de consultar
         if (ae.getSource() == this.vistaDocente.jButtonConsultar) {
             try{
@@ -123,10 +126,9 @@ public class ControlDocenteGUI implements ActionListener {
                 JOptionPane.showMessageDialog(vistaDocente, "revise que el campo cedula este completo y no contenga letras ⤜(ʘ_ʘ)⤏");
                 this.vistaDocente.jTextFieldCed.grabFocus();
             }
-            
-           
-
+         
         }
+//***************************************************************************************************************************        
         // Botón de listar
         if (ae.getSource() == this.vistaDocente.jButtonListar) {
             
@@ -146,6 +148,7 @@ public class ControlDocenteGUI implements ActionListener {
             JOptionPane.showMessageDialog(vistaDocente, lista);
 
         }
+//***************************************************************************************************************************        
         // Botón de modificar
         if (ae.getSource() == this.vistaDocente.jButtonModificar) {
             //se obtienen los datos de la lista        
@@ -176,6 +179,7 @@ public class ControlDocenteGUI implements ActionListener {
             }
 
         }
+//***************************************************************************************************************************        
         // Botón de Eliminar
         if (ae.getSource() == this.vistaDocente.jButtonEliminar) {
 
@@ -196,6 +200,7 @@ public class ControlDocenteGUI implements ActionListener {
         } 
 
     }
+//***************************************************************************************************************************    
     
      public void limpiarCampos(){
         this.vistaDocente.jTextFieldCed.setText("");
@@ -204,6 +209,7 @@ public class ControlDocenteGUI implements ActionListener {
         this.vistaDocente.jTextFieldProfesion.setText("");
         
     }
+//***************************************************************************************************************************     
 
     //gets y sets
     public VistaDocenteGUI getVistaDocente() {

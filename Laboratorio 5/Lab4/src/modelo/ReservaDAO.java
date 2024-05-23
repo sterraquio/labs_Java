@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+//***************************************************************************************************************************  
 public class ReservaDAO {
 
     private Reserva unaReserva = new Reserva();
@@ -23,7 +24,8 @@ public class ReservaDAO {
     public static Timestamp fechaReserva_reserva;
     public static int docenteCedula_reserva = 0;
     public static int numeroEquipo_reserva = 0;
-
+    
+//***************************************************************************************************************************  
     //Ingresar
     public boolean insertarReserva(Reserva unaReserva) {
         String query = "INSERT INTO reserva(consecutivo, fechaReserva, docenteCedula, numeroEquipo)"
@@ -49,7 +51,7 @@ public class ReservaDAO {
             return false;
         }
     }
-
+//***************************************************************************************************************************  
     //Listar
     public List listarReservas(String value) {
         List<Reserva> listaReservas = new ArrayList();
@@ -89,7 +91,8 @@ public class ReservaDAO {
 
         return listaReservas;
     }
-
+    
+//***************************************************************************************************************************  
     //Buscar reserva con la cedula del docente
     public Reserva buscarReservaPorCedula(int docenteCedula) {
         //busca una de la tabla reserva el campo donde la cedula sea igual al indicador "?" donde sera proporcionado
@@ -128,6 +131,7 @@ public class ReservaDAO {
 
         return unaReserva;
     }
+    //***************************************************************************************************************************  
     
     public Reserva buscarReservaÑPorNumeroR(int NumReserva) {
         //busca una de la tabla reserva el campo donde la cedula sea igual al indicador "?" donde sera proporcionado
@@ -162,8 +166,6 @@ public class ReservaDAO {
 
         return unaReserva;
     }
-    
-    
     
     //Eliminar reserva con el número de reserva
     public boolean EliminarReserva(int numeroReserva){
