@@ -96,7 +96,7 @@ public class ReservaDAO {
     }
 
 //***************************************************************************************************************************  
-    //Buscar reserva con la cedula del docente
+    //Buscar todas las reservas del docente con la cedula del docente
     public Reserva buscarReservaPorCedula(int docenteCedula) {
         //busca una de la tabla reserva el campo donde la cedula sea igual al indicador "?" donde sera proporcionado
         //mas tarde de manera dinamica 
