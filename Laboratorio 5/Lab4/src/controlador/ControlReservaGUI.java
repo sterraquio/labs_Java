@@ -40,8 +40,8 @@ public class ControlReservaGUI implements ActionListener {
         this.vista.jButtonEliminarReserva.addActionListener(this);
         this.vista.jButtonListar.addActionListener(this);
         this.vista.jButtonModificarReserva.addActionListener(this);
-        this.vista.jButtonVista.addActionListener(this);
-        this.vista.jButtonVistaEquipos.addActionListener(this);
+        this.vista.jButtonAbrirVistaDocente.addActionListener(this);
+        this.vista.jButtonAbrirVistaEquipos.addActionListener(this);
  
     }
     
@@ -135,12 +135,12 @@ if(e.getSource() == this.vista.jbt_listarReservasDocente){
         
 //***************************************************************************************************************************        
         //Ejecutar vista de agregar al docente
-        if (e.getSource() == this.vista.jButtonVistaDocente) {
+        if (e.getSource() == this.vista.jButtonAbrirVistaDocente) {
             ControlDocenteGUI vistaDocente = new ControlDocenteGUI();
 //***************************************************************************************************************************            
         }
         //Ejecutar vista de agregar al equipo de conmputo
-        if (e.getSource() == this.vista.jButtonVistaEquipos) {
+        if (e.getSource() == this.vista.jButtonAbrirVistaEquipos) {
             ControlEquipoComputoGUI vistaComputo = new ControlEquipoComputoGUI();
         }
 //***************************************************************************************************************************        
