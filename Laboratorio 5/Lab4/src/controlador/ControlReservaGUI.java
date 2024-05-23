@@ -42,6 +42,7 @@ public class ControlReservaGUI implements ActionListener {
         this.vista.jButtonModificarReserva.addActionListener(this);
         this.vista.jButtonVistaDocente.addActionListener(this);
         this.vista.jButtonVistaEquipos.addActionListener(this);
+ 
     }
     
 //***************************************************************************************************************************    
